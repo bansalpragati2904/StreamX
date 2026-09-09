@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>StreamX — Player</title>
+
+    <link rel="stylesheet" href="live.css">
+
+    <style>
+
+        body {
+            min-height: 100vh;
+            background: #090a0d;
+        }
+
+        /* ================= PLAYER PAGE ================= */
+
+        .player-page {
+            min-height: calc(100vh - 74px);
+            padding: 50px 6%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* ================= BACK BUTTON ================= */
+
+        .back-button {
+            align-self: flex-start;
+            background: transparent;
+            border: 1px solid #3a3d43;
+            color: white;
+            padding: 10px 18px;
+            border-radius: 25px;
+            cursor: pointer;
+            margin-bottom: 30px;
+            font-size: 14px;
+        }
+
+        .back-button:hover {
+            border-color: #e7ff28;
+            color: #e7ff28;
+        }
+
+        /* ================= TITLE ================= */
+
+        .player-title {
+            width: 100%;
+            max-width: 1100px;
+            margin-bottom: 20px;
+        }
+
+        .player-title p {
+            color: #e7ff28;
+            font-size: 13px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+        }
+
+        .player-title h1 {
+            font-size: 34px;
+            margin-bottom: 8px;
+        }
+
+        .player-title span {
+            color: #888;
+            font-size: 14px;
+        }
+
+        /* ================= VIDEO PLAYER ================= */
+
+        .big-player {
+            width: 100%;
+            max-width: 1100px;
+            background: #000;
+            border: 1px solid #34373d;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+
+            /* 16:9 video ratio */
+            aspect-ratio: 16 / 9;
+        }
+
+        .big-player iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            display: block;
+            background: black;
+        }
+
+        /* ================= LIVE INFO ================= */
+
+        .player-info {
+            width: 100%;
+            max-width: 1100px;
+            margin-top: 25px;
+            color: #9ca0a8;
+            font-size: 14px;
+        }
+
+        .live-status {
+            color: #ff3945;
+            font-weight: bold;
+        }
+
+        #liveTimer {
+            color: #e7ff28;
+            font-weight: bold;
+        }
+
+        /* ================= MOBILE ================= */
+
+        @media (max-width: 600px) {
+
+            .player-page {
+                padding: 30px 18px;
+            }
+
+            .player-title h1 {
+                font-size: 25px;
+            }
+
+            .big-player {
+                aspect-ratio: 16 / 10;
+            }
+
+            .player-info {
+                font-size: 12px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     NAVBAR
+===================================================== -->
+
+<header class="navbar">
+
+    <div class="logo">
+
+        <div class="logo-box">
+            S
+        </div>
+
+        <span>
+            stream<span class="x">x</span>
+        </span>
+
+    </div>
+
+
+    <nav>
+
+        <a href="../HOME/home.html">
+            Home
+        </a>
+
+        <a href="#">
+            Discover
+        </a>
+
+        <a href="../MOVIES/movies.html">
+            Movies
+        </a>
+
+        <a href="../MOVIES/series.html">
+            Series
+        </a>
+
+        <a href="live.html" class="active">
+            Live
+        </a>
+
+    </nav>
+
+
+    <div class="nav-icons">
+
+        <button>
+            ⌕
+        </button>
+
+        <button>
+            ☼
+        </button>
+
+        <div class="profile">
+            P
+        </div>
+
+    </div>
+
+</header>
+
+
+
+<!-- =====================================================
+     PLAYER
+===================================================== -->
+
+<main class="player-page">
+
+
+    <!-- BACK BUTTON -->
+
+    <button
+        class="back-button"
+        onclick="window.location.href='live.html'">
+
+        ← Back to Live
+
+    </button>
+
+
+    <!-- TITLE -->
+
+    <div class="player-title">
+
+        <p>
+            STREAMX LIVE
+        </p>
+
+        <h1 id="videoTitle">
+            Loading...
+        </h1>
+
+        <span id="videoCreator">
+            StreamX
+        </span>
+
+    </div>
+
+
+    <!-- YOUTUBE PLAYER -->
+
+    <div class="big-player">
+
+        <iframe
+            id="youtubePlayer"
+            src=""
+            title="StreamX YouTube Player"
+            allow="autoplay; encrypted-media; picture-in-picture; fullscreen"
+            allowfullscreen>
+        </iframe>
+
+    </div>
+
+
+    <!-- LIVE TIMER -->
+
+    <div class="player-info">
+
+        <span class="live-status">
+            🔴 LIVE
+        </span>
+
+        <span>
+            &nbsp; • &nbsp;
+        </span>
+
+        <span id="liveTimer">
+            00:00:00
+        </span>
+
+        <span>
+            &nbsp; • &nbsp;
+        </span>
+
+        <span>
+            Enjoy the stream on StreamX
+        </span>
+
+    </div>
+
+
+</main>
+
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script>
+
+
+    /* =====================================================
+       GET DATA FROM URL
+    ===================================================== */
+
+    const params =
+        new URLSearchParams(window.location.search);
+
+
+    const title =
+        params.get("title");
+
+
+    const creator =
+        params.get("creator");
+
+
+    const video =
+        params.get("video");
+
+
+
+    /* =====================================================
+       DISPLAY TITLE
+    ===================================================== */
+
+    if (title) {
+
+        document.getElementById("videoTitle")
+            .textContent = title;
+
+        document.title =
+            "StreamX — " + title;
+
+    }
+
+
+
+    /* =====================================================
+       DISPLAY CREATOR
+    ===================================================== */
+
+    if (creator) {
+
+        document.getElementById("videoCreator")
+            .textContent = creator;
+
+    }
+
+
+
+    /* =====================================================
+       GET YOUTUBE VIDEO ID
+    ===================================================== */
+
+    function getYouTubeId(url) {
+
+        try {
+
+            const parsed =
+                new URL(url);
+
+
+            /* =============================================
+               youtu.be LINK
+
+               Example:
+               https://youtu.be/lVZFDXoxGDQ
+            ============================================= */
+
+            if (
+                parsed.hostname === "youtu.be" ||
+                parsed.hostname === "www.youtu.be"
+            ) {
+
+                return parsed.pathname
+                    .substring(1)
+                    .split("?")[0];
+
+            }
+
+
+            /* =============================================
+               youtube.com LINK
+            ============================================= */
+
+            if (
+                parsed.hostname.includes("youtube.com")
+            ) {
+
+
+                /* watch?v= */
+
+                if (
+                    parsed.pathname === "/watch"
+                ) {
+
+                    return parsed.searchParams
+                        .get("v");
+
+                }
+
+
+                /* shorts/VIDEO_ID */
+
+                if (
+                    parsed.pathname.startsWith("/shorts/")
+                ) {
+
+                    return parsed.pathname
+                        .split("/")[2];
+
+                }
+
+
+                /* live/VIDEO_ID */
+
+                if (
+                    parsed.pathname.startsWith("/live/")
+                ) {
+
+                    return parsed.pathname
+                        .split("/")[2];
+
+                }
+
+
+                /* embed/VIDEO_ID */
+
+                if (
+                    parsed.pathname.startsWith("/embed/")
+                ) {
+
+                    return parsed.pathname
+                        .split("/")[2];
+
+                }
+
+            }
+
+
+        } catch (error) {
+
+            console.log(
+                "Invalid YouTube URL:",
+                error
+            );
+
+        }
+
+
+        return null;
+
+    }
+
+
+
+    /* =====================================================
+       LOAD YOUTUBE VIDEO
+    ===================================================== */
+
+    if (video) {
+
+
+        const videoId =
+            getYouTubeId(video);
+
+
+        if (videoId) {
+
+
+            const player =
+                document.getElementById(
+                    "youtubePlayer"
+                );
+
+
+            player.src =
+                "https://www.youtube.com/embed/" +
+                encodeURIComponent(videoId) +
+                "?autoplay=1&playsinline=1&controls=0&modestbranding=1&rel=0";
+
+
+        } else {
+
+
+            document.getElementById(
+                "videoTitle"
+            ).textContent =
+                "Invalid YouTube Video";
+
+
+        }
+
+
+    } else {
+
+
+        document.getElementById(
+            "videoTitle"
+        ).textContent =
+            "Video not found";
+
+    }
+
+
+
+    /* =====================================================
+       LIVE TIMER
+    ===================================================== */
+
+    let seconds = 0;
+
+
+    function updateTimer() {
+
+        seconds++;
+
+
+        const hours =
+            Math.floor(seconds / 3600);
+
+
+        const minutes =
+            Math.floor(
+                (seconds % 3600) / 60
+            );
+
+
+        const secs =
+            seconds % 60;
+
+
+        const time =
+
+            String(hours)
+                .padStart(2, "0")
+
+            + ":" +
+
+            String(minutes)
+                .padStart(2, "0")
+
+            + ":" +
+
+            String(secs)
+                .padStart(2, "0");
+
+
+        document.getElementById(
+            "liveTimer"
+        ).textContent = time;
+
+    }
+
+
+    setInterval(
+        updateTimer,
+        1000
+    );
+
+
+</script>
+
+
+</body>
+
+</html>

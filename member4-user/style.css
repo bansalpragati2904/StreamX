@@ -1,0 +1,646 @@
+/* BASIC */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: black;
+    color: white;
+    font-family: Arial, sans-serif;
+}
+
+
+/* LOGO */
+
+.top {
+    padding: 30px 50px;
+}
+
+.top h1 {
+    color: yellow;
+}
+
+
+/* NAVIGATION */
+
+nav {
+    background-color: #111;
+    padding: 20px 40px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav h1 {
+    color: yellow;
+}
+
+.nav-links {
+    display: flex;
+    gap: 25px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+}
+
+.nav-links a:hover {
+    color: yellow;
+}
+
+
+/* LOGIN */
+
+.login-box {
+    width: 350px;
+
+    background-color: #181818;
+
+    padding: 35px;
+
+    margin: 30px auto;
+
+    border-radius: 8px;
+}
+
+.login-box h2 {
+    margin-bottom: 25px;
+}
+
+.login-box input[type="text"],
+.login-box input[type="password"] {
+    width: 100%;
+
+    padding: 13px;
+
+    margin-bottom: 15px;
+
+    background-color: #333;
+
+    color: white;
+
+    border: none;
+
+    border-radius: 4px;
+}
+
+.login-box button {
+    width: 100%;
+}
+
+.login-box p {
+    color: #aaa;
+    margin-top: 20px;
+}
+
+.login-box a {
+    color: yellow;
+}
+
+
+/* ERROR MESSAGE */
+
+.login-box .error-message {
+    color: red;
+
+    font-size: 14px;
+
+    margin-top: -10px;
+
+    margin-bottom: 10px;
+}
+
+
+/* SIGNUP */
+
+.signup-box {
+    display: none;
+}
+
+
+/* BUTTON */
+
+button {
+    background-color: yellow;
+
+    color: black;
+
+    border: none;
+
+    padding: 10px 15px;
+
+    margin: 5px;
+
+    border-radius: 4px;
+
+    cursor: pointer;
+
+    font-weight: bold;
+}
+
+button:hover {
+    background-color: #cccc00;
+}
+
+
+/* CONTAINER */
+
+.container {
+    width: 90%;
+
+    max-width: 1100px;
+
+    margin: 40px auto;
+}
+
+.container > h2 {
+    color: yellow;
+
+    margin-bottom: 10px;
+}
+
+.description {
+    color: #aaa;
+}
+
+
+/* PROFILE */
+
+.profile-page {
+    text-align: center;
+}
+
+.profile-box {
+    width: 400px;
+
+    max-width: 100%;
+
+    background-color: #181818;
+
+    padding: 30px;
+
+    margin: 30px auto;
+
+    text-align: center;
+
+    border-radius: 8px;
+}
+
+.profile-picture {
+    width: 100px;
+
+    height: 100px;
+
+    background-color: #333;
+
+    border-radius: 50%;
+
+    margin: 0 auto 20px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    font-size: 45px;
+}
+
+.profile-box p {
+    color: #aaa;
+
+    margin: 15px;
+}
+
+
+/* WATCHLIST */
+
+.watchlist-page {
+    text-align: center;
+
+    padding: 30px 20px;
+}
+
+.movies {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 20px;
+
+    flex-wrap: wrap;
+
+    margin-top: 30px;
+}
+
+.movie {
+    background-color: #181818;
+
+    width: 220px;
+
+    padding: 15px;
+
+    border-radius: 8px;
+}
+
+.movie-image {
+    width: 100%;
+
+    height: 300px;
+
+    object-fit: cover;
+
+    display: block;
+
+    margin-bottom: 15px;
+
+    border-radius: 5px;
+}
+
+.movie h3 {
+    color: yellow;
+
+    margin-bottom: 8px;
+}
+
+.movie p {
+    color: #aaa;
+
+    margin-bottom: 10px;
+}
+
+
+/* HISTORY */
+
+.history-page {
+    text-align: center;
+
+    min-height: 80vh;
+}
+
+.history {
+    width: 90%;
+
+    max-width: 900px;
+
+    margin: 30px auto;
+}
+
+.history-item {
+    background-color: #181818;
+
+    padding: 20px;
+
+    margin-bottom: 20px;
+
+    border-radius: 8px;
+
+    display: flex;
+
+    gap: 25px;
+
+    align-items: center;
+
+    text-align: left;
+}
+
+
+/* HISTORY IMAGE */
+
+.history-image {
+    width: 150px;
+
+    height: 210px;
+
+    object-fit: cover;
+
+    border-radius: 8px;
+
+    flex-shrink: 0;
+
+    display: block;
+}
+
+
+/* HISTORY TEXT */
+
+.history-item h3 {
+    color: yellow;
+
+    margin-bottom: 10px;
+
+    font-size: 24px;
+}
+
+.history-item p {
+    color: #aaa;
+
+    margin: 8px 0;
+}
+
+
+/* PROGRESS */
+
+.progress {
+    width: 300px;
+
+    max-width: 100%;
+
+    height: 8px;
+
+    background-color: #444;
+
+    margin-bottom: 10px;
+}
+
+.progress-bar {
+    height: 8px;
+
+    background-color: yellow;
+}
+
+.progress-35 {
+    width: 35%;
+}
+
+.progress-50 {
+    width: 50%;
+}
+
+.progress-80 {
+    width: 80%;
+}
+
+.progress-100 {
+    width: 100%;
+}
+
+
+/* SETTINGS */
+
+.settings-page {
+    text-align: center;
+}
+
+.settings-box {
+    background-color: #181818;
+
+    max-width: 650px;
+
+    padding: 30px;
+
+    margin: 30px auto;
+
+    border-radius: 8px;
+
+    text-align: left;
+}
+
+.settings-box h3 {
+    color: yellow;
+
+    margin-top: 20px;
+
+    margin-bottom: 15px;
+}
+
+
+/* SETTINGS SECTIONS */
+
+.setting-section {
+    background-color: #222;
+
+    padding: 20px;
+
+    margin-top: 20px;
+}
+
+.setting-section p {
+    color: #aaa;
+
+    margin-bottom: 15px;
+}
+
+.setting-section label {
+    display: block;
+
+    margin-top: 10px;
+}
+
+.settings-buttons {
+    margin-top: 25px;
+
+    text-align: center;
+}
+
+
+/* CHECKBOX */
+
+.settings-box input[type="checkbox"] {
+    width: 18px;
+
+    height: 18px;
+}
+
+
+/* DROPDOWN */
+
+select {
+    background-color: #333;
+
+    color: white;
+
+    padding: 8px;
+
+    border: none;
+
+    border-radius: 4px;
+}
+
+
+/* LOADING PAGE */
+
+.loading-page {
+    height: 100vh;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+}
+
+.loading-page h1 {
+    color: yellow;
+
+    font-size: 50px;
+
+    margin-bottom: 30px;
+}
+
+.loading-page p {
+    color: white;
+
+    margin-top: 20px;
+}
+
+.loader {
+    width: 50px;
+
+    height: 50px;
+
+    border: 5px solid #333;
+
+    border-top: 5px solid yellow;
+
+    border-radius: 50%;
+
+    animation: loading 1s linear infinite;
+}
+
+@keyframes loading {
+
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+
+}
+
+
+/* TABLET */
+
+@media (max-width: 800px) {
+
+    nav {
+        flex-direction: column;
+
+        gap: 20px;
+    }
+
+    .nav-links {
+        flex-wrap: wrap;
+
+        justify-content: center;
+    }
+
+
+    /* WATCHLIST TABLET */
+
+    .movies {
+        justify-content: center;
+    }
+
+
+    /* HISTORY TABLET */
+
+    .history {
+        width: 95%;
+    }
+
+}
+
+
+/* MOBILE */
+
+@media (max-width: 500px) {
+
+    .top {
+        padding: 20px;
+    }
+
+
+    .login-box {
+        width: 90%;
+
+        padding: 25px;
+    }
+
+
+    nav {
+        padding: 20px;
+    }
+
+
+    .nav-links {
+        flex-direction: column;
+
+        align-items: center;
+
+        gap: 15px;
+    }
+
+
+    /* WATCHLIST MOBILE */
+
+    .movies {
+        justify-content: center;
+    }
+
+    .movie {
+        width: 200px;
+    }
+
+    .movie-image {
+        height: 270px;
+    }
+
+
+    /* HISTORY MOBILE */
+
+    .history {
+        width: 95%;
+    }
+
+    .history-item {
+        flex-direction: column;
+
+        align-items: center;
+
+        text-align: center;
+
+        padding: 15px;
+    }
+
+    .history-image {
+        width: 180px;
+
+        height: 250px;
+    }
+
+    .history-item h3 {
+        font-size: 22px;
+    }
+
+
+    /* PROFILE MOBILE */
+
+    .profile-box {
+        width: 100%;
+    }
+
+
+    /* SETTINGS MOBILE */
+
+    .settings-box {
+        width: 100%;
+    }
+
+
+    /* LOADING MOBILE */
+
+    .loading-page h1 {
+        font-size: 35px;
+    }
+
+}

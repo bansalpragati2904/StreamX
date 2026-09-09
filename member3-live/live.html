@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>StreamX — Live</title>
+
+    <link rel="stylesheet" href="live.css">
+</head>
+
+<body>
+
+<!-- ================= NAVBAR ================= -->
+
+<header class="navbar">
+
+    <div class="logo">
+        <div class="logo-box">S</div>
+        <span>stream<span class="x">x</span></span>
+    </div>
+
+    <nav>
+        <a href="../member1-home/home.html">Home</a>
+        <a href="../member2-content/movies.html">Movies</a>
+        <a href="../member2-content/series.html">Series</a>
+        <a href="live.html" class="active">Live</a>
+    </nav>
+
+    <div class="nav-icons">
+    <button id="searchButton">⌕</button>
+    <a href="../member4-user/profile.html" class="profile">
+        P
+    </a>
+</div>
+
+</header>
+
+<!-- ================= SEARCH MODAL ================= -->
+
+<div class="search-overlay" id="searchOverlay">
+
+    <div class="search-modal">
+
+        <div class="search-header">
+
+            <div>
+                <p class="search-label">SEARCH STREAMX</p>
+
+                <h2>What are you looking for?</h2>
+            </div>
+
+            <button id="closeSearch" class="close-search">
+                ✕
+            </button>
+
+        </div>
+
+
+        <div class="search-input-box">
+
+            <span>⌕</span>
+
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Search movies, series, gaming, podcasts..."
+            >
+
+        </div>
+
+
+        <div id="searchResults" class="search-results">
+
+            <p>Start typing to search.</p>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- ================= HERO ================= -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <p class="live-label">
+            <span></span> LIVE NOW
+        </p>
+
+        <h1>
+            Happening<br>
+            <strong>right now.</strong>
+        </h1>
+
+        <p class="hero-text">
+            Watch live events, creators, sports and conversations
+            happening around the world.
+        </p>
+
+    </div>
+
+    <div class="hero-image">
+        <div class="hero-play">▶</div>
+    </div>
+
+</section>
+
+
+<!-- ================= LIVE SECTION ================= -->
+
+<section class="live-section">
+
+    <div class="section-left">
+
+        <p class="small-title">STREAMX LIVE</p>
+
+        <h2>Watch Live</h2>
+
+        <!-- Categories -->
+
+        <div class="categories">
+
+            <button class="category active" data-category="all">
+                All
+            </button>
+
+            <button class="category" data-category="sports">
+                Sports
+            </button>
+
+            <button class="category" data-category="music">
+                Music
+            </button>
+
+            <button class="category" data-category="gaming">
+                Gaming
+            </button>
+
+            <button class="category" data-category="news">
+                News
+            </button>
+
+            <button class="category" data-category="creators">
+                Creators
+            </button>
+
+        </div>
+
+
+        <!-- Live Cards -->
+
+        <div class="live-grid" id="liveGrid"></div>
+
+    </div>
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer class="footer">
+
+    <div class="footer-logo">
+
+        <div class="logo-box">S</div>
+
+        <span>
+            stream<span class="x">x</span>
+        </span>
+
+    </div>
+
+
+    <div class="footer-column">
+
+        <h4>STREAM</h4>
+
+        <a href="../member2-content/movies.html">Movies</a><a href="../member2-content/series.html">Series</a>
+        <a href="live.html">Live</a>
+
+    </div>
+
+
+    <div class="footer-column">
+
+        <h4>ACCOUNT</h4>
+
+        <a href="../member4-user/profile.html">Profile</a>
+        <a href="../member4-user/watchlist.html">Watchlist</a>
+        <a href="../member4-user/history.html">History</a>
+
+    </div>
+
+
+    <div class="footer-column">
+
+        <h4>STREAMX</h4>
+
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+        <a href="#">Help</a>
+
+    </div>
+
+</footer>
+
+
+<script src="live.js"></script>
+
+</body>
+</html>
