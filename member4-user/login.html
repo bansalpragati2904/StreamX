@@ -1,98 +1,99 @@
 <!DOCTYPE html>
-
-<html>
+<html lang="en">
 
 <head>
-<title>StreamX - Login</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link rel="stylesheet" href="style.css">
+    <title>StreamX - Login</title>
 
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-<div class="top">
 
-    <h1>STREAMX</h1>
-
-</div>
-
-
-<!-- Login -->
-
-<div class="login-box">
-
-    <h2>Sign In</h2>
+    <div class="top">
+        <h1>STREAMX</h1>
+    </div>
 
 
-    <input
-        type="text"
-        id="email"
-        placeholder="Email"
-    >
+    <!-- LOGIN FORM -->
 
-    <p id="emailError" class="error-message"></p>
+    <div class="login-box" id="loginBox">
 
+        <h2>Sign In</h2>
 
-    <input
-        type="password"
-        id="password"
-        placeholder="Password"
-    >
+        <input
+            type="text"
+            id="email"
+            placeholder="Email"
+        >
 
-    <p id="passwordError" class="error-message"></p>
+        <p id="emailError" class="error-message"></p>
 
+        <input
+            type="password"
+            id="password"
+            placeholder="Password"
+        >
 
-    <button onclick="login()">
-        Sign In
-    </button>
+        <p id="passwordError" class="error-message"></p>
 
+        <button onclick="login()">
+            Sign In
+        </button>
 
-    <p>
-        New to StreamX?
+        <p>
+            New to StreamX?
 
-        <a href="#" onclick="showSignup()">
-            Sign up now
-        </a>
+            <a href="#" onclick="showSignup(); return false;">
+                Sign up now
+            </a>
+        </p>
 
-    </p>
-
-</div>
-
-
-<!-- Signup -->
-
-<div class="login-box signup-box" id="signupBox">
-
-    <h2>Create Account</h2>
+    </div>
 
 
-    <input
-        type="text"
-        id="name"
-        placeholder="Your Name"
-    >
+    <!-- SIGNUP FORM -->
+
+    <div class="login-box signup-box" id="signupBox">
+
+        <h2>Create Account</h2>
+
+        <input
+            type="text"
+            id="name"
+            placeholder="Your Name"
+        >
+
+        <input
+            type="text"
+            id="signupEmail"
+            placeholder="Email"
+        >
+
+        <input
+            type="password"
+            id="signupPassword"
+            placeholder="Password"
+        >
+
+        <button onclick="signup()">
+            Sign Up
+        </button>
+
+        <p>
+            Already have an account?
+
+            <a href="#" onclick="showLogin(); return false;">
+                Sign in
+            </a>
+        </p>
+
+    </div>
 
 
-    <input
-        type="text"
-        id="signupEmail"
-        placeholder="Email"
-    >
-
-
-    <input
-        type="password"
-        id="signupPassword"
-        placeholder="Password"
-    >
-
-
-    <button onclick="signup()">
-        Sign Up
-    </button>
-
-</div>
-<script src="script.js"></script>
+    <script src="script.js"></script>
 
 </body>
 

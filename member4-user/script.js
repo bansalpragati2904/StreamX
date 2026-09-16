@@ -1,217 +1,263 @@
 /* LOGIN */
 
 function login() {
-var email =
-    document.getElementById("email").value;
 
-var password =
-    document.getElementById("password").value;
+    var email =
+        document.getElementById("email").value;
 
-
-/* Clear old errors */
-
-document.getElementById("emailError").innerHTML = "";
-
-document.getElementById("passwordError").innerHTML = "";
+    var password =
+        document.getElementById("password").value;
 
 
-/* EMAIL VALIDATION */
+    /* Clear old errors */
 
-if (email == "") {
+    document.getElementById("emailError").innerHTML = "";
 
-    document.getElementById("emailError").innerHTML =
-        "Please enter your email";
-
-    return;
-
-}
+    document.getElementById("passwordError").innerHTML = "";
 
 
-if (!email.endsWith("@gmail.com")) {
+    /* EMAIL VALIDATION */
 
-    document.getElementById("emailError").innerHTML =
-        "Enter a valid Gmail address";
+    if (email == "") {
 
-    return;
+        document.getElementById("emailError").innerHTML =
+            "Please enter your email";
 
-}
+        return;
 
-
-/* PASSWORD VALIDATION */
-
-if (password == "") {
-
-    document.getElementById("passwordError").innerHTML =
-        "Please enter your password";
-
-    return;
-
-}
+    }
 
 
-/* Only alphabets and numbers allowed */
+    if (!email.endsWith("@gmail.com")) {
 
-if (!/^[a-zA-Z0-9]+$/.test(password)) {
+        document.getElementById("emailError").innerHTML =
+            "Enter a valid Gmail address";
 
-    document.getElementById("passwordError").innerHTML =
-        "Password should contain only alphabets and numbers";
+        return;
 
-    return;
-
-}
+    }
 
 
-/* Check alphabet */
+    /* PASSWORD VALIDATION */
 
-if (!/[a-zA-Z]/.test(password)) {
+    if (password == "") {
 
-    document.getElementById("passwordError").innerHTML =
-        "Password must contain an alphabet";
+        document.getElementById("passwordError").innerHTML =
+            "Please enter your password";
 
-    return;
+        return;
 
-}
-
-
-/* Check number */
-
-if (!/[0-9]/.test(password)) {
-
-    document.getElementById("passwordError").innerHTML =
-        "Password must contain a number";
-
-    return;
-
-}
+    }
 
 
-/* LOGIN SUCCESSFUL */
+    /* Only alphabets and numbers allowed */
 
-window.location.href = "../member1-home/home.html";
+    if (!/^[a-zA-Z0-9]+$/.test(password)) {
 
+        document.getElementById("passwordError").innerHTML =
+            "Password should contain only alphabets and numbers";
 
-}
+        return;
 
-/* SHOW SIGNUP */
-
-function showSignup() {
-document.getElementById("signupBox").style.display = "block";
-
-}
-
-/* SIGNUP */
-
-function signup() {
-var name =
-    document.getElementById("name").value;
-
-var email =
-    document.getElementById("signupEmail").value;
-
-var password =
-    document.getElementById("signupPassword").value;
+    }
 
 
-if (
-    name == "" ||
-    email == "" ||
-    password == ""
-) {
+    /* Check alphabet */
 
-    alert("Please fill all fields");
+    if (!/[a-zA-Z]/.test(password)) {
 
-}
+        document.getElementById("passwordError").innerHTML =
+            "Password must contain an alphabet";
 
-else {
+        return;
 
-    alert("Account created successfully");
+    }
+
+
+    /* Check number */
+
+    if (!/[0-9]/.test(password)) {
+
+        document.getElementById("passwordError").innerHTML =
+            "Password must contain a number";
+
+        return;
+
+    }
+
+
+    /* LOGIN SUCCESSFUL */
 
     window.location.href = "../member1-home/home.html";
 
 }
 
+
+/* SHOW SIGNUP */
+
+function showSignup() {
+
+    document.getElementById("loginBox").style.display = "none";
+
+    document.getElementById("signupBox").style.display = "block";
+
 }
+
+
+/* SHOW LOGIN */
+
+function showLogin() {
+
+    document.getElementById("signupBox").style.display = "none";
+
+    document.getElementById("loginBox").style.display = "block";
+
+}
+
+
+/* OPEN SIGNUP AUTOMATICALLY FROM LOADING PAGE */
+
+window.addEventListener("DOMContentLoaded", function () {
+
+    var params =
+        new URLSearchParams(window.location.search);
+
+    if (params.get("signup") === "true") {
+
+        showSignup();
+
+    }
+
+});
+
+
+/* SIGNUP */
+
+function signup() {
+
+    var name =
+        document.getElementById("name").value;
+
+    var email =
+        document.getElementById("signupEmail").value;
+
+    var password =
+        document.getElementById("signupPassword").value;
+
+
+    if (
+        name == "" ||
+        email == "" ||
+        password == ""
+    ) {
+
+        alert("Please fill all fields");
+
+    }
+
+    else {
+
+        alert("Account created successfully");
+
+        window.location.href = "../member1-home/home.html";
+
+    }
+
+}
+
 
 /* EDIT PROFILE */
 
 function editProfile() {
-var newName =
-    prompt("Enter your new name");
+
+    var newName =
+        prompt("Enter your new name");
 
 
-if (
-    newName != null &&
-    newName != ""
-) {
+    if (
+        newName != null &&
+        newName != ""
+    ) {
 
-    document.getElementById("username").innerHTML =
-        newName;
+        document.getElementById("username").innerHTML =
+            newName;
+
+    }
 
 }
 
-}
 
 /* WATCH MOVIE */
 
 function watchMovie(movieName) {
-alert("Playing " + movieName);
+
+    alert("Playing " + movieName);
 
 }
+
 
 /* REMOVE MOVIE */
 
 function removeMovie(button) {
-button.parentElement.style.display = "none";
+
+    button.parentElement.style.display = "none";
 
 }
+
 
 /* CONTINUE MOVIE */
 
 function continueMovie(movieName) {
-alert("Continue watching " + movieName);
+
+    alert("Continue watching " + movieName);
 
 }
+
 
 /* CHANGE EMAIL */
 
 function changeEmail() {
-var email =
-    prompt("Enter your new email");
+
+    var email =
+        prompt("Enter your new email");
 
 
-if (
-    email != null &&
-    email != ""
-) {
+    if (
+        email != null &&
+        email != ""
+    ) {
 
-    alert("Email changed successfully");
+        alert("Email changed successfully");
+
+    }
 
 }
 
-}
 
 /* CHANGE PASSWORD */
 
 function changePassword() {
-alert("Password change option selected");
+
+    alert("Password change option selected");
 
 }
+
 
 /* SAVE SETTINGS */
 
 function saveSettings() {
-alert("Settings saved successfully");
+
+    alert("Settings saved successfully");
 
 }
+
 
 /* LOGOUT */
 
 function logout() {
 
+    alert("You have been logged out");
 
-alert("You have been logged out");
-
-window.location.href = "login.html";
-
+    window.location.href = "login.html";
 
 }

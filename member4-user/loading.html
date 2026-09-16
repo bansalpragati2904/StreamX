@@ -1,35 +1,33 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-
-    <title>StreamX</title>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StreamX Loading</title>
     <link rel="stylesheet" href="style.css">
-
 </head>
 
 <body>
 
     <div class="loading-page">
 
-        <h1>STREAMX</h1>
+        <div class="loading-bars">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
 
-        <div class="loader"></div>
-
-        <p>Loading...</p>
+        <h1>LOADING</h1>
 
     </div>
 
-
     <script>
-
-        setTimeout(function() {
-
-            window.location.href = "login.html";
-
-        }, 2000);
-
+        setTimeout(function () {
+            window.location.href = "login.html?signup=true";
+        }, 2500);
     </script>
 
 </body>

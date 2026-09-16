@@ -466,55 +466,122 @@ select {
 /* LOADING PAGE */
 
 .loading-page {
+    width: 100%;
     height: 100vh;
 
-    display: flex;
+    background-color: #050505;
 
+    display: flex;
     flex-direction: column;
 
     justify-content: center;
+    align-items: center;
+
+    gap: 38px;
+
+    overflow: hidden;
+}
+
+
+/* FIVE LOADING BARS */
+
+.loading-bars {
+    display: flex;
 
     align-items: center;
+    justify-content: center;
+
+    gap: 16px;
+
+    height: 130px;
 }
+
+.loading-bars span {
+    display: block;
+
+    width: 13px;
+
+    border-radius: 10px;
+
+    background-color: #e7ff28;
+
+    box-shadow:
+        0 0 7px #e7ff28,
+        0 0 15px #e7ff28,
+        0 0 25px rgba(231, 255, 40, 0.55);
+
+    animation: loadingPulse 1.2s ease-in-out infinite;
+}
+
+
+/* BAR HEIGHTS */
+
+.loading-bars span:nth-child(1) {
+    height: 65px;
+
+    animation-delay: 0.1s;
+}
+
+.loading-bars span:nth-child(2) {
+    height: 95px;
+
+    animation-delay: 0.2s;
+}
+
+.loading-bars span:nth-child(3) {
+    height: 130px;
+
+    animation-delay: 0.3s;
+}
+
+.loading-bars span:nth-child(4) {
+    height: 95px;
+
+    animation-delay: 0.4s;
+}
+
+.loading-bars span:nth-child(5) {
+    height: 65px;
+
+    animation-delay: 0.5s;
+}
+
+
+/* LOADING TEXT */
 
 .loading-page h1 {
-    color: yellow;
+    color: #e7ff28;
 
-    font-size: 50px;
+    font-size: 25px;
 
-    margin-bottom: 30px;
+    font-weight: bold;
+
+    letter-spacing: 8px;
+
+    margin: 0;
+
+    margin-left: 8px;
+
+    text-shadow:
+        0 0 8px #e7ff28,
+        0 0 16px rgba(231, 255, 40, 0.45);
 }
 
-.loading-page p {
-    color: white;
 
-    margin-top: 20px;
-}
+/* ANIMATION */
 
-.loader {
-    width: 50px;
+@keyframes loadingPulse {
+    0%, 100% {
+        transform: scaleY(0.75);
 
-    height: 50px;
-
-    border: 5px solid #333;
-
-    border-top: 5px solid yellow;
-
-    border-radius: 50%;
-
-    animation: loading 1s linear infinite;
-}
-
-@keyframes loading {
-
-    from {
-        transform: rotate(0deg);
+        opacity: 0.65;
     }
 
-    to {
-        transform: rotate(360deg);
-    }
+    50% {
+        transform: scaleY(1);
 
+        opacity: 1;
+    }
 }
 
 
@@ -639,8 +706,20 @@ select {
 
     /* LOADING MOBILE */
 
+    .loading-page {
+        gap: 30px;
+    }
+
+    .loading-bars {
+        gap: 12px;
+
+        transform: scale(0.85);
+    }
+
     .loading-page h1 {
-        font-size: 35px;
+        font-size: 20px;
+
+        letter-spacing: 6px;
     }
 
 }
