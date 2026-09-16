@@ -1,352 +1,759 @@
-/* =========================================================
-   STREAMX - HOME PAGE JAVASCRIPT
-   Member 1 - Home & Discovery
-========================================================= */
-
-
-/* =========================================================
+/* =========================
    STREAM DATA
-========================================================= */
+========================= */
 
 const streamData = [
 
     {
-        title: "Midnight Signal",
+        id: 1,
+        title: "Interstellar",
         category: "Movies",
+        type: "Movie",
+        genre: "Sci-Fi",
+        duration: "120",
+        language: "Hollywood",
+        image: "https://s3.amazonaws.com/nightjarprod/content/uploads/sites/130/2021/08/19085635/gEU2QniE6E77NI6lCU6MxlNBvIx-scaled.jpg",
+        video: "https://www.youtube.com/embed/HYVxnPmb15E"
+    },
+
+    {
+        id: 2,
+        title: "Shershaah",
+        category: "Movies",
+        type: "Movie",
+        genre: "Action",
+        duration: "120",
+        language: "Bollywood",
+        image: "https://m.media-amazon.com/images/M/MV5BMjk1NzcwMDUtNDU4ZC00MzlhLTkzZjAtM2MxMTRjZGE0ODdhXkEyXkFqcGdeQXVyODE5NzE3OTE@._V1_.jpg",
+        video: "https://www.youtube.com/embed/V0EQJzfgXvY"
+    },
+
+    {
+        id: 3,
+        title: "Drishyam 2",
+        category: "Movies",
+        type: "Movie",
+        genre: "Adventure",
+        duration: "120",
+        language: "Bollywood",
+        image: "https://assetscdn1.paytm.com/images/cinema/Drishyam-min-f607e2e0-4d39-11ed-a279-f56421cde6f2.jpg?format=webp",
+        video: "https://www.youtube.com/embed/tOdJlNKquls"
+    },
+
+    {
+        id: 4,
+        title: "The Dark Knight",
+        category: "Movies",
+        type: "Movie",
         genre: "Thriller",
-        language: "English",
-        time: 108,
-        image: "midnightSignal",
-        rating: 96
+        duration: "120",
+        language: "Hollywood",
+        image: "https://media.themoviedb.org/t/p/w440_and_h660_face/xQPgyZOBhaz1GdCQIPf5A5VeFzO.jpg",
+        video: "https://www.youtube.com/embed/EXeTwQWrcwY"
     },
 
     {
-        title: "Seoul After Dark",
+        id: 5,
+        title: "Stranger Things",
         category: "Series",
-        genre: "Drama",
-        language: "Korean",
-        time: 45,
-        image: "seoulAfterDark",
-        rating: 94
+        type: "Series",
+        genre: "Mystery",
+        duration: "45",
+        language: "English",
+        image: "https://static1.srcdn.com/wordpress/wp-content/uploads/2025/06/03112487_poster_w780.jpg",
+        video: "https://www.youtube.com/embed/ncn84cMWgRA"
     },
 
     {
-        title: "Laugh Track",
+        id: 6,
+        title: "Wednesday",
         category: "Series",
-        genre: "Comedy",
+        type: "Series",
+        genre: "Fantasy",
+        duration: "45",
         language: "English",
-        time: 45,
-        image: "laughTrack",
-        rating: 91
-    },
-
-    {
-        title: "The Last Summer",
-        category: "Movies",
-        genre: "Romcom",
-        language: "Bollywood",
-        time: 120,
-        image: "lastSummer",
-        rating: 89
-    },
-
-    {
-        title: "Neon Arena",
-        category: "Gaming",
-        genre: "Gaming",
-        language: "English",
-        time: 60,
-        image: "neonArena",
-        rating: 88
-    },
-
-    {
-        title: "Tokyo Frequency",
-        category: "Podcasts",
-        genre: "Music",
-        language: "Japanese",
-        time: 45,
-        image: "tokyoFrequency",
-        rating: 86
-    },
-
-    {
-        title: "Red Room",
-        category: "Movies",
-        genre: "Horror",
-        language: "English",
-        time: 108,
-        image: "redRoom",
-        rating: 84
-    },
-
-    {
-        title: "Istanbul Stories",
-        category: "Series",
-        genre: "Drama",
-        language: "Turkish",
-        time: 45,
-        image: "istanbulStories",
-        rating: 82
-    },
-
-    {
-        title: "Laugh in 15",
-        category: "Shorts",
-        genre: "Comedy",
-        language: "English",
-        time: 15,
-        image: "laughIn15",
-        rating: 80
-    },
-
-    {
-        title: "Dragon Code",
-        category: "Series",
-        genre: "Sci-Fi",
-        language: "Chinese",
-        time: 60,
-        image: "dragonCode",
-        rating: 78
-    },
-
-    {
-        title: "Final Whistle",
-        category: "Live",
-        genre: "Sports",
-        language: "English",
-        time: 120,
-        image: "finalWhistle",
-        rating: 76
-    },
-
-    {
-        title: "Crime Files",
-        category: "Podcasts",
-        genre: "Crime",
-        language: "English",
-        time: 45,
-        image: "crimeFiles",
-        rating: 74
-    },
-
-    {
-        title: "Mumbai Nights",
-        category: "Movies",
-        genre: "Drama",
-        language: "Bollywood",
-        time: 120,
-        image: "mumbaiNights",
-        rating: 72
-    },
-
-    {
-        title: "K-Stage",
-        category: "Live",
-        genre: "Music",
-        language: "Korean",
-        time: 120,
-        image: "kStageLive",
-        rating: 70
-    },
-
-    {
-        title: "Pixel Rush",
-        category: "Gaming",
-        genre: "Gaming",
-        language: "English",
-        time: 60,
-        image: "pixelRush",
-        rating: 68
-    },
-
-    {
-        title: "Beyond Earth",
-        category: "Movies",
-        genre: "Sci-Fi",
-        language: "English",
-        time: 120,
-        image: "beyondEarth",
-        rating: 66
-    },
-
-    {
-        title: "Tokyo in 60 Seconds",
-        category: "Shorts",
-        genre: "Drama",
-        language: "Japanese",
-        time: 15,
-        image: "tokyo60",
-        rating: 64
-    },
-
-    {
-        title: "Love, Again",
-        category: "Movies",
-        genre: "Romcom",
-        language: "Korean",
-        time: 108,
-        image: "loveAgain",
-        rating: 62
+        image: "https://image.tmdb.org/t/p/original/kKwy8QiXyQocbDj4haUG0uD1SbF.jpg",
+        video: "https://www.youtube.com/embed/Di310WS8zLk"
     }
 
 ];
 
 
-/* =========================================================
-   UNIQUE TRENDING IMAGE FALLBACKS
-========================================================= */
-
-const uniqueImageFallbacks = {
-
-    midnightSignal:
-        "https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=1200&q=85",
-
-    /* FIXED - SEOUL */
-    seoulAfterDark:
-        "https://images.unsplash.com/photo-1546874177-9e664107314e?auto=format&fit=crop&w=1200&q=85",
-
-    laughTrack:
-        "https://images.unsplash.com/photo-1527224857830-43a7acc85260?auto=format&fit=crop&w=1200&q=85",
-
-    lastSummer:
-        "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=85",
-
-    neonArena:
-        "https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=1200&q=85",
-
-    tokyoFrequency:
-        "https://images.unsplash.com/photo-1519501025264-65ba15a82390?auto=format&fit=crop&w=1200&q=85",
-
-    redRoom:
-        "https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?auto=format&fit=crop&w=1200&q=85",
-
-    istanbulStories:
-        "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?auto=format&fit=crop&w=1200&q=85",
-
-    laughIn15:
-        "https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=1200&q=85",
-
-    dragonCode:
-        "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=85",
-
-    finalWhistle:
-        "https://images.unsplash.com/photo-1431324155629-1a6deb1dec8d?auto=format&fit=crop&w=1200&q=85",
-
-    crimeFiles:
-        "https://images.unsplash.com/photo-1505664194779-8beaceb93744?auto=format&fit=crop&w=1200&q=85",
-
-    mumbaiNights:
-        "https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&w=1200&q=85",
-
-    kStageLive:
-        "https://images.unsplash.com/photo-1492684223066-81342ee5ff39?auto=format&fit=crop&w=1200&q=85",
-
-    pixelRush:
-        "https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=1200&q=85",
-
-    beyondEarth:
-        "https://images.unsplash.com/photo-1446776877081-d282a0f896e2?auto=format&fit=crop&w=1200&q=85",
-
-    tokyo60:
-        "https://images.unsplash.com/photo-1519501025264-65ba15a82390?auto=format&fit=crop&w=1200&q=85",
-
-    loveAgain:
-        "https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?auto=format&fit=crop&w=1200&q=85"
-
-};
-
-
-/* =========================================================
+/* =========================
    LIVE DATA
-========================================================= */
+========================= */
 
 const liveData = [
 
     {
-        title: "Global Football Night",
-        viewers: "42K",
-        type: "Sports",
-        image: "footballLive"
-    },
-
-    {
-        /* FIXED */
+        id: 101,
         title: "Late Night Sessions",
-        viewers: "18K",
-        type: "Music",
-        image: "concertLive"
+        category: "Live",
+        genre: "Music",
+        language: "English",
+        image: streamImages.concertLive,
+        live: true
     },
 
     {
-        title: "Pro Gaming Arena",
-        viewers: "31K",
-        type: "Gaming",
-        image: "gamingLive"
+        id: 102,
+        title: "Gaming Arena Live",
+        category: "Gaming",
+        genre: "Gaming",
+        language: "English",
+        image: streamImages.gamingLive,
+        live: true
+    },
+
+    {
+        id: 103,
+        title: "Global News Live",
+        category: "Live",
+        genre: "News",
+        language: "English",
+        image: streamImages.newsLive,
+        live: true
     }
 
 ];
 
 
-/* =========================================================
-   LIVE IMAGE FALLBACKS
-========================================================= */
-
-const liveImageFallbacks = {
-
-    footballLive:
-        "https://images.unsplash.com/photo-1579952363873-27f3bade9f55?auto=format&fit=crop&w=1200&q=85",
-
-    /* FIXED - LIVE MUSIC */
-    concertLive:
-        "https://images.unsplash.com/photo-1492684223066-81342ee5ff39?auto=format&fit=crop&w=1200&q=85",
-
-    /* FIXED - LIVE GAMING */
-    gamingLive:
-        "https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=1200&q=85"
-
-};
-
-
-/* =========================================================
+/* =========================
    FILTER STATE
-========================================================= */
+========================= */
 
-let selectedFilters = {
-
-    category: "All",
-    genre: null,
-    time: null,
-    language: null
-
+const selectedFilters = {
+    category: "",
+    genre: "",
+    time: "",
+    language: ""
 };
 
 
-/* =========================================================
-   DOM
-========================================================= */
+/* =========================
+   DOM ELEMENTS
+========================= */
 
-const trendingGrid =
-    document.getElementById("trendingGrid");
+const trendingGrid = document.getElementById("trendingGrid");
+const liveGrid = document.getElementById("liveGrid");
+const matchGrid = document.getElementById("matchGrid");
 
-const liveGrid =
-    document.getElementById("liveGrid");
+const discoverButton = document.getElementById("discoverButton");
 
-const toast =
-    document.getElementById("toast");
+const searchButton = document.getElementById("searchButton");
+const closeSearch = document.getElementById("closeSearch");
+const searchOverlay = document.getElementById("searchOverlay");
+const searchInput = document.getElementById("searchInput");
+const searchResults = document.getElementById("searchResults");
+
+const videoModal = document.getElementById("videoModal");
+const closeVideoModal = document.getElementById("closeVideoModal");
+const homeVideoPlayer = document.getElementById("homeVideoPlayer");
+
+const roomModal = document.getElementById("roomModal");
+const closeRoomModal = document.getElementById("closeRoomModal");
+const roomModalTitle = document.getElementById("roomModalTitle");
+const roomModalText = document.getElementById("roomModalText");
+const roomCodeInput = document.getElementById("roomCodeInput");
+const confirmRoomButton = document.getElementById("confirmRoomButton");
+
+const createRoomButton = document.getElementById("createRoomButton");
+const joinRoomButton = document.getElementById("joinRoomButton");
+
+const toast = document.getElementById("toast");
 
 
-/* =========================================================
+/* =========================
+   CONTENT CARD
+========================= */
+
+function createContentCard(item) {
+
+    return `
+        <div class="content-card"
+             onclick="openVideo('${item.video || ""}')">
+
+            <div class="content-image">
+
+                <img src="${item.image}" alt="${item.title}">
+
+                <div class="content-play">
+                    ▶
+                </div>
+
+            </div>
+
+            <div class="content-info">
+
+                <h3>${item.title}</h3>
+
+                <div class="content-meta">
+                    <span>${item.genre}</span>
+                    <span>${item.language}</span>
+                </div>
+
+            </div>
+
+        </div>
+    `;
+
+}
+
+
+/* =========================
+   TRENDING
+   ALWAYS SHOWS EXACTLY 6 CARDS
+========================= */
+
+function renderTrending() {
+
+    if (!trendingGrid) return;
+
+    /*
+       Important:
+       trendingGrid already has class="content-grid"
+       in HTML, so don't create another content-grid.
+    */
+
+    trendingGrid.innerHTML = streamData
+        .map(item => createContentCard(item))
+        .join("");
+
+}
+
+
+/* =========================
+   YOUR MATCH
+   ONLY FILTERED RESULTS
+========================= */
+
+function renderMatch(data) {
+
+    if (!matchGrid) return;
+
+    // Make matchGrid itself a grid
+    matchGrid.classList.add("content-grid");
+
+    if (!data || data.length === 0) {
+
+        matchGrid.innerHTML = `
+            <p style="color:#969696; padding:20px 0;">
+                No matching content found. Try different filters.
+            </p>
+        `;
+
+        return;
+    }
+
+    /*
+       Direct cards only.
+       No extra nested content-grid.
+    */
+
+    matchGrid.innerHTML = data
+        .map(item => createContentCard(item))
+        .join("");
+
+}
+
+
+/* =========================
+   LIVE CARD
+========================= */
+
+function createLiveCard(item) {
+
+    return `
+        <div class="live-card-item"
+             onclick="openLivePage()">
+
+            <div class="live-card-image">
+                <img src="${item.image}" alt="${item.title}">
+            </div>
+
+            <div class="live-card-overlay"></div>
+
+            <div class="live-card-content">
+
+                <span class="live-badge">
+                    LIVE NOW
+                </span>
+
+                <h3>${item.title}</h3>
+
+                <p>
+                    ${item.genre} • ${item.language}
+                </p>
+
+            </div>
+
+        </div>
+    `;
+
+}
+
+
+function renderLive() {
+
+    if (!liveGrid) return;
+
+    liveGrid.innerHTML = liveData
+        .map(item => createLiveCard(item))
+        .join("");
+
+}
+
+
+function openLivePage() {
+
+    window.location.href = "../member3-live/live.html";
+
+}
+
+
+/* =========================
+   FILTER DROPDOWN
+========================= */
+
+function toggleFilter(menuId, buttonElement) {
+
+    const menu = document.getElementById(menuId);
+
+    if (!menu) return;
+
+    const isOpen = menu.classList.contains("show");
+
+    document.querySelectorAll(".filter-menu")
+        .forEach(item => {
+            item.classList.remove("show");
+        });
+
+    document.querySelectorAll(".filter-tab")
+        .forEach(item => {
+            item.classList.remove("active");
+        });
+
+    if (!isOpen) {
+
+        menu.classList.add("show");
+
+        if (buttonElement) {
+            buttonElement.classList.add("active");
+        }
+
+    }
+
+}
+
+
+/* =========================
+   SELECT FILTER
+========================= */
+
+function selectFilter(type, value, buttonElement) {
+
+    selectedFilters[type] = value;
+
+    let labelId = "";
+
+    if (type === "category") {
+        labelId = "categoryLabel";
+    }
+
+    if (type === "genre") {
+        labelId = "genreLabel";
+    }
+
+    if (type === "time") {
+        labelId = "timeLabel";
+    }
+
+    if (type === "language") {
+        labelId = "languageLabel";
+    }
+
+    const defaultLabels = {
+        category: "CATEGORY",
+        genre: "GENRE / TYPE",
+        time: "TIME",
+        language: "LANGUAGE / REGION"
+    };
+
+    const label = document.getElementById(labelId);
+
+    if (label) {
+
+        if (value === "") {
+            label.textContent = defaultLabels[type];
+        } else {
+            label.textContent = buttonElement.textContent.trim();
+        }
+
+    }
+
+    document.querySelectorAll(".filter-menu")
+        .forEach(menu => {
+            menu.classList.remove("show");
+        });
+
+    document.querySelectorAll(".filter-tab")
+        .forEach(tab => {
+            tab.classList.remove("active");
+        });
+
+}
+
+
+/* =========================
+   DISCOVERY ENGINE
+   ONLY YOUR MATCH CHANGES
+========================= */
+
+function discoverContent() {
+
+    const category = selectedFilters.category
+        .trim()
+        .toLowerCase();
+
+    const genre = selectedFilters.genre
+        .trim()
+        .toLowerCase();
+
+    const time = selectedFilters.time
+        .trim();
+
+    const language = selectedFilters.language
+        .trim()
+        .toLowerCase();
+
+
+    const filteredData = streamData.filter(item => {
+
+        const itemCategory = item.category
+            .trim()
+            .toLowerCase();
+
+        const itemGenre = item.genre
+            .trim()
+            .toLowerCase();
+
+        const itemLanguage = item.language
+            .trim()
+            .toLowerCase();
+
+        const itemDuration = item.duration
+            .trim();
+
+
+        const categoryMatch =
+            category === "" ||
+            itemCategory === category;
+
+        const genreMatch =
+            genre === "" ||
+            itemGenre === genre;
+
+        const timeMatch =
+            time === "" ||
+            itemDuration === time;
+
+        const languageMatch =
+            language === "" ||
+            itemLanguage === language;
+
+
+        return (
+            categoryMatch &&
+            genreMatch &&
+            timeMatch &&
+            languageMatch
+        );
+
+    });
+
+
+    // Only Your Match gets filtered results
+    renderMatch(filteredData);
+
+    // Trending remains unchanged with all 6 cards
+    renderTrending();
+
+
+    if (filteredData.length === 0) {
+
+        showToast("No matching content found.");
+
+    } else {
+
+        showToast(
+            filteredData.length + " result(s) found."
+        );
+
+    }
+
+
+    matchGrid?.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+    });
+
+}
+
+
+/* =========================
+   VIDEO MODAL
+========================= */
+
+function openVideo(videoUrl) {
+
+    if (!videoUrl) {
+
+        showToast("Open Live page to watch this stream.");
+        return;
+
+    }
+
+    if (!videoModal || !homeVideoPlayer) return;
+
+    homeVideoPlayer.src = videoUrl;
+    videoModal.classList.add("show");
+
+}
+
+
+function closeVideo() {
+
+    if (!videoModal || !homeVideoPlayer) return;
+
+    videoModal.classList.remove("show");
+    homeVideoPlayer.src = "";
+
+}
+
+
+/* =========================
+   SEARCH OVERLAY
+========================= */
+
+function openSearchOverlay() {
+
+    if (!searchOverlay || !searchInput) return;
+
+    searchOverlay.classList.add("show");
+    searchInput.focus();
+
+}
+
+
+function closeSearchOverlay() {
+
+    if (!searchOverlay || !searchInput || !searchResults) {
+        return;
+    }
+
+    searchOverlay.classList.remove("show");
+    searchInput.value = "";
+    searchResults.innerHTML = "";
+
+}
+
+
+function searchContent() {
+
+    if (!searchInput || !searchResults) return;
+
+    const query = searchInput.value
+        .toLowerCase()
+        .trim();
+
+
+    if (query === "") {
+
+        searchResults.innerHTML = "";
+        return;
+
+    }
+
+
+    const allContent = [
+        ...streamData,
+        ...liveData
+    ];
+
+
+    const results = allContent.filter(item => {
+
+        return (
+            item.title.toLowerCase().includes(query) ||
+            item.genre.toLowerCase().includes(query) ||
+            item.language.toLowerCase().includes(query) ||
+            item.category.toLowerCase().includes(query)
+        );
+
+    });
+
+
+    if (results.length === 0) {
+
+        searchResults.innerHTML = `
+            <p class="search-result">
+                No content found.
+            </p>
+        `;
+
+        return;
+
+    }
+
+
+    searchResults.innerHTML = results
+        .map(item => {
+
+            return `
+                <div class="search-result"
+                     onclick="openVideo('${item.video || ""}')">
+                    ${item.title}
+                </div>
+            `;
+
+        })
+        .join("");
+
+}
+
+
+/* =========================
+   WATCH TOGETHER
+========================= */
+
+function generateRoomCode() {
+
+    const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+
+    let code = "SX-";
+
+    for (let i = 0; i < 4; i++) {
+
+        code += chars.charAt(
+            Math.floor(Math.random() * chars.length)
+        );
+
+    }
+
+    return code;
+
+}
+
+
+function openRoom(mode) {
+
+    if (!roomModal) return;
+
+    roomModal.classList.add("show");
+
+
+    if (mode === "create") {
+
+        const code = generateRoomCode();
+
+        localStorage.setItem(
+            "streamx-room-code",
+            code
+        );
+
+
+        roomModalTitle.textContent = "Room Created";
+
+        roomModalText.innerHTML = `
+            Your room code is:
+            <strong style="color:#eaff00;">
+                ${code}
+            </strong>
+            <br><br>
+            Share this code with your friends.
+        `;
+
+
+        roomCodeInput.style.display = "none";
+
+        confirmRoomButton.textContent = "Copy Room Code";
+
+
+        confirmRoomButton.onclick = function () {
+
+            if (navigator.clipboard) {
+                navigator.clipboard.writeText(code);
+            }
+
+            showToast("Room code copied.");
+
+            roomModal.classList.remove("show");
+
+        };
+
+
+    } else {
+
+        roomModalTitle.textContent = "Join Room";
+
+        roomModalText.textContent =
+            "Enter the room code shared by your friend.";
+
+        roomCodeInput.style.display = "block";
+        roomCodeInput.value = "";
+
+        confirmRoomButton.textContent = "Join Room";
+
+
+        confirmRoomButton.onclick = function () {
+
+            const code = roomCodeInput.value
+                .toUpperCase()
+                .trim();
+
+
+            if (!/^SX-[A-Z0-9]{4}$/.test(code)) {
+
+                showToast(
+                    "Enter a valid code like SX-AB12."
+                );
+
+                return;
+
+            }
+
+
+            showToast("Room joined successfully.");
+
+            roomModal.classList.remove("show");
+
+        };
+
+    }
+
+}
+
+
+function closeRoom() {
+
+    if (!roomModal) return;
+
+    roomModal.classList.remove("show");
+
+}
+
+
+/* =========================
    TOAST
-========================================================= */
+========================= */
 
 function showToast(message) {
 
     if (!toast) return;
 
     toast.textContent = message;
-
     toast.classList.add("show");
+
 
     setTimeout(function () {
 
@@ -357,1430 +764,188 @@ function showToast(message) {
 }
 
 
-/* =========================================================
-   TIME FORMAT
-========================================================= */
-
-function formatTime(minutes) {
-
-    if (minutes < 60) {
-
-        return minutes + " min";
-
-    }
-
-    const hours =
-        Math.floor(minutes / 60);
-
-    const mins =
-        minutes % 60;
-
-    if (mins === 0) {
-
-        return hours + " hr";
-
-    }
-
-    return (
-        hours +
-        " hr " +
-        mins +
-        " min"
-    );
-
-}
-
-
-/* =========================================================
-   IMAGE FUNCTION
-========================================================= */
-
-function getImage(type) {
-
-    /* Trending unique images first */
-    if (uniqueImageFallbacks[type]) {
-
-        return uniqueImageFallbacks[type];
-
-    }
-
-
-    /* Live unique images */
-    if (liveImageFallbacks[type]) {
-
-        return liveImageFallbacks[type];
-
-    }
-
-
-    /* images.js */
-    if (
-        typeof streamImages !== "undefined" &&
-        streamImages[type]
-    ) {
-
-        return streamImages[type];
-
-    }
-
-
-    return "";
-
-}
-
-
-/* =========================================================
-   CONTENT CARD
-========================================================= */
-
-function createContentCard(item) {
-
-    const card =
-        document.createElement("div");
-
-    card.className =
-        "content-card";
-
-
-    const image =
-        document.createElement("div");
-
-    image.className =
-        "content-image";
-
-
-    image.style.backgroundImage =
-        `url("${getImage(item.image)}")`;
-
-
-    const info =
-        document.createElement("div");
-
-    info.className =
-        "content-info";
-
-
-    const title =
-        document.createElement("h3");
-
-    title.textContent =
-        item.title;
-
-
-    const meta =
-        document.createElement("div");
-
-    meta.className =
-        "content-meta";
-
-
-    const rating =
-        document.createElement("span");
-
-    rating.textContent =
-        "★ " +
-        (item.rating / 10).toFixed(1);
-
-
-    const time =
-        document.createElement("span");
-
-    time.textContent =
-        formatTime(item.time);
-
-
-    const category =
-        document.createElement("span");
-
-    category.textContent =
-        item.category;
-
-
-    meta.appendChild(rating);
-    meta.appendChild(time);
-    meta.appendChild(category);
-
-
-    info.appendChild(title);
-    info.appendChild(meta);
-
-
-    card.appendChild(image);
-    card.appendChild(info);
-
-
-    card.addEventListener(
-        "click",
-        function () {
-
-            showToast(
-                item.title +
-                " selected"
-            );
-
-        }
-    );
-
-
-    return card;
-
-}
-
-
-/* =========================================================
-   TRENDING
-========================================================= */
-
-function renderTrending(data) {
-
-    if (!trendingGrid) return;
-
-    trendingGrid.innerHTML = "";
-
-
-    if (data.length === 0) {
-
-        trendingGrid.innerHTML = `
-
-            <p style="
-                grid-column:1/-1;
-                color:#888;
-                padding:30px 0;
-            ">
-
-                No content found for these filters.
-
-            </p>
-
-        `;
-
-        return;
-
-    }
-
-
-    data
-        .slice(0, 8)
-        .forEach(function (item) {
-
-            trendingGrid.appendChild(
-                createContentCard(item)
-            );
-
-        });
-
-}
-
-
-/* =========================================================
-   LIVE CARD
-========================================================= */
-
-function createLiveCard(item) {
-
-    const card =
-        document.createElement("div");
-
-    card.className =
-        "live-card-item";
-
-
-    const image =
-        document.createElement("div");
-
-    image.className =
-        "live-card-image";
-
-
-    image.style.backgroundImage =
-        `url("${getImage(item.image)}")`;
-
-
-    const overlay =
-        document.createElement("div");
-
-    overlay.className =
-        "live-card-overlay";
-
-
-    const content =
-        document.createElement("div");
-
-    content.className =
-        "live-card-content";
-
-
-    content.innerHTML = `
-
-        <span class="live-badge">
-            LIVE
-        </span>
-
-        <h3>
-            ${item.title}
-        </h3>
-
-        <p>
-            ${item.viewers}
-            watching •
-            ${item.type}
-        </p>
-
-    `;
-
-
-    card.appendChild(image);
-    card.appendChild(overlay);
-    card.appendChild(content);
-
-
-    card.addEventListener(
-        "click",
-        function () {
-
-            window.location.href =
-                "../member3-live/live.html";
-
-        }
-    );
-
-
-    return card;
-
-}
-
-
-/* =========================================================
-   LIVE RENDER
-========================================================= */
-
-function renderLive() {
-
-    if (!liveGrid) return;
-
-    liveGrid.innerHTML = "";
-
-
-    liveData.forEach(
-        function (item) {
-
-            liveGrid.appendChild(
-                createLiveCard(item)
-            );
-
-        }
-    );
-
-}
-
-
-/* =========================================================
-   FILTER DROPDOWN
-========================================================= */
-
-function toggleFilter(menuId) {
-
-    const menu =
-        document.getElementById(menuId);
-
-    if (!menu) return;
-
-
-    const dropdown =
-        menu.parentElement;
-
-
-    const button =
-        dropdown.querySelector(
-            ".filter-tab"
-        );
-
-
-    const isOpen =
-        menu.classList.contains("show");
-
-
-    document
-        .querySelectorAll(".filter-menu")
-        .forEach(function (item) {
-
-            item.classList.remove("show");
-
-        });
-
-
-    document
-        .querySelectorAll(".filter-tab")
-        .forEach(function (item) {
-
-            item.classList.remove("active");
-
-        });
-
-
-    if (!isOpen) {
-
-        menu.classList.add("show");
-
-        if (button) {
-
-            button.classList.add("active");
-
-        }
-
-    }
-
-}
-
-
-/* =========================================================
-   SELECT FILTER
-========================================================= */
-
-function selectFilter(
-    type,
-    value,
-    button
-) {
-
-    selectedFilters[type] =
-        value;
-
-
-    const menu =
-        button.parentElement;
-
-
-    menu
-        .querySelectorAll("button")
-        .forEach(function (btn) {
-
-            btn.classList.remove(
-                "selected"
-            );
-
-        });
-
-
-    button.classList.add(
-        "selected"
-    );
-
-
-    const tab =
-        menu.parentElement
-            .querySelector(
-                ".filter-tab"
-            );
-
-
-    let displayValue =
-        value;
-
-
-    if (type === "time") {
-
-        if (value === "15") {
-
-            displayValue =
-                "15 min";
-
-        }
-
-        else if (value === "45") {
-
-            displayValue =
-                "45 min";
-
-        }
-
-        else if (value === "60") {
-
-            displayValue =
-                "1 hr";
-
-        }
-
-        else if (value === "120") {
-
-            displayValue =
-                "2hr+";
-
-        }
-
-    }
-
-
-    if (tab) {
-
-        tab.innerHTML = `
-
-            <span class="filter-name">
-                ${displayValue}
-            </span>
-
-            <span class="filter-arrow">
-                ⌄
-            </span>
-
-        `;
-
-        tab.classList.remove(
-            "active"
-        );
-
-    }
-
-
-    menu.classList.remove(
-        "show"
-    );
-
-}
-
-
-/* =========================================================
-   APPLY FILTERS
-========================================================= */
-
-function applyFilters() {
-
-    const filtered =
-        streamData.filter(
-            function (item) {
-
-
-                /* CATEGORY */
-
-                if (
-                    selectedFilters.category !== "All" &&
-                    item.category !==
-                    selectedFilters.category
-                ) {
-
-                    return false;
-
-                }
-
-
-                /* GENRE */
-
-                if (
-                    selectedFilters.genre &&
-                    item.genre !==
-                    selectedFilters.genre
-                ) {
-
-                    return false;
-
-                }
-
-
-                /* TIME */
-
-                if (
-                    selectedFilters.time
-                ) {
-
-                    const selectedTime =
-                        Number(
-                            selectedFilters.time
-                        );
-
-
-                    if (
-                        selectedTime ===
-                        120
-                    ) {
-
-                        if (
-                            item.time < 120
-                        ) {
-
-                            return false;
-
-                        }
-
-                    }
-
-                    else {
-
-                        if (
-                            item.time !==
-                            selectedTime
-                        ) {
-
-                            return false;
-
-                        }
-
-                    }
-
-                }
-
-
-                /* LANGUAGE */
-
-                if (
-                    selectedFilters.language &&
-                    item.language !==
-                    selectedFilters.language
-                ) {
-
-                    return false;
-
-                }
-
-
-                return true;
-
-            }
-        );
-
-
-    renderTrending(
-        filtered
-    );
-
-
-    showToast(
-        filtered.length +
-        " results found"
-    );
-
-}
-
-
-/* =========================================================
-   DISCOVER BUTTON
-========================================================= */
-
-const discoverButton =
-    document.getElementById(
-        "discoverButton"
-    );
-
-
-if (discoverButton) {
-
-    discoverButton.addEventListener(
-        "click",
-        applyFilters
-    );
-
-}
-
-
-/* =========================================================
-   CLOSE FILTER DROPDOWNS
-========================================================= */
-
-document.addEventListener(
-    "click",
-    function (event) {
-
-        if (
-            !event.target.closest(
-                ".filter-dropdown"
-            )
-        ) {
-
-            document
-                .querySelectorAll(
-                    ".filter-menu"
-                )
-                .forEach(
-                    function (menu) {
-
-                        menu.classList.remove(
-                            "show"
-                        );
-
-                    }
-                );
-
-
-            document
-                .querySelectorAll(
-                    ".filter-tab"
-                )
-                .forEach(
-                    function (button) {
-
-                        button.classList.remove(
-                            "active"
-                        );
-
-                    }
-                );
-
-        }
-
-    }
-);
-
-
-/* =========================================================
-   SEARCH
-========================================================= */
-
-const searchButton =
-    document.getElementById(
-        "searchButton"
-    );
-
-const searchOverlay =
-    document.getElementById(
-        "searchOverlay"
-    );
-
-const closeSearch =
-    document.getElementById(
-        "closeSearch"
-    );
-
-const searchInput =
-    document.getElementById(
-        "searchInput"
-    );
-
-const searchResults =
-    document.getElementById(
-        "searchResults"
-    );
-
-
-if (
-    searchButton &&
-    searchOverlay
-) {
-
-    searchButton.addEventListener(
-        "click",
-        function () {
-
-            searchOverlay.classList.add(
-                "show"
-            );
-
-
-            setTimeout(
-                function () {
-
-                    if (searchInput) {
-
-                        searchInput.focus();
-
-                    }
-
-                },
-                100
-            );
-
-        }
-    );
-
-}
-
-
-if (
-    closeSearch &&
-    searchOverlay
-) {
-
-    closeSearch.addEventListener(
-        "click",
-        function () {
-
-            searchOverlay.classList.remove(
-                "show"
-            );
-
-
-            if (searchInput) {
-
-                searchInput.value = "";
-
-            }
-
-
-            if (searchResults) {
-
-                searchResults.innerHTML =
-                    "";
-
-            }
-
-        }
-    );
-
-}
-
-
-if (searchOverlay) {
-
-    searchOverlay.addEventListener(
-        "click",
-        function (event) {
-
-            if (
-                event.target ===
-                searchOverlay
-            ) {
-
-                searchOverlay.classList.remove(
-                    "show"
-                );
-
-            }
-
-        }
-    );
-
-}
-
-
-if (searchInput) {
-
-    searchInput.addEventListener(
-        "input",
-        function () {
-
-            const query =
-                searchInput.value
-                    .trim()
-                    .toLowerCase();
-
-
-            if (!searchResults) {
-
-                return;
-
-            }
-
-
-            searchResults.innerHTML =
-                "";
-
-
-            if (!query) {
-
-                return;
-
-            }
-
-
-            const results =
-                streamData.filter(
-                    function (item) {
-
-                        return (
-
-                            item.title
-                                .toLowerCase()
-                                .includes(query)
-
-                            ||
-
-                            item.category
-                                .toLowerCase()
-                                .includes(query)
-
-                            ||
-
-                            item.genre
-                                .toLowerCase()
-                                .includes(query)
-
-                            ||
-
-                            item.language
-                                .toLowerCase()
-                                .includes(query)
-
-                        );
-
-                    }
-                );
-
-
-            if (results.length === 0) {
-
-                searchResults.innerHTML = `
-
-                    <div class="search-result">
-                        No results found
-                    </div>
-
-                `;
-
-                return;
-
-            }
-
-
-            results
-                .slice(0, 6)
-                .forEach(
-                    function (item) {
-
-                        const result =
-                            document.createElement(
-                                "div"
-                            );
-
-
-                        result.className =
-                            "search-result";
-
-
-                        result.textContent =
-                            item.title +
-                            " • " +
-                            item.category;
-
-
-                        result.addEventListener(
-                            "click",
-                            function () {
-
-                                showToast(
-                                    item.title +
-                                    " selected"
-                                );
-
-
-                                searchOverlay
-                                    .classList.remove(
-                                        "show"
-                                    );
-
-                            }
-                        );
-
-
-                        searchResults
-                            .appendChild(
-                                result
-                            );
-
-                    }
-                );
-
-        }
-    );
-
-}
-
-
-/* =========================================================
+/* =========================
    MOBILE MENU
-========================================================= */
+========================= */
 
-const mobileMenuButton =
-    document.getElementById(
-        "mobileMenuButton"
-    );
+function toggleMobileMenu() {
 
-const navLinks =
-    document.getElementById(
-        "navLinks"
-    );
+    const navLinks = document.getElementById("navLinks");
 
+    if (!navLinks) return;
 
-if (
-    mobileMenuButton &&
-    navLinks
-) {
-
-    mobileMenuButton.addEventListener(
-        "click",
-        function () {
-
-            navLinks.classList.toggle(
-                "show"
-            );
-
-        }
-    );
+    navLinks.classList.toggle("show");
 
 }
 
 
-/* =========================================================
-   HERO WATCH BUTTON
-========================================================= */
+/* =========================
+   DOM CONTENT LOADED
+========================= */
 
-const watchNowButton =
-    document.getElementById(
-        "watchNowButton"
-    );
+document.addEventListener("DOMContentLoaded", function () {
 
-
-if (watchNowButton) {
-
-    watchNowButton.addEventListener(
-        "click",
-        function () {
-
-            const discovery =
-                document.querySelector(
-                    ".discovery-section"
-                );
+    // Initial content
+    renderTrending();
+    renderMatch(streamData);
+    renderLive();
 
 
-            if (discovery) {
+    // Discover button
+    if (discoverButton) {
 
-                discovery.scrollIntoView({
-                    behavior: "smooth"
+        discoverButton.addEventListener(
+            "click",
+            discoverContent
+        );
+
+    }
+
+
+    // Search open
+    if (searchButton) {
+
+        searchButton.addEventListener(
+            "click",
+            openSearchOverlay
+        );
+
+    }
+
+
+    // Search close
+    if (closeSearch) {
+
+        closeSearch.addEventListener(
+            "click",
+            closeSearchOverlay
+        );
+
+    }
+
+
+    // Search typing
+    if (searchInput) {
+
+        searchInput.addEventListener(
+            "input",
+            searchContent
+        );
+
+    }
+
+
+    // Video modal close
+    if (closeVideoModal) {
+
+        closeVideoModal.addEventListener(
+            "click",
+            closeVideo
+        );
+
+    }
+
+
+    // Create room
+    if (createRoomButton) {
+
+        createRoomButton.addEventListener(
+            "click",
+            function () {
+                openRoom("create");
+            }
+        );
+
+    }
+
+
+    // Join room
+    if (joinRoomButton) {
+
+        joinRoomButton.addEventListener(
+            "click",
+            function () {
+                openRoom("join");
+            }
+        );
+
+    }
+
+
+    // Close room
+    if (closeRoomModal) {
+
+        closeRoomModal.addEventListener(
+            "click",
+            closeRoom
+        );
+
+    }
+
+
+    // Mobile menu
+    const mobileMenuButton =
+        document.getElementById("mobileMenuButton");
+
+    if (mobileMenuButton) {
+
+        mobileMenuButton.addEventListener(
+            "click",
+            toggleMobileMenu
+        );
+
+    }
+
+
+    // Close dropdown outside
+    document.addEventListener("click", function (event) {
+
+        if (!event.target.closest(".filter-dropdown")) {
+
+            document.querySelectorAll(".filter-menu")
+                .forEach(menu => {
+                    menu.classList.remove("show");
                 });
 
-            }
+            document.querySelectorAll(".filter-tab")
+                .forEach(tab => {
+                    tab.classList.remove("active");
+                });
 
         }
-    );
 
-}
-
-
-/* =========================================================
-   MY LIST
-========================================================= */
-
-const myListButton =
-    document.getElementById(
-        "myListButton"
-    );
+    });
 
 
-if (myListButton) {
+    // Close modals outside
+    window.addEventListener("click", function (event) {
 
-    myListButton.addEventListener(
-        "click",
-        function () {
+        if (event.target === videoModal) {
+            closeVideo();
+        }
 
-            showToast(
-                "Added to My List"
-            );
+        if (event.target === roomModal) {
+            closeRoom();
+        }
+
+        if (event.target === searchOverlay) {
+            closeSearchOverlay();
+        }
+
+    });
+
+
+    // Escape key
+    document.addEventListener("keydown", function (event) {
+
+        if (event.key === "Escape") {
+
+            closeVideo();
+            closeRoom();
+            closeSearchOverlay();
 
         }
-    );
 
-}
+    });
 
-
-/* =========================================================
-   REFRESH TRENDING
-========================================================= */
-
-const refreshTrending =
-    document.getElementById(
-        "refreshTrending"
-    );
-
-
-if (refreshTrending) {
-
-    refreshTrending.addEventListener(
-        "click",
-        function () {
-
-            const shuffled =
-                [...streamData].sort(
-                    function () {
-
-                        return (
-                            Math.random() -
-                            0.5
-                        );
-
-                    }
-                );
-
-
-            renderTrending(
-                shuffled
-            );
-
-
-            showToast(
-                "Trending refreshed"
-            );
-
-        }
-    );
-
-}
-
-
-/* =========================================================
-   WATCH TOGETHER - ROOM SYSTEM
-========================================================= */
-
-const roomModal =
-    document.getElementById(
-        "roomModal"
-    );
-
-const roomModalTitle =
-    document.getElementById(
-        "roomModalTitle"
-    );
-
-const roomModalText =
-    document.getElementById(
-        "roomModalText"
-    );
-
-const roomCodeInput =
-    document.getElementById(
-        "roomCodeInput"
-    );
-
-const confirmRoomButton =
-    document.getElementById(
-        "confirmRoomButton"
-    );
-
-const createRoomButton =
-    document.getElementById(
-        "createRoomButton"
-    );
-
-const joinRoomButton =
-    document.getElementById(
-        "joinRoomButton"
-    );
-
-const closeRoomModal =
-    document.getElementById(
-        "closeRoomModal"
-    );
-
-
-let roomMode = "join";
-
-
-/* =========================================================
-   GENERATE ROOM CODE
-========================================================= */
-
-function generateRoomCode() {
-
-    const chars =
-        "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
-
-
-    let code = "";
-
-
-    for (
-        let i = 0;
-        i < 6;
-        i++
-    ) {
-
-        code +=
-            chars.charAt(
-                Math.floor(
-                    Math.random() *
-                    chars.length
-                )
-            );
-
-    }
-
-
-    return code;
-
-}
-
-
-/* =========================================================
-   CREATE ROOM
-========================================================= */
-
-if (createRoomButton) {
-
-    createRoomButton.addEventListener(
-        "click",
-        function () {
-
-            roomMode =
-                "create";
-
-
-            const code =
-                generateRoomCode();
-
-
-            localStorage.setItem(
-                "streamxRoomCode",
-                code
-            );
-
-
-            if (roomModalTitle) {
-
-                roomModalTitle.textContent =
-                    "Your Watch Room";
-
-            }
-
-
-            if (roomModalText) {
-
-                roomModalText.textContent =
-                    "Share this room code with your friends.";
-
-            }
-
-
-            if (roomCodeInput) {
-
-                roomCodeInput.value =
-                    code;
-
-                roomCodeInput.readOnly =
-                    true;
-
-            }
-
-
-            if (confirmRoomButton) {
-
-                confirmRoomButton.textContent =
-                    "Room Created";
-
-            }
-
-
-            if (roomModal) {
-
-                roomModal.classList.add(
-                    "show"
-                );
-
-            }
-
-        }
-    );
-
-}
-
-
-/* =========================================================
-   JOIN ROOM
-========================================================= */
-
-if (joinRoomButton) {
-
-    joinRoomButton.addEventListener(
-        "click",
-        function () {
-
-            roomMode =
-                "join";
-
-
-            if (roomModalTitle) {
-
-                roomModalTitle.textContent =
-                    "Join Room";
-
-            }
-
-
-            if (roomModalText) {
-
-                roomModalText.textContent =
-                    "Enter the 6-character room code shared by your friend.";
-
-            }
-
-
-            if (roomCodeInput) {
-
-                roomCodeInput.value =
-                    "";
-
-                roomCodeInput.placeholder =
-                    "Enter 6-character code";
-
-                roomCodeInput.readOnly =
-                    false;
-
-            }
-
-
-            if (confirmRoomButton) {
-
-                confirmRoomButton.textContent =
-                    "Join Room";
-
-            }
-
-
-            if (roomModal) {
-
-                roomModal.classList.add(
-                    "show"
-                );
-
-            }
-
-
-            setTimeout(
-                function () {
-
-                    if (roomCodeInput) {
-
-                        roomCodeInput.focus();
-
-                    }
-
-                },
-                100
-            );
-
-        }
-    );
-
-}
-
-
-/* =========================================================
-   CONFIRM ROOM
-========================================================= */
-
-if (confirmRoomButton) {
-
-    confirmRoomButton.addEventListener(
-        "click",
-        function () {
-
-
-            if (
-                roomMode ===
-                "create"
-            ) {
-
-                showToast(
-                    "Room " +
-                    roomCodeInput.value +
-                    " created!"
-                );
-
-                return;
-
-            }
-
-
-            const code =
-                roomCodeInput.value
-                    .trim()
-                    .toUpperCase();
-
-
-            if (
-                code.length !== 6
-            ) {
-
-                showToast(
-                    "Enter a valid 6-character room code"
-                );
-
-                return;
-
-            }
-
-
-            localStorage.setItem(
-                "streamxJoinedRoom",
-                code
-            );
-
-
-            if (roomModal) {
-
-                roomModal.classList.remove(
-                    "show"
-                );
-
-            }
-
-
-            showToast(
-                "Joined room " +
-                code
-            );
-
-        }
-    );
-
-}
-
-
-/* =========================================================
-   CLOSE ROOM
-========================================================= */
-
-if (closeRoomModal) {
-
-    closeRoomModal.addEventListener(
-        "click",
-        function () {
-
-            if (roomModal) {
-
-                roomModal.classList.remove(
-                    "show"
-                );
-
-            }
-
-        }
-    );
-
-}
-
-
-if (roomModal) {
-
-    roomModal.addEventListener(
-        "click",
-        function (event) {
-
-            if (
-                event.target ===
-                roomModal
-            ) {
-
-                roomModal.classList.remove(
-                    "show"
-                );
-
-            }
-
-        }
-    );
-
-}
-
-
-/* =========================================================
-   INITIAL LOAD
-========================================================= */
-
-renderTrending(
-    [...streamData].sort(
-        function (a, b) {
-
-            return b.rating - a.rating;
-
-        }
-    )
-);
-
-
-renderLive();
+});
