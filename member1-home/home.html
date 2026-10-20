@@ -1,648 +1,319 @@
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>StreamX - Home</title>
-
+    <title>StreamX | Home</title>
     <link rel="stylesheet" href="home.css">
 </head>
-
 <body>
 
-    <!-- NAVBAR -->
-    <header class="navbar">
-        <div class="nav-container">
+<header class="navbar">
+    <div class="nav-container">
+        <a href="home.html" class="logo">STREAM<span>X</span></a>
 
-            <a href="home.html" class="logo">
-                Stream<span>X</span>
-            </a>
+        <button class="menu-toggle" id="menuToggle" aria-label="Open menu">☰</button>
 
-            <nav class="nav-links" id="navLinks">
-                <a href="home.html" class="active">Home</a>
-                <a href="../member2-content/movies.html">Movies</a>
-                <a href="../member2-content/series.html">Series</a>
-                <a href="../member3-live/live.html">Live</a>
-            </nav>
+        
+<nav class="nav-links" id="navLinks">
+    <a href="home.html" class="active">Home</a>
+    <a href="../member2-content/movies.html">Movies</a>
+    <a href="../member2-content/series.html">Series</a>
+    <a href="../member3-live/live.html">LIVE</a>
+</nav>
 
-            <div class="nav-actions">
+<div class="right-menu">
+    <button id="openSearch" class="search-icon-btn" aria-label="Open search">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="10.8" cy="10.8" r="7.2"></circle>
+            <path d="M16.2 16.2 22 22"></path>
+        </svg>
+    </button>
 
-                <button class="icon-button" id="searchButton">
-                    ⌕
-                </button>
+    <a href="../member4-user/profile.html" class="profile-link">
+        <span class="user-icon">&#128100;</span>
+        <span>Profile</span>
+    </a>
+</div>
 
-                <a href="../member4-user/profile.html"
-                    class="profile-button">
-                    Profile
-                </a>
+    </div>
+</header>
 
-                <button class="mobile-menu-button" id="mobileMenuButton">
-                    ☰
-                </button>
-
-            </div>
-
+<section class="hero">
+    <div class="hero-backdrop"></div>
+    <div class="hero-content">
+        <p class="hero-tag">STREAMX ORIGINALS</p>
+        <p class="hero-eyebrow">YOUR NEXT FAVOURITE STARTS HERE</p>
+        <h1>One Place.<br>Unlimited Stories.</h1>
+        <p class="hero-description">
+            Discover movies, series, anime, cartoons and podcasts—all in one place.
+        </p>
+        <div class="hero-buttons">
+            <button class="primary-button" id="heroWatchButton">▶ Watch Now</button>
+            <button class="secondary-button" id="heroInfoButton">ⓘ More Info</button>
         </div>
-    </header>
-
-
-    <!-- HERO -->
-    <section class="hero">
-
-        <div class="hero-overlay"></div>
-
-        <div class="hero-content">
-
-            <span class="hero-tag">
-                STREAMX ORIGINAL EXPERIENCE
-            </span>
-
-            <h1>
-                Everything You Want.<br>
-                One <span>Stream.</span>
-            </h1>
-
-            <p>
-                Discover movies, series, live streams, gaming,
-                podcasts and short-form entertainment in one place.
-            </p>
-
-            <div class="hero-buttons">
-
-                <a href="../member2-content/movies.html"
-                    class="primary-button">
-                    Explore Now
-                </a>
-
-                <button class="secondary-button" id="heroWatchButton">
-                    + My List
-                </button>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- DISCOVERY ENGINE -->
-    <section class="discovery-section">
-
-        <div class="discovery-header">
-
-            <div>
-                <span class="section-label">
-                    DISCOVERY ENGINE
-                </span>
-
-                <h2>Find Your Next Stream</h2>
-            </div>
-
-            <p>
-                Select your preferences and discover content made for your mood.
-            </p>
-
-        </div>
-
-
-        <div class="discovery-bar">
-
-            <!-- CATEGORY -->
-            <div class="filter-dropdown">
-
-                <button class="filter-tab"
-                    onclick="toggleFilter('categoryMenu', this)">
-
-                    <span id="categoryLabel">CATEGORY</span>
-                    <span class="filter-arrow">⌄</span>
-
-                </button>
-
-                <div class="filter-menu" id="categoryMenu">
-
-                    <button onclick="selectFilter('category', '', this)">
-                        All
-                    </button>
-
-                    <button onclick="selectFilter('category', 'Movies', this)">
-                        Movies
-                    </button>
-
-                    <button onclick="selectFilter('category', 'Series', this)">
-                        Series
-                    </button>
-
-                    <button onclick="selectFilter('category', 'Live', this)">
-                        Live
-                    </button>
-
-                    <button onclick="selectFilter('category', 'Gaming', this)">
-                        Gaming
-                    </button>
-
-                    <button onclick="selectFilter('category', 'Podcasts', this)">
-                        Podcasts
-                    </button>
-
-                    <button onclick="selectFilter('category', 'Shorts', this)">
-                        Shorts
-                    </button>
-
-                </div>
-
-            </div>
-
-
-            <!-- GENRE -->
-            <div class="filter-dropdown">
-
-                <button class="filter-tab"
-                    onclick="toggleFilter('genreMenu', this)">
-
-                    <span id="genreLabel">GENRE / TYPE</span>
-                    <span class="filter-arrow">⌄</span>
-
-                </button>
-
-                <div class="filter-menu" id="genreMenu">
-
-                    <button onclick="selectFilter('genre', '', this)">
-                        All
-                    </button>
-
-                    <button onclick="selectFilter('genre', 'Sci-Fi', this)">
-                        Sci-Fi
-                    </button>
-
-                    <button onclick="selectFilter('genre', 'Action', this)">
-                        Action
-                    </button>
-
-                    <button onclick="selectFilter('genre', 'Adventure', this)">
-                        Adventure
-                    </button>
-
-                    <button onclick="selectFilter('genre', 'Thriller', this)">
-                        Thriller
-                    </button>
-
-                    <button onclick="selectFilter('genre', 'Mystery', this)">
-                        Mystery
-                    </button>
-
-                    <button onclick="selectFilter('genre', 'Fantasy', this)">
-                        Fantasy
-                    </button>
-
-                </div>
-
-            </div>
-
-
-            <!-- TIME -->
-            <div class="filter-dropdown">
-
-                <button class="filter-tab"
-                    onclick="toggleFilter('timeMenu', this)">
-
-                    <span id="timeLabel">TIME</span>
-                    <span class="filter-arrow">⌄</span>
-
-                </button>
-
-                <div class="filter-menu" id="timeMenu">
-
-                    <button onclick="selectFilter('time', '', this)">
-                        All
-                    </button>
-
-                    <button onclick="selectFilter('time', '15', this)">
-                        15 min
-                    </button>
-
-                    <button onclick="selectFilter('time', '45', this)">
-                        45 min
-                    </button>
-
-                    <button onclick="selectFilter('time', '60', this)">
-                        1 hr
-                    </button>
-
-                    <button onclick="selectFilter('time', '120', this)">
-                        2 hr+
-                    </button>
-
-                </div>
-
-            </div>
-
-
-            <!-- LANGUAGE -->
-            <div class="filter-dropdown">
-
-                <button class="filter-tab"
-                    onclick="toggleFilter('languageMenu', this)">
-
-                    <span id="languageLabel">LANGUAGE / REGION</span>
-                    <span class="filter-arrow">⌄</span>
-
-                </button>
-
-                <div class="filter-menu language-menu" id="languageMenu">
-
-                    <button onclick="selectFilter('language', '', this)">
-                        All
-                    </button>
-
-                    <button onclick="selectFilter('language', 'Chinese', this)">
-                        Chinese
-                    </button>
-
-                    <button onclick="selectFilter('language', 'Korean', this)">
-                        Korean
-                    </button>
-
-                    <button onclick="selectFilter('language', 'Turkish', this)">
-                        Turkish
-                    </button>
-
-                    <button onclick="selectFilter('language', 'Japanese', this)">
-                        Japanese
-                    </button>
-
-                    <button onclick="selectFilter('language', 'Bollywood', this)">
-                        Bollywood
-                    </button>
-
-                    <button onclick="selectFilter('language', 'Hollywood', this)">
-                        Hollywood
-                    </button>
-
-                    <button onclick="selectFilter('language', 'English', this)">
-                        English
-                    </button>
-
-                </div>
-
-            </div>
-
-
-            <button class="discover-button" id="discoverButton">
-                Discover
-            </button>
-
-        </div>
-
-    </section>
-
-
-    <!-- YOUR MATCH -->
-    <section class="section">
-
+        <p class="hero-hint">Discover something worth watching today.</p>
+    </div>
+</section>
+
+<main>
+    <section class="content-section" id="continueWatchingSection">
         <div class="section-heading">
-
             <div>
-                <span class="section-label">
-                    PERSONALIZED DISCOVERY
-                </span>
-
-                <h2>Your Match</h2>
+                <p class="section-label">PICK UP WHERE YOU LEFT OFF</p>
+                <h2>Continue Watching</h2>
             </div>
-
-            <p class="discovery-description">
-                Content selected from your current preferences.
-            </p>
-
         </div>
-
-        <div id="matchGrid">
+        <div class="carousel-wrapper">
+            <button class="carousel-arrow left" data-target="continueGrid">‹</button>
+            <div class="content-grid" id="continueGrid"></div>
+            <button class="carousel-arrow right" data-target="continueGrid">›</button>
         </div>
-
     </section>
 
-
-    <!-- STREAMX UNIVERSE -->
-    <section class="section">
-
+    <section class="content-section" id="trendingSection">
         <div class="section-heading">
-
             <div>
-                <span class="section-label">
-                    EXPLORE EVERYTHING
-                </span>
-
-                <h2>StreamX Universe</h2>
+                <p class="section-label">WHAT EVERYONE IS WATCHING</p>
+                <h2>Trending Now</h2>
             </div>
-
-            <p>
-                Different formats. One entertainment destination.
-            </p>
-
         </div>
+        <div class="carousel-wrapper">
+            <button class="carousel-arrow left" data-target="trendingGrid">‹</button>
+            <div class="content-grid" id="trendingGrid"></div>
+            <button class="carousel-arrow right" data-target="trendingGrid">›</button>
+        </div>
+    </section>
 
+    <section class="content-section" id="exploreSection">
+        <div class="section-heading">
+            <div>
+                <p class="section-label">EXPLORE YOUR UNIVERSE</p>
+                <h2>Explore StreamX</h2>
+            </div>
+        </div>
 
         <div class="universe-grid">
-
-            <a href="../member2-content/movies.html"
-                class="universe-card movies-card">
-
-                <div class="universe-overlay"></div>
-
-                <div class="universe-content">
-                    <span>01</span>
-                    <h3>Movies</h3>
-                    <p>Big stories. Bigger experiences.</p>
-                </div>
-
+            <a href="../member2-content/movies.html" class="universe-tile movies-tile">
+                <span>DISCOVER</span><h3>Movies</h3><p>Stories worth your time.</p>
             </a>
-
-
-            <a href="../member2-content/series.html"
-                class="universe-card series-card">
-
-                <div class="universe-overlay"></div>
-
-                <div class="universe-content">
-                    <span>02</span>
-                    <h3>Series</h3>
-                    <p>Stories worth staying for.</p>
-                </div>
-
+            <a href="../member2-content/series.html" class="universe-tile series-tile">
+                <span>BINGE-WORTHY</span><h3>Series</h3><p>Your next long watch.</p>
             </a>
-
-
-            <a href="../member3-live/live.html"
-                class="universe-card live-card">
-
-                <div class="universe-overlay"></div>
-
-                <div class="universe-content">
-                    <span>03</span>
-                    <h3>Live Streams</h3>
-                    <p>Happening right now.</p>
-                </div>
-
+            <a href="../member3-live/live.html" class="universe-tile live-tile">
+                <span>LIVE NOW</span><h3>Live Pulse</h3><p>Happening right now.</p>
             </a>
-
-
-            <a href="../member3-live/live.html"
-                class="universe-card gaming-card">
-
-                <div class="universe-overlay"></div>
-
-                <div class="universe-content">
-                    <span>04</span>
-                    <h3>Gaming</h3>
-                    <p>Play. Watch. Compete.</p>
-                </div>
-
+            <a href="#podcastsSection" class="universe-tile podcasts-tile">
+                <span>LISTEN IN</span><h3>Podcasts</h3><p>Ideas worth hearing.</p>
             </a>
-
-
-            <div class="universe-card podcast-card">
-
-                <div class="universe-overlay"></div>
-
-                <div class="universe-content">
-                    <span>05</span>
-                    <h3>Podcasts</h3>
-                    <p>Conversations that matter.</p>
-                </div>
-
-            </div>
-
-
-            <div class="universe-card shorts-card">
-
-                <div class="universe-overlay"></div>
-
-                <div class="universe-content">
-                    <span>06</span>
-                    <h3>Shorts</h3>
-                    <p>Quick entertainment hits.</p>
-                </div>
-
-            </div>
-
         </div>
-
     </section>
 
+    <section class="content-section" id="englishSection">
+        <div class="section-heading"><h2>Popular Asian Series (K-Dramas & C-Dramas)</h2></div>
+        <div class="carousel-wrapper">
+            <button class="carousel-arrow left" data-target="englishGrid">‹</button>
+            <div class="content-grid" id="englishGrid"></div>
+            <button class="carousel-arrow right" data-target="englishGrid">›</button>
+        </div>
+    </section>
 
-    <!-- LIVE PULSE -->
-    <section class="section">
+    <section class="content-section" id="bollywoodSection">
+        <div class="section-heading"><h2>Bollywood</h2></div>
+        <div class="carousel-wrapper">
+            <button class="carousel-arrow left" data-target="bollywoodGrid">‹</button>
+            <div class="content-grid" id="bollywoodGrid"></div>
+            <button class="carousel-arrow right" data-target="bollywoodGrid">›</button>
+        </div>
+    </section>
 
+    <section class="content-section" id="animeSection">
+        <div class="section-heading"><h2>Anime</h2></div>
+        <div class="carousel-wrapper">
+            <button class="carousel-arrow left" data-target="animeGrid">‹</button>
+            <div class="content-grid" id="animeGrid"></div>
+            <button class="carousel-arrow right" data-target="animeGrid">›</button>
+        </div>
+    </section>
+
+    <section class="content-section" id="cartoonsSection">
+        <div class="section-heading"><h2>Cartoons</h2></div>
+        <div class="carousel-wrapper">
+            <button class="carousel-arrow left" data-target="cartoonsGrid">‹</button>
+            <div class="content-grid" id="cartoonsGrid"></div>
+            <button class="carousel-arrow right" data-target="cartoonsGrid">›</button>
+        </div>
+    </section>
+
+    <section class="content-section" id="podcastsSection">
+        <div class="section-heading"><h2>Podcasts</h2></div>
+        <div class="carousel-wrapper">
+            <button class="carousel-arrow left" data-target="podcastsGrid">‹</button>
+            <div class="content-grid" id="podcastsGrid"></div>
+            <button class="carousel-arrow right" data-target="podcastsGrid">›</button>
+        </div>
+    </section>
+    <!-- REALITY SHOWS -->
+<section class="content-section" id="realityShowsSection">
+    <div class="section-heading">
+        <div>
+            <p class="section-label">INDIA & AROUND THE WORLD</p>
+            <h2>Reality Shows</h2>
+        </div>
+    </div>
+
+    <div class="carousel-wrapper">
+        <button class="carousel-arrow left"
+                data-target="realityShowsGrid"
+                aria-label="Scroll reality shows left">❮</button>
+
+        <div class="content-grid" id="realityShowsGrid"></div>
+
+        <button class="carousel-arrow right"
+                data-target="realityShowsGrid"
+                aria-label="Scroll reality shows right">❯</button>
+    </div>
+</section>
+
+    <section class="content-section" id="myListSection">
         <div class="section-heading">
-
             <div>
-                <span class="section-label">
-                    LIVE PULSE
-                </span>
-
-                <h2>Happening Right Now</h2>
+                <p class="section-label">YOUR PERSONAL COLLECTION</p>
+                <h2>My List</h2>
             </div>
-
-            <a href="../member3-live/live.html"
-                class="text-link">
-                View All
-            </a>
-
         </div>
-
-        <div class="live-grid" id="liveGrid">
+        <div class="carousel-wrapper">
+            <button class="carousel-arrow left" data-target="myListGrid">‹</button>
+            <div class="content-grid" id="myListGrid"></div>
+            <button class="carousel-arrow right" data-target="myListGrid">›</button>
         </div>
-
     </section>
 
-
-    <!-- TRENDING NOW -->
-    <section class="section">
-
-        <div class="section-heading">
-
-            <div>
-                <span class="section-label">
-                    TRENDING NOW
-                </span>
-
-                <h2>Popular Across StreamX</h2>
-            </div>
-
+    <section class="watch-together" id="watchTogether">
+        <div>
+            <p class="section-label">WATCH TOGETHER</p>
+            <h2>Good stories are better shared.</h2>
+            <p>Create a room and share its code with your friends.</p>
         </div>
-
-        <div class="content-grid" id="trendingGrid">
+        <div class="room-buttons">
+            <button class="primary-button" id="createRoomButton">Create Room</button>
+            <button class="secondary-button" id="joinRoomButton">Join Room</button>
         </div>
-
     </section>
+</main>
 
-
-    <!-- WATCH TOGETHER -->
-    <section class="section watch-section">
-
-        <div class="watch-together">
-
-            <div class="watch-bg"></div>
-            <div class="watch-overlay"></div>
-
-            <div class="watch-content">
-
-                <span class="section-label">
-                    SOCIAL STREAMING
-                </span>
-
-                <h2>Watch Together</h2>
-
-                <p>
-                    Create a room, invite your friends and enjoy
-                    the same content together.
-                </p>
-
-                <div class="watch-buttons">
-
-                    <button class="primary-button" id="createRoomButton">
-                        Create Room
-                    </button>
-
-                    <button class="secondary-button" id="joinRoomButton">
-                        Join Room
-                    </button>
-
-                </div>
-
-            </div>
-
+<footer class="footer">
+    <div class="footer-top">
+        <a href="home.html" class="logo">STREAM<span>X</span></a>
+        <div class="footer-socials">
+            <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">Instagram</a>
+            <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">Facebook</a>
+            <a href="https://www.google.com/" target="_blank" rel="noopener noreferrer">Google</a>
         </div>
+    </div>
 
-    </section>
+    <div class="footer-columns">
+        <div class="footer-column">
+            <a href="../member2-content/movies.html">Movies</a>
+            <a href="../member2-content/series.html">Series</a>
+        </div>
+        <div class="footer-column">
+            <a href="../member3-live/live.html">Live Pulse</a>
+            <a href="#podcastsSection">Podcasts</a>
+        </div>
+        <div class="footer-column">
+            <a href="#animeSection">Anime</a>
+            <a href="#cartoonsSection">Cartoons</a>
+        </div>
+        <div class="footer-column">
+            <a href="../member4-user/profile.html">Profile</a>
+            <a href="#myListSection">My List</a>
+        </div>
+    </div>
+
+    <p class="footer-copyright">© 2026 StreamX. Your entertainment, your universe.</p>
+</footer>
+
+<!-- SEARCH -->
 
 
-    <!-- SEARCH OVERLAY -->
-    <div class="search-overlay" id="searchOverlay">
-
-        <div class="search-box">
-
-            <button class="close-search" id="closeSearch">
-                ×
-            </button>
-
-            <h2>Search StreamX</h2>
-
-            <input type="text"
+<!-- SEARCH OVERLAY -->
+<div class="search-overlay" id="searchOverlay">
+    <div class="search-panel">
+        <div class="search-top">
+            <input
+                type="search"
                 id="searchInput"
-                placeholder="Search movies, series, live streams...">
+                placeholder="Search movies, series, anime..."
+                autocomplete="off"
+            >
 
-            <div class="search-results" id="searchResults">
-            </div>
-
+            <button
+                class="close-button"
+                id="closeSearch"
+                aria-label="Close search"
+            >✕</button>
         </div>
 
+        <div class="search-results" id="searchResults"></div>
     </div>
+</div>
 
-
-    <!-- ROOM MODAL -->
-    <div class="modal" id="roomModal">
-
-        <div class="modal-box">
-
-            <button class="modal-close" id="closeRoomModal">
-                ×
-            </button>
-
-            <h2 id="roomModalTitle">
-                Watch Together
-            </h2>
-
-            <p id="roomModalText">
-            </p>
-
-            <input type="text"
-                id="roomCodeInput"
-                placeholder="Enter room code">
-
-            <button class="primary-button" id="confirmRoomButton">
-                Continue
-            </button>
-
-        </div>
-
-    </div>
-
-
-    <!-- VIDEO MODAL -->
-    <div class="home-video-modal" id="videoModal">
-
-        <div class="home-video-box">
-
-            <button class="close-video-modal" id="closeVideoModal">
-                ×
-            </button>
-
-            <iframe id="homeVideoPlayer"
-                src=""
-                allowfullscreen>
-            </iframe>
-
-        </div>
-
-    </div>
-
-
-    <!-- TOAST -->
-    <div class="toast" id="toast"></div>
-
-
-    <!-- FOOTER -->
-    <footer class="footer">
-
-        <div class="footer-container">
-
-            <div class="footer-brand">
-
-                <a href="home.html" class="logo">
-                    Stream<span>X</span>
-                </a>
-
-                <p>
-                    Everything you want. One stream.
-                </p>
-
+<!-- DETAILS -->
+<div class="details-overlay" id="detailsOverlay">
+    <div class="details-panel">
+        <button class="close-button details-close" id="closeDetails">✕</button>
+        <div class="details-poster" id="detailsPoster"></div>
+        <div class="details-body">
+            <p class="section-label" id="detailsCategory"></p>
+            <h2 id="detailsTitle"></h2>
+            <p class="details-meta" id="detailsMeta"></p>
+            <p id="detailsDescription"></p>
+            <div class="hero-buttons">
+                <button class="primary-button" id="detailsPlayButton">▶ Play</button>
+                <button class="secondary-button" id="detailsListButton">+ My List</button>
             </div>
+        </div>
+    </div>
+</div>
 
+<!-- ROOM MODAL -->
+<div class="modal" id="roomModal">
+    <div class="modal-panel room-panel">
+        <div class="modal-heading">
+            <h2 id="roomModalTitle">Watch Room</h2>
+            <button class="close-button" id="closeRoomModal">✕</button>
+        </div>
+        <p id="roomModalText">Create or join a room.</p>
+        <input type="text" id="roomCodeInput" placeholder="Enter room code" maxlength="7">
 
-            <div class="footer-links">
-
-                <div>
-                    <h4>Explore</h4>
-                    <a href="home.html">Home</a>
-                    <a href="../member2-content/movies.html">Movies</a>
-                    <a href="../member2-content/series.html">Series</a>
-                    <a href="../member3-live/live.html">Live</a>
-                </div>
-
-                <div>
-                    <h4>Account</h4>
-                    <a href="../member4-user/profile.html">Profile</a>
-                    <a href="../member4-user/watchlist.html">Watchlist</a>
-                    <a href="../member4-user/history.html">History</a>
-                </div>
-
-            </div>
-
+        <div class="generated-room-code" id="generatedRoomCode" hidden>
+            <span>Your room code</span>
+            <strong id="roomCodeValue"></strong>
+            <button class="secondary-button" id="copyRoomCodeButton">Copy Code</button>
         </div>
 
+        <button class="primary-button" id="confirmRoomButton">Continue</button>
+    </div>
+</div>
 
-        <div class="footer-bottom">
-            <span>© 2026 StreamX</span>
-            <span>Everything you want. One stream.</span>
+<!-- VIDEO MODAL -->
+<div class="home-video-modal" id="videoModal">
+    <div class="video-panel">
+        <button class="close-button video-close" id="closeVideoModal">✕</button>
+        <iframe id="homeVideoPlayer" title="StreamX video player" allow="autoplay; fullscreen" allowfullscreen></iframe>
+        <video id="homeNativeVideo" controls playsinline></video>
+        <div class="video-placeholder" id="videoPlaceholder">
+            <h2 id="placeholderTitle">StreamX</h2>
+            <p>To play a video, add an authorised video URL to your video sources.</p>
         </div>
+    </div>
+</div>
 
-    </footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-
-    <script src="images.js"></script>
-    <script src="home.js"></script>
-
+<script src="images.js"></script>
+<script src="home.js?v=2"></script>
 </body>
-
 </html>
