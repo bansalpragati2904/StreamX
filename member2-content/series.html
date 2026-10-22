@@ -1,196 +1,148 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>StreamX | Series</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-    <!-- NAVBAR -->
-    <header class="navbar">
+<header class="navbar">
+    <a href="../member1-home/home.html" class="logo">
+        <span class="logo-text">STREAM<span class="logo-x">X</span></span>
+    </a>
 
-        <div class="logo">
-            <div class="logo-box">S</div>
-            <div class="logo-text">stream<span>x</span></div>
+    <div class="nav-right">
+        <nav class="nav-links">
+            <a href="../member1-home/home.html">Home</a>
+            <a href="movies.html">Movies</a>
+            <a href="series.html" class="active">Series</a>
+            <a href="../member3-live/live.html">LIVE</a>
+        </nav>
+
+        <div class="nav-actions">
+            <button class="icon-btn" id="searchToggle" aria-label="Search">
+                <svg width="28" height="28" viewBox="0 0 24 24"
+                     fill="none" stroke="currentColor" stroke-width="2.5"
+                     stroke-linecap="round">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+            </button>
+
+            <a href="../member4-user/profile.html" class="profile-btn">
+                <span class="profile-icon">♟</span> Profile
+            </a>
         </div>
-
-        <div class="nav-right">
-
-            <nav class="nav-links">
-
-                <!-- MEMBER 1 HOME -->
-                <a href="../member1-home/home.html"
-                   class="working-link">
-                    Home
-                </a>
-
-                <!-- MEMBER 2 MOVIES -->
-                <a href="movies.html"
-                   class="working-link">
-                    Movies
-                </a>
-
-                <!-- MEMBER 2 SERIES -->
-                <a href="series.html"
-                   class="working-link active">
-                    Series
-                </a>
-
-                <!-- MEMBER 3 LIVE -->
-                <a href="../member3-live/live.html"
-                   class="working-link">
-                    Live
-                </a>
-
-            </nav>
-
-            <div class="nav-actions">
-
-                <button
-                    class="icon-btn search-btn"
-                    aria-label="Search">
-
-                    <svg
-                        width="18"
-                        height="18"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="2.5"
-                        stroke-linecap="round"
-                        stroke-linejoin="round">
-
-                        <circle
-                            cx="11"
-                            cy="11"
-                            r="8">
-                        </circle>
-
-                        <line
-                            x1="21"
-                            y1="21"
-                            x2="16.65"
-                            y2="16.65">
-                        </line>
-
-                    </svg>
-
-                </button>
-
-                <!-- MEMBER 4 PROFILE -->
-                <a
-                    href="../member4-user/profile.html"
-                    class="profile-btn">
-                    Profile
-                </a>
-
-            </div>
-
-        </div>
-
-    </header>
-
-
-    <!-- SERIES PAGE -->
-    <main class="page">
-
-        <h1 class="page-title">
-            TV Series
-        </h1>
-
-        <p class="page-subtitle">
-            Discover popular series and web shows.
-        </p>
-
-
-        <!-- FILTERS -->
-        <div class="filters">
-
-            <button
-                class="filter-btn active"
-                data-type="series"
-                data-genre="All">
-                All
-            </button>
-
-            <button
-                class="filter-btn"
-                data-type="series"
-                data-genre="Mystery">
-                Mystery
-            </button>
-
-            <button
-                class="filter-btn"
-                data-type="series"
-                data-genre="Crime">
-                Crime
-            </button>
-
-            <button
-                class="filter-btn"
-                data-type="series"
-                data-genre="Drama">
-                Drama
-            </button>
-
-            <button
-                class="filter-btn"
-                data-type="series"
-                data-genre="Fantasy">
-                Fantasy
-            </button>
-
-            <button
-                class="filter-btn"
-                data-type="series"
-                data-genre="Sci-Fi">
-                Sci-Fi
-            </button>
-
-        </div>
-
-
-        <!-- SERIES CARDS -->
-        <div
-            id="seriesGrid"
-            class="series-grid">
-        </div>
-
-    </main>
-
-
-    <!-- VIDEO MODAL -->
-    <div
-        id="videoModal"
-        class="modal">
-
-        <div class="modal-box">
-
-            <button
-                id="closeModal"
-                class="close-btn">
-                ×
-            </button>
-
-            <iframe
-                id="videoPlayer"
-                src=""
-                allow="autoplay; encrypted-media"
-                allowfullscreen>
-            </iframe>
-
-        </div>
-
     </div>
+</header>
 
+<main class="page">
 
-    <script src="script.js"></script>
+    <section class="page-heading">
+        <p class="eyebrow">YOUR NEXT BINGE STARTS HERE</p>
+        <h1>Explore <span>Series</span></h1>
+        <p>Discover stories worth coming back to.</p>
+    </section>
 
+    <section class="filter-panel">
+        <input type="search" id="searchInput" placeholder="Search series...">
+
+        <select id="genreFilter">
+            <option value="All">All Genres</option>
+            <option value="Mystery">Mystery</option>
+            <option value="Crime">Crime</option>
+            <option value="Drama">Drama</option>
+            <option value="Fantasy">Fantasy</option>
+            <option value="Sci-Fi">Sci-Fi</option>
+            <option value="Action">Action</option>
+            <option value="Adventure">Adventure</option>
+            <option value="Thriller">Thriller</option>
+            <option value="Comedy">Comedy</option>
+        </select>
+
+        <select id="yearFilter">
+            <option value="All">All Years</option>
+        </select>
+
+        <select id="ratingFilter">
+            <option value="0">All Ratings</option>
+            <option value="6">6+ Rating</option>
+            <option value="7">7+ Rating</option>
+            <option value="8">8+ Rating</option>
+        </select>
+
+        <select id="sortFilter">
+            <option value="default">Sort By</option>
+            <option value="rating">Top Rated</option>
+            <option value="newest">Newest</option>
+            <option value="alphabetical">A to Z</option>
+        </select>
+    </section>
+
+    <section class="content-section">
+        <div class="section-heading"><h2>🔥 Trending Series</h2></div>
+        <div class="media-grid" id="trendingGrid"></div>
+    </section>
+
+    <section class="content-section">
+        <div class="section-heading"><h2>⭐ Top Rated Series</h2></div>
+        <div class="media-grid" id="topRatedGrid"></div>
+    </section>
+
+    <section class="content-section">
+        <div class="section-heading">
+            <h2>📺 All Series</h2>
+            <span id="resultCount"></span>
+        </div>
+        <div class="media-grid" id="seriesGrid"></div>
+    </section>
+
+    <section class="content-section">
+        <div class="section-heading"><h2>✨ Recommended For You</h2></div>
+
+        <div class="recommend-controls">
+            <label for="recommendGenre">Choose a genre:</label>
+            <select id="recommendGenre">
+                <option value="All">Any Genre</option>
+                <option value="Mystery">Mystery</option>
+                <option value="Crime">Crime</option>
+                <option value="Drama">Drama</option>
+                <option value="Fantasy">Fantasy</option>
+                <option value="Sci-Fi">Sci-Fi</option>
+                <option value="Action">Action</option>
+                <option value="Adventure">Adventure</option>
+                <option value="Thriller">Thriller</option>
+                <option value="Comedy">Comedy</option>
+            </select>
+        </div>
+
+        <div class="media-grid" id="recommendGrid"></div>
+    </section>
+
+</main>
+
+<div class="modal" id="detailsModal" role="dialog" aria-modal="true" aria-label="Title details">
+    <div class="modal-box details-box">
+        <button class="close-button" id="closeDetails">&times;</button>
+        <div id="detailsBody"></div>
+    </div>
+</div>
+
+<div class="modal" id="videoModal" role="dialog" aria-modal="true" aria-label="Trailer">
+    <div class="modal-box video-box">
+        <button class="close-button" id="closeModal">&times;</button>
+        <iframe id="videoPlayer" src="" title="Series trailer"
+                allow="autoplay; encrypted-media; picture-in-picture"
+                allowfullscreen></iframe>
+    </div>
+</div>
+
+<script src="script.js"></script>
 </body>
-
 </html>

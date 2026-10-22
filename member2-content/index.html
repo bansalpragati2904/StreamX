@@ -1,245 +1,146 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>StreamX | Movies</title>
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-    <!-- =====================================================
-         NAVBAR
-         ===================================================== -->
+<header class="navbar">
+    <a href="../member1-home/home.html" class="logo">
+        <span class="logo-text">STREAM<span class="logo-x">X</span></span>
+    </a>
 
-    <header class="navbar">
+    <div class="nav-right">
+        <nav class="nav-links">
+            <a href="../member1-home/home.html">Home</a>
+            <a href="movies.html" class="active">Movies</a>
+            <a href="series.html">Series</a>
+            <a href="../member3-live/live.html">LIVE</a>
+        </nav>
 
-        <!-- LOGO -->
-        <div class="logo">
-            <div class="logo-box">S</div>
-            <div class="logo-text">stream<span>x</span></div>
+        <div class="nav-actions">
+            <button class="icon-btn" id="searchToggle" aria-label="Search">
+                <svg width="28" height="28" viewBox="0 0 24 24"
+                     fill="none" stroke="currentColor" stroke-width="2.5"
+                     stroke-linecap="round">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+            </button>
+
+            <a href="../member4-user/profile.html" class="profile-btn">
+                <span class="profile-icon">♟</span> Profile
+            </a>
         </div>
-
-
-        <!-- NAVIGATION -->
-        <div class="nav-right">
-
-            <nav class="nav-links">
-
-                <!-- MEMBER 1 HOME -->
-                <a href="../member1-home/home.html"
-                   class="working-link">
-                    Home
-                </a>
-
-
-                <!-- MEMBER 2 MOVIES -->
-                <a href="movies.html"
-                   class="working-link active">
-                    Movies
-                </a>
-
-
-                <!-- MEMBER 2 SERIES -->
-                <a href="series.html"
-                   class="working-link">
-                    Series
-                </a>
-
-
-                <!-- MEMBER 3 LIVE -->
-                <a href="../member3-live/live.html"
-                   class="working-link">
-                    Live
-                </a>
-
-            </nav>
-
-
-            <!-- NAV ACTIONS -->
-            <div class="nav-actions">
-
-                <!-- SEARCH -->
-                <button
-                    class="icon-btn search-btn"
-                    aria-label="Search">
-
-                    <svg
-                        width="18"
-                        height="18"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="2.5"
-                        stroke-linecap="round"
-                        stroke-linejoin="round">
-
-                        <circle
-                            cx="11"
-                            cy="11"
-                            r="8">
-                        </circle>
-
-                        <line
-                            x1="21"
-                            y1="21"
-                            x2="16.65"
-                            y2="16.65">
-                        </line>
-
-                    </svg>
-
-                </button>
-
-
-                <!-- MEMBER 4 PROFILE -->
-                <a
-                    href="../member4-user/profile.html"
-                    class="profile-btn">
-
-                    Profile
-
-                </a>
-
-            </div>
-
-        </div>
-
-    </header>
-
-
-
-    <!-- =====================================================
-         MOVIES PAGE
-         ===================================================== -->
-
-    <main class="page">
-
-        <h1 class="page-title">
-            Movies
-        </h1>
-
-        <p class="page-subtitle">
-            Explore movies across different genres.
-        </p>
-
-
-        <!-- FILTERS -->
-
-        <div class="filters">
-
-            <button
-                class="filter-btn active"
-                data-type="movie"
-                data-genre="All">
-
-                All
-
-            </button>
-
-
-            <button
-                class="filter-btn"
-                data-type="movie"
-                data-genre="Sci-Fi">
-
-                Sci-Fi
-
-            </button>
-
-
-            <button
-                class="filter-btn"
-                data-type="movie"
-                data-genre="Action">
-
-                Action
-
-            </button>
-
-
-            <button
-                class="filter-btn"
-                data-type="movie"
-                data-genre="Drama">
-
-                Drama
-
-            </button>
-
-
-            <button
-                class="filter-btn"
-                data-type="movie"
-                data-genre="Adventure">
-
-                Adventure
-
-            </button>
-
-
-            <button
-                class="filter-btn"
-                data-type="movie"
-                data-genre="Thriller">
-
-                Thriller
-
-            </button>
-
-        </div>
-
-
-        <!-- MOVIE CARDS -->
-
-        <div
-            id="movieGrid"
-            class="movie-grid">
-        </div>
-
-    </main>
-
-
-
-    <!-- =====================================================
-         VIDEO MODAL
-         ===================================================== -->
-
-    <div
-        id="videoModal"
-        class="modal">
-
-        <div class="modal-box">
-
-            <button
-                id="closeModal"
-                class="close-btn">
-
-                ×
-
-            </button>
-
-
-            <iframe
-                id="videoPlayer"
-                src=""
-                allow="autoplay; encrypted-media"
-                allowfullscreen>
-            </iframe>
-
-        </div>
-
     </div>
+</header>
 
+<main class="page">
 
+    <section class="page-heading">
+        <p class="eyebrow">DISCOVER YOUR NEXT FAVOURITE</p>
+        <h1>Explore <span>Movies</span></h1>
+        <p>Find something worth watching.</p>
+    </section>
 
-    <!-- JAVASCRIPT -->
+    <section class="filter-panel">
+        <input type="search" id="searchInput" placeholder="Search movies...">
 
-    <script src="script.js"></script>
+        <select id="genreFilter">
+            <option value="All">All Genres</option>
+            <option value="Sci-Fi">Sci-Fi</option>
+            <option value="Action">Action</option>
+            <option value="Drama">Drama</option>
+            <option value="Adventure">Adventure</option>
+            <option value="Thriller">Thriller</option>
+            <option value="Crime">Crime</option>
+            <option value="Comedy">Comedy</option>
+            <option value="Mystery">Mystery</option>
+        </select>
 
+        <select id="yearFilter">
+            <option value="All">All Years</option>
+        </select>
+
+        <select id="ratingFilter">
+            <option value="0">All Ratings</option>
+            <option value="6">6+ Rating</option>
+            <option value="7">7+ Rating</option>
+            <option value="8">8+ Rating</option>
+        </select>
+
+        <select id="sortFilter">
+            <option value="default">Sort By</option>
+            <option value="rating">Top Rated</option>
+            <option value="newest">Newest</option>
+            <option value="alphabetical">A to Z</option>
+        </select>
+    </section>
+
+    <section class="content-section">
+        <div class="section-heading"><h2>🔥 Trending Movies</h2></div>
+        <div class="media-grid" id="trendingGrid"></div>
+    </section>
+
+    <section class="content-section">
+        <div class="section-heading"><h2>⭐ Top Rated Movies</h2></div>
+        <div class="media-grid" id="topRatedGrid"></div>
+    </section>
+
+    <section class="content-section">
+        <div class="section-heading">
+            <h2>🎬 All Movies</h2>
+            <span id="resultCount"></span>
+        </div>
+        <div class="media-grid" id="movieGrid"></div>
+    </section>
+
+    <section class="content-section">
+        <div class="section-heading"><h2>✨ Recommended For You</h2></div>
+
+        <div class="recommend-controls">
+            <label for="recommendGenre">Choose a genre:</label>
+            <select id="recommendGenre">
+                <option value="All">Any Genre</option>
+                <option value="Sci-Fi">Sci-Fi</option>
+                <option value="Action">Action</option>
+                <option value="Drama">Drama</option>
+                <option value="Adventure">Adventure</option>
+                <option value="Thriller">Thriller</option>
+                <option value="Crime">Crime</option>
+                <option value="Comedy">Comedy</option>
+                <option value="Mystery">Mystery</option>
+            </select>
+        </div>
+
+        <div class="media-grid" id="recommendGrid"></div>
+    </section>
+
+</main>
+
+<div class="modal" id="detailsModal" role="dialog" aria-modal="true" aria-label="Title details">
+    <div class="modal-box details-box">
+        <button class="close-button" id="closeDetails">&times;</button>
+        <div id="detailsBody"></div>
+    </div>
+</div>
+
+<div class="modal" id="videoModal" role="dialog" aria-modal="true" aria-label="Trailer">
+    <div class="modal-box video-box">
+        <button class="close-button" id="closeModal">&times;</button>
+        <iframe id="videoPlayer" src="" title="Movie trailer"
+                allow="autoplay; encrypted-media; picture-in-picture"
+                allowfullscreen></iframe>
+    </div>
+</div>
+
+<script src="script.js"></script>
 </body>
-
 </html>

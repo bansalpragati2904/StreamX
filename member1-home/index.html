@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STREAMX - Home</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="navbar">
+    <a href="index.html" class="logo">STREAM<span>X</span></a>
+
+    <nav>
+        <a href="../member1-home/home.html" class="nav-link active">Home</a>
+        <a href="movies.html" class="nav-link">Movies</a>
+        <a href="series.html" class="nav-link">Series</a>
+        <a href="#" class="nav-link" id="liveLink">LIVE</a>
+    </nav>
+
+    <div class="nav-actions">
+        <button class="search-toggle" id="searchToggle" aria-label="Search">⌕</button>
+        <input type="text" id="searchInput" class="nav-search" placeholder="Search movies and series...">
+        <button class="profile-button" id="profileButton">♟ <span>Profile</span></button>
+    </div>
+</header>
+
+<main class="container">
+
+    <section class="page-heading">
+        <p class="eyebrow">YOUR ENTERTAINMENT DESTINATION</p>
+        <h1>Discover <span>Something Amazing</span></h1>
+        <p>Find movies and series worth watching.</p>
+    </section>
+
+    <section class="filter-panel">
+        <input type="text" id="searchInputMain" placeholder="Search by title...">
+
+        <select id="genreFilter">
+            <option value="All">All Genres</option>
+            <option value="Action">Action</option>
+            <option value="Adventure">Adventure</option>
+            <option value="Crime">Crime</option>
+            <option value="Drama">Drama</option>
+            <option value="Fantasy">Fantasy</option>
+            <option value="Mystery">Mystery</option>
+            <option value="Sci-Fi">Sci-Fi</option>
+            <option value="Thriller">Thriller</option>
+        </select>
+
+        <select id="yearFilter">
+            <option value="All">All Years</option>
+        </select>
+
+        <select id="ratingFilter">
+            <option value="0">All Ratings</option>
+            <option value="6">6+ Rating</option>
+            <option value="7">7+ Rating</option>
+            <option value="8">8+ Rating</option>
+        </select>
+
+        <select id="sortFilter">
+            <option value="default">Sort By</option>
+            <option value="rating">Rating: High to Low</option>
+            <option value="newest">Newest First</option>
+            <option value="alphabetical">A to Z</option>
+        </select>
+    </section>
+
+    <section class="content-section">
+        <div class="section-heading">
+            <h2>🔥 Trending Now</h2>
+        </div>
+        <div class="media-grid" id="trendingGrid"></div>
+    </section>
+
+    <section class="content-section">
+        <div class="section-heading">
+            <h2>⭐ Top Rated</h2>
+        </div>
+        <div class="media-grid" id="topRatedGrid"></div>
+    </section>
+
+    <section class="content-section">
+        <div class="section-heading">
+            <h2>🎬 Explore All</h2>
+            <span id="resultCount"></span>
+        </div>
+        <div class="media-grid" id="movieGrid"></div>
+    </section>
+
+    <section class="content-section">
+        <div class="section-heading">
+            <h2>✨ Recommended For You</h2>
+        </div>
+
+        <div class="recommend-controls">
+            <label for="recommendGenre">Choose a genre:</label>
+
+            <select id="recommendGenre">
+                <option value="All">Any Genre</option>
+                <option value="Action">Action</option>
+                <option value="Adventure">Adventure</option>
+                <option value="Crime">Crime</option>
+                <option value="Drama">Drama</option>
+                <option value="Fantasy">Fantasy</option>
+                <option value="Mystery">Mystery</option>
+                <option value="Sci-Fi">Sci-Fi</option>
+                <option value="Thriller">Thriller</option>
+            </select>
+        </div>
+
+        <div class="media-grid" id="recommendGrid"></div>
+    </section>
+
+</main>
+
+<div class="modal" id="detailsModal">
+    <div class="modal-box details-box">
+        <button class="close-button" id="closeDetails">&times;</button>
+        <div id="detailsBody"></div>
+
+        <div class="detail-tabs">
+            <button class="tab-button active" data-tab="related">Related Titles</button>
+            <button class="tab-button" data-tab="cast">Cast & Crew</button>
+        </div>
+
+        <div id="detailTabContent"></div>
+
+        <button class="primary-button" id="detailsTrailer">▶ Watch Trailer</button>
+    </div>
+</div>
+
+<div class="modal" id="videoModal">
+    <div class="modal-box video-box">
+        <button class="close-button" id="closeModal">&times;</button>
+        <iframe id="videoPlayer" src="" title="Trailer"
+            allow="autoplay; encrypted-media; picture-in-picture"
+            allowfullscreen></iframe>
+    </div>
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
