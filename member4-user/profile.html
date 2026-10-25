@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 
@@ -11,61 +12,126 @@
 
 <body>
 
-
-    <!-- Navigation -->
+    <!-- =========================
+         NAVIGATION
+    ========================= -->
 
     <nav>
 
         <h1>STREAMX</h1>
 
-
         <div class="nav-links">
 
-    <a href="../member1-home/home.html">Home</a>
+            <a href="profile.html">Profile</a>
 
-    <a href="watchlist.html">Watchlist</a>
+            <a href="watchlist.html">Watchlist</a>
 
-    <a href="history.html">History</a>
+            <a href="history.html">History</a>
 
-    <a href="settings.html">Settings</a>
+            <a href="settings.html">Settings</a>
 
-    <a href="profile.html">Profile</a>
+            <a href="#" onclick="logout(); return false;">
+                Logout
+            </a>
 
-    <a href="login.html" id="logoutLink" class="logout-link">Logout</a>
-
-</div>
+        </div>
 
     </nav>
 
 
-    <!-- Profile -->
+    <!-- =========================
+         PROFILE PAGE
+    ========================= -->
 
     <div class="container profile-page">
 
         <h2>My Profile</h2>
 
+        <p class="description">
+            Manage your StreamX profile and preferences.
+        </p>
+
+
+        <!-- =========================
+             PROFILE CARD
+        ========================= -->
 
         <div class="profile-box">
+
+            <!-- Profile Picture -->
 
             <div class="profile-picture">
                 👤
             </div>
 
 
+            <!-- NAME -->
+
             <h2 id="username">
                 StreamX User
             </h2>
 
 
-            <p id="userEmail">
-                user@gmail.com
+            <!-- AGE -->
+
+            <p class="profile-detail">
+
+                <strong>Age:</strong>
+
+                <span id="userAge">
+                    Not added
+                </span>
+
             </p>
 
 
-            <p>
-                Favorite Genre: Action
+            <!-- EMAIL -->
+
+            <p class="profile-detail">
+
+                <strong>Email:</strong>
+
+                <span id="userEmail">
+                    user@gmail.com
+                </span>
+
             </p>
 
+
+            <!-- =========================
+                 PROFILE INFORMATION
+            ========================= -->
+
+            <div class="setting-section">
+
+                <h3>Profile Information</h3>
+
+                <p>
+                    <strong>Favorite Genre:</strong>
+                    Action
+                </p>
+
+                <p>
+                    <strong>Membership:</strong>
+                    StreamX Member
+                </p>
+
+                <p>
+                    <strong>Account Status:</strong>
+                    Active
+                </p>
+
+            </div>
+
+
+            <!-- MESSAGE -->
+
+            <p id="pageMessage"
+               class="profile-message">
+            </p>
+
+
+            <!-- EDIT BUTTON -->
 
             <button onclick="editProfile()">
                 Edit Profile
@@ -75,6 +141,8 @@
 
     </div>
 
+
+    <!-- JAVASCRIPT -->
 
     <script src="script.js"></script>
 

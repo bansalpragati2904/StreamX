@@ -2,32 +2,79 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
     <title>StreamX Loading</title>
+
     <link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
 
     <div class="loading-page">
 
-        <div class="loading-bars">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
+        <!-- STREAMX LOGO -->
+
+        <div class="loading-logo">
+            STREAM<span>X</span>
         </div>
+
+
+        <!-- ANIMATED LOADING BARS -->
+
+        <div class="loading-bars">
+
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+
+        </div>
+
+
+        <!-- LOADING TEXT -->
 
         <h1>LOADING</h1>
 
+        <p>Welcome to StreamX...</p>
+
+
+        <!-- PROGRESS LINE -->
+
+        <div class="loading-progress">
+
+            <div class="loading-progress-bar"></div>
+
+        </div>
+
+
+        <p class="loading-small">
+            Preparing your entertainment
+        </p>
+
     </div>
 
+
     <script>
+
+        /*
+            Loading screen will stay for 2.5 seconds
+            and then open Home page.
+        */
+
         setTimeout(function () {
-            window.location.href = "login.html?signup=true";
+
+            window.location.href =
+                "../member1-home/home.html";
+
         }, 2500);
+
     </script>
 
 </body>

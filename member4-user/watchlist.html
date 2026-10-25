@@ -1,153 +1,238 @@
 <!DOCTYPE html>
-
 <html lang="en">
 
 <head>
 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StreamX | Watchlist</title>
 
-<title>StreamX | Watchlist</title>
-
-<link rel="stylesheet" href="style.css">
-
+    <link rel="stylesheet" href="style.css">
 
 </head>
 
 <body>
 
+    <!-- =====================================================
+         NAVIGATION
+    ====================================================== -->
 
-<!-- NAVIGATION -->
+    <nav>
 
-<nav>
+        <h1>STREAMX</h1>
 
-    <h1>STREAMX</h1>
+        <div class="nav-links">
 
-    <div class="nav-links">
+            <a href="../member1-home/home.html">
+                Home
+            </a>
 
-    <a href="../member1-home/home.html">Home</a>
+            <a href="watchlist.html">
+                Watchlist
+            </a>
 
-    <a href="watchlist.html">Watchlist</a>
+            <a href="history.html">
+                History
+            </a>
 
-    <a href="history.html">History</a>
+            <a href="settings.html">
+                Settings
+            </a>
 
-    <a href="settings.html">Settings</a>
+            <a href="profile.html">
+                Profile
+            </a>
 
-    <a href="profile.html">Profile</a>
+            <a href="login.html" class="logout-link">
+                Logout
+            </a>
 
-    <a href="login.html" id="logoutLink" class="logout-link">Logout</a>
+        </div>
 
-</div>
-
-</nav>
-
-
-<!-- WATCHLIST -->
-
-<main class="watchlist-page">
-
-    <h2>My Watchlist</h2>
-
-    <p class="description">
-        Movies you want to watch.
-    </p>
-
-
-    <div class="movies">
+    </nav>
 
 
-        <!-- MOVIE 1 -->
+    <!-- =====================================================
+         WATCHLIST PAGE
+    ====================================================== -->
 
-        <div class="movie">
+    <main class="watchlist-page">
 
-            <img
-                class="movie-image"
-                src="https://s3.amazonaws.com/nightjarprod/content/uploads/sites/130/2021/08/19085635/gEU2QniE6E77NI6lCU6MxlNBvIx-scaled.jpg"
-                alt="Interstellar">
+        <h2>My Watchlist</h2>
 
-            <div class="movie-content">
+        <p class="description">
+            Movies you want to watch.
+        </p>
 
-                <h3>Interstellar</h3>
 
-                <p>Sci-Fi</p>
+        <!-- Message -->
 
-                <button>Watch Now</button>
+        <p id="watchMessage"></p>
+
+
+        <!-- =================================================
+             MOVIES
+        ================================================== -->
+
+        <div class="movies">
+
+
+            <!-- ================= MOVIE 1 ================= -->
+
+            <div class="movie">
+
+                <img
+                    class="movie-image"
+                    src="https://s3.amazonaws.com/nightjarprod/content/uploads/sites/130/2021/08/19085635/gEU2QniE6E77NI6lCU6MxlNBvIx-scaled.jpg"
+                    alt="Interstellar"
+                >
+
+                <div class="movie-content">
+
+                    <h3>Interstellar</h3>
+
+                    <p>Sci-Fi</p>
+
+                    <button
+                        type="button"
+                        onclick="watchMovie('Interstellar')">
+                        Watch Now
+                    </button>
+
+                </div>
 
             </div>
+
+
+            <!-- ================= MOVIE 2 ================= -->
+
+            <div class="movie">
+
+                <img
+                    class="movie-image"
+                    src="https://m.media-amazon.com/images/M/MV5BMjk1NzcwMDUtNDU4ZC00MzlhLTkzZjAtM2MxMTRjZGE0ODdhXkEyXkFqcGdeQXVyODE5NzE3OTE@._V1_.jpg"
+                    alt="Shershaah"
+                >
+
+                <div class="movie-content">
+
+                    <h3>Shershaah</h3>
+
+                    <p>Action</p>
+
+                    <button
+                        type="button"
+                        onclick="watchMovie('Shershaah')">
+                        Watch Now
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= MOVIE 3 ================= -->
+
+            <div class="movie">
+
+                <img
+                    class="movie-image"
+                    src="https://images.wallpapersden.com/image/download/avengers-endgame-2019-movie_64330_1940x2320.jpg"
+                    alt="Avengers Endgame"
+                >
+
+                <div class="movie-content">
+
+                    <h3>Avengers: Endgame</h3>
+
+                    <p>Action</p>
+
+                    <button
+                        type="button"
+                        onclick="watchMovie('Avengers: Endgame')">
+                        Watch Now
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= MOVIE 4 ================= -->
+
+            <div class="movie">
+
+                <img
+                    class="movie-image"
+                    src="https://media.themoviedb.org/t/p/w440_and_h660_face/xQPgyZOBhaz1GdCQIPf5A5VeFzO.jpg"
+                    alt="The Dark Knight"
+                >
+
+                <div class="movie-content">
+
+                    <h3>The Dark Knight</h3>
+
+                    <p>Thriller</p>
+
+                    <button
+                        type="button"
+                        onclick="watchMovie('The Dark Knight')">
+                        Watch Now
+                    </button>
+
+                </div>
+
+            </div>
+
 
         </div>
 
 
-        <!-- MOVIE 2 -->
+        <!-- =====================================================
+             TRAILER SECTION
+        ====================================================== -->
 
-        <div class="movie">
+        <div
+            id="trailerBox"
+            class="trailer-box">
 
-            <img
-                class="movie-image"
-                src="https://m.media-amazon.com/images/M/MV5BMjk1NzcwMDUtNDU4ZC00MzlhLTkzZjAtM2MxMTRjZGE0ODdhXkEyXkFqcGdeQXVyODE5NzE3OTE@._V1_.jpg"
-                alt="Shershaah">
+            <h2 id="trailerTitle">
+                Movie Trailer
+            </h2>
 
-            <div class="movie-content">
 
-                <h3>Shershaah</h3>
+            <div class="video-container">
 
-                <p>Action</p>
-
-                <button>Watch Now</button>
+                <iframe
+                    id="trailerPlayer"
+                    src=""
+                    title="StreamX Movie Trailer"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen>
+                </iframe>
 
             </div>
+
+
+            <button
+                type="button"
+                onclick="closeTrailer()">
+                Close Trailer
+            </button>
 
         </div>
 
 
-        <!-- MOVIE 3 -->
-
-        <div class="movie">
-
-            <img
-                class="movie-image"
-                src="https://images.wallpapersden.com/image/download/avengers-endgame-2019-movie_64330_1940x2320.jpg"
-                alt="Avengers Endgame">
-
-            <div class="movie-content">
-
-                <h3>Avengers: Endgame</h3>
-
-                <p>Action</p>
-
-                <button>Watch Now</button>
-
-            </div>
-
-        </div>
+    </main>
 
 
-        <!-- MOVIE 4 -->
+    <!-- =====================================================
+         JAVASCRIPT
+    ====================================================== -->
 
-        <div class="movie">
+    <script src="script.js"></script>
 
-            <img
-                class="movie-image"
-                src="https://media.themoviedb.org/t/p/w440_and_h660_face/xQPgyZOBhaz1GdCQIPf5A5VeFzO.jpg"
-                alt="The Dark Knight">
-
-            <div class="movie-content">
-
-                <h3>The Dark Knight</h3>
-
-                <p>Thriller</p>
-
-                <button>Watch Now</button>
-
-            </div>
-
-        </div>
-
-
-    </div>
-
-</main>
 
 </body>
 

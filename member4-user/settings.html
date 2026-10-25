@@ -1,163 +1,734 @@
 <!DOCTYPE html>
-
-<html>
+<html lang="en">
 
 <head>
-<title>StreamX - Settings</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StreamX - Settings</title>
 
-<link rel="stylesheet" href="style.css">
+    <style>
+        /* =========================
+           BASIC RESET & GLOBAL
+        ========================= */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
+        html {
+            scroll-behavior: smooth;
+        }
 
+        body {
+            background-color: #080808;
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+
+        /* =========================
+           NAVIGATION
+        ========================= */
+        nav {
+            background-color: #111111;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #292929;
+        }
+
+        nav h1 {
+            color: #ffe500;
+            letter-spacing: 2px;
+            font-size: 24px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+        }
+
+        .nav-links a {
+            color: #dddddd;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #ffe500;
+        }
+
+        /* =========================
+           BUTTONS
+        ========================= */
+        button {
+            background-color: #ffe500;
+            color: #080808;
+            border: none;
+            padding: 12px 18px;
+            margin: 5px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: bold;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        button:hover {
+            background-color: #e6cf00;
+            transform: translateY(-2px);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        button:focus {
+            outline: 2px solid #ffffff;
+            outline-offset: 2px;
+        }
+
+        .cancel-button {
+            background-color: #444444;
+            color: #ffffff;
+        }
+
+        .cancel-button:hover {
+            background-color: #555555;
+        }
+
+        /* =========================
+           CONTAINER & LAYOUT
+        ========================= */
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: 40px auto;
+        }
+
+        .settings-page {
+            text-align: center;
+        }
+
+        .container > h2 {
+            color: #ffe500;
+            margin-bottom: 10px;
+            font-size: 28px;
+        }
+
+        .description {
+            color: #aaaaaa;
+        }
+
+        .settings-box {
+            background-color: #181818;
+            max-width: 850px;
+            padding: 30px;
+            margin: 30px auto;
+            border: 1px solid #303030;
+            border-radius: 12px;
+            text-align: left;
+        }
+
+        .setting-section {
+            background-color: #222222;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 8px;
+        }
+
+        .setting-section h3 {
+            color: #ffe500;
+            margin-top: 5px;
+            margin-bottom: 12px;
+        }
+
+        .setting-section p {
+            color: #aaaaaa;
+            margin-bottom: 15px;
+        }
+
+        .setting-section label {
+            display: block;
+            margin-top: 10px;
+            color: #dddddd;
+        }
+
+        /* =========================
+           ACCOUNT OPTIONS
+        ========================= */
+        .account-option {
+            background-color: #292929;
+            padding: 15px;
+            margin-top: 15px;
+            border-radius: 7px;
+            border: 1px solid #3a3a3a;
+        }
+
+        .account-option strong {
+            color: #ffffff;
+        }
+
+        .account-option p {
+            color: #aaaaaa;
+            margin: 5px 0 10px;
+        }
+
+        .account-option button {
+            margin-left: 0;
+        }
+
+        /* =========================
+           STATUS MESSAGES
+        ========================= */
+        .settings-message {
+            min-height: 25px;
+            margin: 15px auto;
+            color: #ffe500;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        /* =========================
+           PLANS
+        ========================= */
+        .plans {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 25px;
+            flex-wrap: wrap;
+        }
+
+        .plan-card {
+            position: relative;
+            width: 220px;
+            background-color: #181818;
+            padding: 25px 20px;
+            border: 1px solid #3a3a3a;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s, border-color 0.3s;
+        }
+
+        .plan-card:hover {
+            transform: translateY(-5px);
+            border-color: #ffe500;
+        }
+
+        .plan-card h4 {
+            color: #ffe500;
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
+
+        .plan-card .price {
+            color: #ffffff;
+            font-size: 32px;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+
+        .plan-card p {
+            color: #aaaaaa;
+            margin: 8px 0;
+        }
+
+        .plan-card button {
+            width: 90%;
+            margin-top: 15px;
+        }
+
+        .plan-card.popular {
+            border-color: #ffe500;
+        }
+
+        .popular-badge {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #ffe500;
+            color: #080808;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 11px;
+            font-weight: bold;
+        }
+
+        .selected-plan {
+            text-align: center;
+            margin-top: 25px;
+            padding: 15px;
+            background-color: #111111;
+            border: 1px solid #333333;
+            border-radius: 7px;
+            color: #aaaaaa;
+            font-weight: bold;
+        }
+
+        /* =========================
+           INPUTS & DROPDOWNS
+        ========================= */
+        .settings-buttons {
+            margin-top: 25px;
+            text-align: center;
+        }
+
+        .settings-box input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            accent-color: #ffe500;
+            cursor: pointer;
+            vertical-align: middle;
+        }
+
+        select {
+            background-color: #292929;
+            color: #ffffff;
+            padding: 10px;
+            border: 1px solid #444444;
+            border-radius: 6px;
+            outline: none;
+            margin-left: 10px;
+        }
+
+        select:focus {
+            border-color: #ffe500;
+        }
+
+        /* =========================
+           MODALS (POP-UPS)
+        ========================= */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .modal-box {
+            background-color: #1c1c1c;
+            border: 1px solid #333333;
+            border-radius: 12px;
+            padding: 30px;
+            width: 400px;
+            max-width: 90%;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+        }
+
+        .modal-box h2 {
+            color: #ffe500;
+            margin-bottom: 10px;
+        }
+
+        .modal-box p {
+            color: #aaaaaa;
+            margin-bottom: 20px;
+        }
+
+        .modal-box input {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            background-color: #292929;
+            color: #ffffff;
+            border: 1px solid #444444;
+            border-radius: 6px;
+            outline: none;
+            font-size: 14px;
+        }
+
+        .modal-box input:focus {
+            border-color: #ffe500;
+        }
+
+        .modal-buttons {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .modal-buttons button {
+            flex: 1;
+            margin: 0;
+        }
+
+        #emailMessage,
+        #passwordMessage {
+            font-size: 13px;
+            margin-bottom: 10px;
+        }
+    </style>
 </head>
 
 <body>
-<!-- Navigation -->
 
-<nav>
+    <!-- Navigation -->
+    <nav>
+        <h1>STREAMX</h1>
 
-    <h1>STREAMX</h1>
+        <div class="nav-links">
+            <a href="profile.html">Profile</a>
+            <a href="watchlist.html">Watchlist</a>
+            <a href="history.html">History</a>
+            <a href="settings.html">Settings</a>
+            <a href="login.html">Logout</a>
+        </div>
+    </nav>
 
+    <!-- Settings Page -->
+    <div class="container settings-page">
 
-    <div class="nav-links">
+        <h2>⚙️ Settings</h2>
 
-    <a href="../member1-home/home.html">Home</a>
+        <p class="description">
+            Manage your StreamX account and preferences.
+        </p>
 
-    <a href="watchlist.html">Watchlist</a>
+        <div id="pageMessage" class="settings-message"></div>
 
-    <a href="history.html">History</a>
+        <div class="settings-box">
 
-    <a href="settings.html">Settings</a>
+            <!-- Account Settings -->
+            <div class="setting-section">
 
-    <a href="profile.html">Profile</a>
+                <h3>👤 Account Settings</h3>
+                <p>Manage your account information.</p>
 
-    <a href="login.html" id="logoutLink" class="logout-link">Logout</a>
+                <!-- Email -->
+                <div class="account-option">
+                    <strong>Current Email</strong>
+                    <p id="userEmail">user@gmail.com</p>
+                    <button onclick="changeEmail()">Change Email</button>
+                </div>
 
-</div>
+                <!-- Password -->
+                <div class="account-option">
+                    <strong>Password</strong>
+                    <p>Your password is protected.</p>
+                    <button onclick="changePassword()">Change Password</button>
+                </div>
 
-</nav>
+            </div>
 
+            <!-- Subscription Plans -->
+            <div class="setting-section">
 
-<!-- Settings -->
+                <h3>💳 Choose Your StreamX Plan</h3>
+                <p>Select a plan to enjoy StreamX content.</p>
 
-<div class="container settings-page">
+                <div class="plans">
 
-    <h2>⚙️ Settings</h2>
+                    <!-- Plan 399 -->
+                    <div class="plan-card">
+                        <h4>Basic</h4>
+                        <div class="price">₹399</div>
+                        <p>Monthly Plan</p>
+                        <p>✓ HD Streaming</p>
+                        <p>✓ Basic Content</p>
+                        <button onclick="selectPlan(399, 'Basic')">Choose ₹399</button>
+                    </div>
 
-    <p class="description">
-        Manage your StreamX account and preferences.
-    </p>
+                    <!-- Plan 699 -->
+                    <div class="plan-card popular">
+                        <span class="popular-badge">POPULAR</span>
+                        <h4>Standard</h4>
+                        <div class="price">₹699</div>
+                        <p>Monthly Plan</p>
+                        <p>✓ Full HD Streaming</p>
+                        <p>✓ More Content</p>
+                        <p>✓ Multiple Devices</p>
+                        <button onclick="selectPlan(699, 'Standard')">Choose ₹699</button>
+                    </div>
 
+                    <!-- Plan 1299 -->
+                    <div class="plan-card">
+                        <h4>Premium</h4>
+                        <div class="price">₹1299</div>
+                        <p>Monthly Plan</p>
+                        <p>✓ 4K Streaming</p>
+                        <p>✓ All Content</p>
+                        <p>✓ Multiple Devices</p>
+                        <button onclick="selectPlan(1299, 'Premium')">Choose ₹1299</button>
+                    </div>
 
-    <div class="settings-box">
+                </div>
 
+                <div id="selectedPlan" class="selected-plan">
+                    No plan selected.
+                </div>
 
-        <!-- Account Settings -->
+            </div>
 
-        <div class="setting-section">
+            <!-- Playback Settings -->
+            <div class="setting-section">
 
-            <h3>👤 Account Settings</h3>
+                <h3>▶️ Playback Settings</h3>
 
-            <p>Manage your account information.</p>
+                <label>
+                    <input type="checkbox" id="autoplay"> Autoplay next episode
+                </label>
 
-            <button onclick="changeEmail()">
-                Change Email
-            </button>
+                <br>
 
-            <button onclick="changePassword()">
-                Change Password
-            </button>
+                <label>
+                    Video Quality:
+                    <select id="quality">
+                        <option value="Auto">Auto</option>
+                        <option value="1080p">1080p</option>
+                        <option value="720p">720p</option>
+                        <option value="480p">480p</option>
+                    </select>
+                </label>
+
+            </div>
+
+            <!-- Notifications -->
+            <div class="setting-section">
+
+                <h3>🔔 Notifications</h3>
+                <p>Choose whether you want notifications.</p>
+
+                <label>
+                    <input type="checkbox" id="notification"> Receive notifications
+                </label>
+
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="settings-buttons">
+                <button onclick="saveSettings()">💾 Save Settings</button>
+                <button onclick="logout()">🚪 Logout</button>
+            </div>
 
         </div>
-
-
-        <!-- Playback Settings -->
-
-        <div class="setting-section">
-
-            <h3>▶️ Playback Settings</h3>
-
-
-            <label>
-
-                <input
-                    type="checkbox"
-                    id="autoplay"
-                >
-
-                Autoplay next episode
-
-            </label>
-
-
-            <br><br>
-
-
-            <label>
-
-                Video Quality:
-
-                <select id="quality">
-
-                    <option>Auto</option>
-
-                    <option>1080p</option>
-
-                    <option>720p</option>
-
-                    <option>480p</option>
-
-                </select>
-
-            </label>
-
-        </div>
-
-
-        <!-- Notifications -->
-
-        <div class="setting-section">
-
-            <h3>🔔 Notifications</h3>
-
-            <p>Choose whether you want notifications.</p>
-
-
-            <label>
-
-                <input
-                    type="checkbox"
-                    id="notification"
-                >
-
-                Receive notifications
-
-            </label>
-
-        </div>
-
-
-        <!-- Buttons -->
-
-        <div class="settings-buttons">
-
-            <button onclick="saveSettings()">
-                💾 Save Settings
-            </button>
-
-            <button onclick="logout()">
-                🚪 Logout
-            </button>
-
-        </div>
-
 
     </div>
 
-</div>
+    <!-- Email Modal -->
+    <div id="emailModal" class="modal">
+        <div class="modal-box">
+            <h2>📧 Change Email</h2>
+            <p>Enter your new Gmail address.</p>
+            <input type="email" id="newEmail" placeholder="example@gmail.com">
+            <div id="emailMessage"></div>
+            <div class="modal-buttons">
+                <button onclick="saveEmail()">Save Email</button>
+                <button class="cancel-button" onclick="closeEmailModal()">Cancel</button>
+            </div>
+        </div>
+    </div>
 
+    <!-- Password Modal -->
+    <div id="passwordModal" class="modal">
+        <div class="modal-box">
+            <h2>🔐 Change Password</h2>
+            <p>Enter your new password.</p>
+            <input type="password" id="newPassword" placeholder="New password">
+            <input type="password" id="confirmPassword" placeholder="Confirm password">
+            <div id="passwordMessage"></div>
+            <div class="modal-buttons">
+                <button onclick="savePassword()">Save Password</button>
+                <button class="cancel-button" onclick="closePasswordModal()">Cancel</button>
+            </div>
+        </div>
+    </div>
 
-<script src="script.js"></script>
+    <!-- JavaScript Logic -->
+    <script>
+        function showMessage(message) {
+            var messageBox = document.getElementById("pageMessage");
+            if (messageBox) {
+                messageBox.innerText = message;
+                messageBox.style.color = "#ffe500";
+                messageBox.style.margin = "15px 0";
+            }
+        }
 
+        /* --- Email Logic --- */
+        function changeEmail() {
+            var modal = document.getElementById("emailModal");
+            var input = document.getElementById("newEmail");
+            var currentEmail = localStorage.getItem("userEmail") || "user@gmail.com";
+
+            if (input) input.value = currentEmail;
+            if (modal) modal.style.display = "flex";
+        }
+
+        function saveEmail() {
+            var input = document.getElementById("newEmail");
+            var message = document.getElementById("emailMessage");
+            if (!input) return;
+
+            var email = input.value.trim();
+
+            if (email === "") {
+                message.innerText = "Please enter your email.";
+                message.style.color = "#ff5555";
+                return;
+            }
+
+            if (!email.endsWith("@gmail.com")) {
+                message.innerText = "Please enter a valid Gmail address.";
+                message.style.color = "#ff5555";
+                return;
+            }
+
+            localStorage.setItem("userEmail", email);
+            var emailBox = document.getElementById("userEmail");
+            if (emailBox) emailBox.innerText = email;
+
+            closeEmailModal();
+            showMessage("Email updated successfully.");
+        }
+
+        function closeEmailModal() {
+            var modal = document.getElementById("emailModal");
+            var message = document.getElementById("emailMessage");
+            if (message) message.innerText = "";
+            if (modal) modal.style.display = "none";
+        }
+
+        /* --- Password Logic --- */
+        function changePassword() {
+            var modal = document.getElementById("passwordModal");
+            var newPassword = document.getElementById("newPassword");
+            var confirmPassword = document.getElementById("confirmPassword");
+
+            if (newPassword) newPassword.value = "";
+            if (confirmPassword) confirmPassword.value = "";
+
+            if (modal) modal.style.display = "flex";
+        }
+
+        function savePassword() {
+            var password = document.getElementById("newPassword").value;
+            var confirmPassword = document.getElementById("confirmPassword").value;
+            var message = document.getElementById("passwordMessage");
+
+            if (password === "") {
+                message.innerText = "Please enter a new password.";
+                message.style.color = "#ff5555";
+                return;
+            }
+
+            if (!/^[a-zA-Z0-9]+$/.test(password)) {
+                message.innerText = "Password must contain only letters and numbers.";
+                message.style.color = "#ff5555";
+                return;
+            }
+
+            if (!/[a-zA-Z]/.test(password) || !/[0-9]/.test(password)) {
+                message.innerText = "Password must contain both letters and numbers.";
+                message.style.color = "#ff5555";
+                return;
+            }
+
+            if (password !== confirmPassword) {
+                message.innerText = "Passwords do not match.";
+                message.style.color = "#ff5555";
+                return;
+            }
+
+            localStorage.setItem("userPassword", password);
+            closePasswordModal();
+            showMessage("Password updated successfully.");
+        }
+
+        function closePasswordModal() {
+            var modal = document.getElementById("passwordModal");
+            var message = document.getElementById("passwordMessage");
+            if (message) message.innerText = "";
+            if (modal) modal.style.display = "none";
+        }
+
+        /* --- Subscription Plan Logic --- */
+        function selectPlan(price, planName) {
+            var selectedPlan = document.getElementById("selectedPlan");
+
+            localStorage.setItem("selectedPlan", planName);
+            localStorage.setItem("planPrice", price);
+
+            if (selectedPlan) {
+                selectedPlan.innerHTML = "✓ " + planName + " Plan selected - ₹" + price + " per month";
+                selectedPlan.style.color = "#ffe500";
+            }
+
+            showMessage(planName + " Plan selected successfully!");
+        }
+
+        function loadSelectedPlan() {
+            var plan = localStorage.getItem("selectedPlan");
+            var price = localStorage.getItem("planPrice");
+            var selectedPlan = document.getElementById("selectedPlan");
+
+            if (plan && price && selectedPlan) {
+                selectedPlan.innerHTML = "✓ Current Plan: " + plan + " - ₹" + price + " per month";
+                selectedPlan.style.color = "#ffe500";
+            }
+        }
+
+        /* --- Settings Storage Logic --- */
+        function saveSettings() {
+            var autoplay = document.getElementById("autoplay").checked;
+            var quality = document.getElementById("quality").value;
+            var notification = document.getElementById("notification").checked;
+
+            localStorage.setItem("autoplay", autoplay);
+            localStorage.setItem("quality", quality);
+            localStorage.setItem("notification", notification);
+
+            showMessage("Settings saved successfully.");
+        }
+
+        function loadSettings() {
+            var autoplay = localStorage.getItem("autoplay");
+            var quality = localStorage.getItem("quality");
+            var notification = localStorage.getItem("notification");
+
+            var autoplayBox = document.getElementById("autoplay");
+            var qualityBox = document.getElementById("quality");
+            var notificationBox = document.getElementById("notification");
+
+            if (autoplayBox && autoplay !== null) {
+                autoplayBox.checked = (autoplay === "true");
+            }
+            if (qualityBox && quality !== null) {
+                qualityBox.value = quality;
+            }
+            if (notificationBox && notification !== null) {
+                notificationBox.checked = (notification === "true");
+            }
+        }
+
+        function logout() {
+            window.location.href = "login.html";
+        }
+
+        /* --- Initialization --- */
+        document.addEventListener("DOMContentLoaded", function () {
+            var savedEmail = localStorage.getItem("userEmail");
+            var emailBox = document.getElementById("userEmail");
+
+            if (savedEmail && emailBox) {
+                emailBox.innerText = savedEmail;
+            }
+
+            loadSelectedPlan();
+            loadSettings();
+        });
+    </script>
 </body>
 
 </html>

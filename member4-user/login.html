@@ -12,83 +12,126 @@
 
 <body>
 
+    <!-- TOP LOGO -->
+
     <div class="top">
+
         <h1>STREAMX</h1>
-    </div>
-
-
-    <!-- LOGIN FORM -->
-
-    <div class="login-box" id="loginBox">
-
-        <h2>Sign In</h2>
-
-        <input
-            type="text"
-            id="email"
-            placeholder="Email"
-        >
-
-        <p id="emailError" class="error-message"></p>
-
-        <input
-            type="password"
-            id="password"
-            placeholder="Password"
-        >
-
-        <p id="passwordError" class="error-message"></p>
-
-        <button onclick="login()">
-            Sign In
-        </button>
-
-        <p>
-            New to StreamX?
-
-            <a href="#" onclick="showSignup(); return false;">
-                Sign up now
-            </a>
-        </p>
 
     </div>
 
 
-    <!-- SIGNUP FORM -->
+    <!-- LOGIN / SIGNUP BOX -->
 
-    <div class="login-box signup-box" id="signupBox">
+    <div class="login-box">
 
-        <h2>Create Account</h2>
 
-        <input
-            type="text"
-            id="name"
-            placeholder="Your Name"
-        >
+        <!-- LOGIN FORM -->
 
-        <input
-            type="text"
-            id="signupEmail"
-            placeholder="Email"
-        >
+        <div id="loginForm">
 
-        <input
-            type="password"
-            id="signupPassword"
-            placeholder="Password"
-        >
+            <h2>Sign In</h2>
 
-        <button onclick="signup()">
-            Sign Up
-        </button>
 
-        <p>
-            Already have an account?
+            <input
+                type="text"
+                id="email"
+                placeholder="Email"
+            >
 
-            <a href="#" onclick="showLogin(); return false;">
-                Sign in
-            </a>
-        </p>
+            <p id="emailError" class="error-message"></p>
+
+
+            <input
+                type="password"
+                id="password"
+                placeholder="Password"
+            >
+
+            <p id="passwordError" class="error-message"></p>
+
+
+            <p id="pageMessage" class="error-message"></p>
+
+
+            <button onclick="login()">
+                Sign In
+            </button>
+
+
+            <p>
+                New to StreamX?
+
+                <a href="#" onclick="showSignup(); return false;">
+                    Sign up now
+                </a>
+            </p>
+
+        </div>
+
+
+        <!-- SIGNUP FORM -->
+
+        <div id="signupForm">
+
+            <h2>Create Account</h2>
+
+
+            <!-- NAME -->
+
+            <input
+                type="text"
+                id="name"
+                placeholder="Your Name"
+            >
+
+
+            <!-- AGE -->
+
+            <input
+                type="number"
+                id="age"
+                placeholder="Your Age"
+                min="1"
+                max="100"
+            >
+
+
+            <!-- EMAIL -->
+
+            <input
+                type="text"
+                id="signupEmail"
+                placeholder="Email"
+            >
+
+
+            <!-- PASSWORD -->
+
+            <input
+                type="password"
+                id="signupPassword"
+                placeholder="Password"
+            >
+
+
+            <p id="signupMessage" class="error-message"></p>
+
+
+            <button onclick="signup()">
+                Sign Up
+            </button>
+
+
+            <p>
+                Already have an account?
+
+                <a href="#" onclick="showLogin(); return false;">
+                    Sign in
+                </a>
+            </p>
+
+        </div>
 
     </div>
 
