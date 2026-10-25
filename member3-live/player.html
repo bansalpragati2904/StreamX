@@ -1,571 +1,348 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
     <meta charset="UTF-8">
-
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0">
-
-    <title>StreamX — Player</title>
-
-    <link rel="stylesheet" href="live.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StreamX Video Player</title>
 
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
         body {
-            min-height: 100vh;
-            background: #090a0d;
-        }
-
-        /* ================= PLAYER PAGE ================= */
-
-        .player-page {
-            min-height: calc(100vh - 74px);
-            padding: 50px 6%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        /* ================= BACK BUTTON ================= */
-
-        .back-button {
-            align-self: flex-start;
-            background: transparent;
-            border: 1px solid #3a3d43;
+            background: #0b0d12;
             color: white;
-            padding: 10px 18px;
-            border-radius: 25px;
-            cursor: pointer;
-            margin-bottom: 30px;
-            font-size: 14px;
+            font-family: Arial, sans-serif;
         }
 
-        .back-button:hover {
-            border-color: #e7ff28;
-            color: #e7ff28;
+        header {
+            background: #111318;
+            padding: 20px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #30343d;
         }
 
-        /* ================= TITLE ================= */
-
-        .player-title {
-            width: 100%;
-            max-width: 1100px;
-            margin-bottom: 20px;
-        }
-
-        .player-title p {
-            color: #e7ff28;
-            font-size: 13px;
+        .logo {
+            color: white;
+            font-size: 28px;
             font-weight: bold;
-            letter-spacing: 2px;
-            margin-bottom: 8px;
+            text-decoration: none;
         }
 
-        .player-title h1 {
-            font-size: 34px;
-            margin-bottom: 8px;
+        .logo span {
+            color: #eaff42;
         }
 
-        .player-title span {
-            color: #888;
-            font-size: 14px;
+        .back {
+            color: white;
+            background: #2a2e38;
+            padding: 12px 20px;
+            border-radius: 8px;
+            text-decoration: none;
         }
 
-        /* ================= VIDEO PLAYER ================= */
+        .back:hover {
+            background: #eaff42;
+            color: black;
+        }
 
-        .big-player {
-            width: 100%;
+        .player-container {
             max-width: 1100px;
-            background: #000;
-            border: 1px solid #34373d;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
-
-            /* 16:9 video ratio */
-            aspect-ratio: 16 / 9;
+            margin: 40px auto;
+            padding: 0 20px;
         }
 
-        .big-player iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-            display: block;
-            background: black;
-        }
+        /* LIVE TIMER */
 
-        /* ================= LIVE INFO ================= */
-
-        .player-info {
-            width: 100%;
-            max-width: 1100px;
-            margin-top: 25px;
-            color: #9ca0a8;
-            font-size: 14px;
-        }
-
-        .live-status {
-            color: #ff3945;
+        .live-timer {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 18px;
+            font-size: 18px;
             font-weight: bold;
+        }
+
+        .live-label {
+            background: #ff253a;
+            color: white;
+            padding: 8px 14px;
+            border-radius: 6px;
+            font-size: 14px;
         }
 
         #liveTimer {
-            color: #e7ff28;
+            color: white;
+            font-size: 20px;
+            font-variant-numeric: tabular-nums;
+        }
+
+        /* VIDEO PLAYER */
+
+        .video-wrapper {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            background: black;
+            border-radius: 15px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* VIDEO DETAILS */
+
+        .video-details {
+            background: #191d25;
+            margin-top: 25px;
+            padding: 25px;
+            border-radius: 12px;
+        }
+
+        .video-details h1 {
+            font-size: 25px;
+            line-height: 1.5;
+            margin-bottom: 15px;
+        }
+
+        .video-details p {
+            color: #b7bac3;
+            margin-bottom: 20px;
+        }
+
+        .youtube-btn {
+            display: inline-block;
+            padding: 13px 22px;
+            background: #eaff42;
+            color: black;
             font-weight: bold;
+            text-decoration: none;
+            border-radius: 8px;
         }
 
-        /* ================= MOBILE ================= */
-
-        @media (max-width: 600px) {
-
-            .player-page {
-                padding: 30px 18px;
-            }
-
-            .player-title h1 {
-                font-size: 25px;
-            }
-
-            .big-player {
-                aspect-ratio: 16 / 10;
-            }
-
-            .player-info {
-                font-size: 12px;
-            }
-
+        .youtube-btn:hover {
+            background: #d7e600;
         }
 
+        .note {
+            margin-top: 20px;
+            color: #aeb3be;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 650px) {
+            header {
+                padding: 15px 5%;
+            }
+
+            .video-details h1 {
+                font-size: 19px;
+            }
+
+            .logo {
+                font-size: 22px;
+            }
+
+            .live-timer {
+                font-size: 15px;
+            }
+
+            #liveTimer {
+                font-size: 17px;
+            }
+        }
     </style>
-
 </head>
-
 
 <body>
 
+    <!-- HEADER -->
 
-<!-- =====================================================
-     NAVBAR
-===================================================== -->
+    <header>
+        <a href="live.html" class="logo">
+            STREAM<span>X</span>
+        </a>
 
-<header class="navbar">
+        <a href="live.html" class="back">
+            ← Back
+        </a>
+    </header>
 
-    <div class="logo">
 
-        <div class="logo-box">
-            S
+    <main class="player-container">
+
+        <!-- LIVE TIMER -->
+
+        <div class="live-timer">
+            <span class="live-label">● LIVE</span>
+            <span id="liveTimer">00:00:00</span>
         </div>
 
-        <span>
-            stream<span class="x">x</span>
-        </span>
 
-    </div>
+        <!-- VIDEO PLAYER -->
 
+        <div class="video-wrapper" id="videoWrapper">
 
-    <nav>
+            <iframe
+                id="videoPlayer"
+                title="StreamX Video Player"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen>
+            </iframe>
 
-        <a href="../HOME/home.html">
-            Home
-        </a>
-
-        <a href="#">
-            Discover
-        </a>
-
-        <a href="../MOVIES/movies.html">
-            Movies
-        </a>
-
-        <a href="../MOVIES/series.html">
-            Series
-        </a>
-
-        <a href="live.html" class="active">
-            Live
-        </a>
-
-    </nav>
-
-
-    <div class="nav-icons">
-
-        <button>
-            ⌕
-        </button>
-
-        <button>
-            ☼
-        </button>
-
-        <div class="profile">
-            P
         </div>
 
-    </div>
 
-</header>
+        <!-- VIDEO DETAILS -->
 
+        <div class="video-details">
 
+            <h1 id="videoTitle">Video Title</h1>
 
-<!-- =====================================================
-     PLAYER
-===================================================== -->
+            <p id="videoCreator">Creator Name</p>
 
-<main class="player-page">
+            <a
+                href="#"
+                id="youtubeLink"
+                class="youtube-btn"
+                target="_blank"
+                rel="noopener noreferrer">
+                ▶ Watch on YouTube
+            </a>
 
+            <p class="note">
+                Some YouTube videos do not allow playback
+                on other websites. If the player does not work,
+                use the Watch on YouTube button.
+            </p>
 
-    <!-- BACK BUTTON -->
+        </div>
 
-    <button
-        class="back-button"
-        onclick="window.location.href='live.html'">
+    </main>
 
-        ← Back to Live
 
-    </button>
+    <script>
 
+        // GET URL PARAMETERS
 
-    <!-- TITLE -->
+        const params = new URLSearchParams(window.location.search);
 
-    <div class="player-title">
+        const title = params.get("title") || "Video";
+        const creator = params.get("creator") || "Creator";
+        const videoUrl = params.get("video") || "";
 
-        <p>
-            STREAMX LIVE
-        </p>
+        document.getElementById("videoTitle").textContent = title;
+        document.getElementById("videoCreator").textContent = creator;
 
-        <h1 id="videoTitle">
-            Loading...
-        </h1>
 
-        <span id="videoCreator">
-            StreamX
-        </span>
+        // GET YOUTUBE VIDEO ID
 
-    </div>
+        function getYouTubeId(url) {
 
+            try {
 
-    <!-- YOUTUBE PLAYER -->
+                const parsed = new URL(url);
 
-    <div class="big-player">
+                const hostname = parsed.hostname
+                    .replace(/^www\./, "")
+                    .replace(/^m\./, "");
 
-        <iframe
-            id="youtubePlayer"
-            src=""
-            title="StreamX YouTube Player"
-            allow="autoplay; encrypted-media; picture-in-picture; fullscreen"
-            allowfullscreen>
-        </iframe>
+                if (hostname === "youtu.be") {
+                    return parsed.pathname.split("/")[1];
+                }
 
-    </div>
+                if (
+                    hostname === "youtube.com" ||
+                    hostname === "youtube-nocookie.com"
+                ) {
 
+                    if (parsed.pathname === "/watch") {
+                        return parsed.searchParams.get("v");
+                    }
 
-    <!-- LIVE TIMER -->
+                    if (parsed.pathname.startsWith("/live/")) {
+                        return parsed.pathname.split("/")[2];
+                    }
 
-    <div class="player-info">
+                    if (parsed.pathname.startsWith("/embed/")) {
+                        return parsed.pathname.split("/")[2];
+                    }
 
-        <span class="live-status">
-            🔴 LIVE
-        </span>
+                }
 
-        <span>
-            &nbsp; • &nbsp;
-        </span>
-
-        <span id="liveTimer">
-            00:00:00
-        </span>
-
-        <span>
-            &nbsp; • &nbsp;
-        </span>
-
-        <span>
-            Enjoy the stream on StreamX
-        </span>
-
-    </div>
-
-
-</main>
-
-
-
-<!-- =====================================================
-     JAVASCRIPT
-===================================================== -->
-
-<script>
-
-
-    /* =====================================================
-       GET DATA FROM URL
-    ===================================================== */
-
-    const params =
-        new URLSearchParams(window.location.search);
-
-
-    const title =
-        params.get("title");
-
-
-    const creator =
-        params.get("creator");
-
-
-    const video =
-        params.get("video");
-
-
-
-    /* =====================================================
-       DISPLAY TITLE
-    ===================================================== */
-
-    if (title) {
-
-        document.getElementById("videoTitle")
-            .textContent = title;
-
-        document.title =
-            "StreamX — " + title;
-
-    }
-
-
-
-    /* =====================================================
-       DISPLAY CREATOR
-    ===================================================== */
-
-    if (creator) {
-
-        document.getElementById("videoCreator")
-            .textContent = creator;
-
-    }
-
-
-
-    /* =====================================================
-       GET YOUTUBE VIDEO ID
-    ===================================================== */
-
-    function getYouTubeId(url) {
-
-        try {
-
-            const parsed =
-                new URL(url);
-
-
-            /* =============================================
-               youtu.be LINK
-
-               Example:
-               https://youtu.be/lVZFDXoxGDQ
-            ============================================= */
-
-            if (
-                parsed.hostname === "youtu.be" ||
-                parsed.hostname === "www.youtu.be"
-            ) {
-
-                return parsed.pathname
-                    .substring(1)
-                    .split("?")[0];
-
+            } catch (error) {
+                console.error("Invalid URL:", error);
             }
 
-
-            /* =============================================
-               youtube.com LINK
-            ============================================= */
-
-            if (
-                parsed.hostname.includes("youtube.com")
-            ) {
-
-
-                /* watch?v= */
-
-                if (
-                    parsed.pathname === "/watch"
-                ) {
-
-                    return parsed.searchParams
-                        .get("v");
-
-                }
-
-
-                /* shorts/VIDEO_ID */
-
-                if (
-                    parsed.pathname.startsWith("/shorts/")
-                ) {
-
-                    return parsed.pathname
-                        .split("/")[2];
-
-                }
-
-
-                /* live/VIDEO_ID */
-
-                if (
-                    parsed.pathname.startsWith("/live/")
-                ) {
-
-                    return parsed.pathname
-                        .split("/")[2];
-
-                }
-
-
-                /* embed/VIDEO_ID */
-
-                if (
-                    parsed.pathname.startsWith("/embed/")
-                ) {
-
-                    return parsed.pathname
-                        .split("/")[2];
-
-                }
-
-            }
-
-
-        } catch (error) {
-
-            console.log(
-                "Invalid YouTube URL:",
-                error
-            );
-
+            return "";
         }
 
 
-        return null;
+        // SET VIDEO
 
-    }
+        const videoId = getYouTubeId(videoUrl);
 
+        const iframe = document.getElementById("videoPlayer");
+        const youtubeLink = document.getElementById("youtubeLink");
+        const wrapper = document.getElementById("videoWrapper");
 
+        if (videoId && /^[a-zA-Z0-9_-]{11}$/.test(videoId)) {
 
-    /* =====================================================
-       LOAD YOUTUBE VIDEO
-    ===================================================== */
+            iframe.src =
+                "https://www.youtube.com/embed/" + videoId;
 
-    if (video) {
-
-
-        const videoId =
-            getYouTubeId(video);
-
-
-        if (videoId) {
-
-
-            const player =
-                document.getElementById(
-                    "youtubePlayer"
-                );
-
-
-            player.src =
-                "https://www.youtube.com/embed/" +
-                encodeURIComponent(videoId) +
-                "?autoplay=1&playsinline=1&controls=0&modestbranding=1&rel=0";
-
+            youtubeLink.href =
+                "https://www.youtube.com/watch?v=" + videoId;
 
         } else {
 
+            iframe.remove();
 
-            document.getElementById(
-                "videoTitle"
-            ).textContent =
-                "Invalid YouTube Video";
+            wrapper.textContent = "Video unavailable.";
 
+            youtubeLink.style.display = "none";
 
         }
 
 
-    } else {
+        // LIVE TIMER
 
+        let seconds = 0;
 
-        document.getElementById(
-            "videoTitle"
-        ).textContent =
-            "Video not found";
+        function updateLiveTimer() {
 
-    }
+            const hours = Math.floor(seconds / 3600);
+            const minutes = Math.floor((seconds % 3600) / 60);
+            const secs = seconds % 60;
 
+            const time =
+                String(hours).padStart(2, "0") + ":" +
+                String(minutes).padStart(2, "0") + ":" +
+                String(secs).padStart(2, "0");
 
+            document.getElementById("liveTimer").textContent = time;
 
-    /* =====================================================
-       LIVE TIMER
-    ===================================================== */
+            seconds++;
+        }
 
-    let seconds = 0;
+        updateLiveTimer();
 
+        setInterval(updateLiveTimer, 1000);
 
-    function updateTimer() {
-
-        seconds++;
-
-
-        const hours =
-            Math.floor(seconds / 3600);
-
-
-        const minutes =
-            Math.floor(
-                (seconds % 3600) / 60
-            );
-
-
-        const secs =
-            seconds % 60;
-
-
-        const time =
-
-            String(hours)
-                .padStart(2, "0")
-
-            + ":" +
-
-            String(minutes)
-                .padStart(2, "0")
-
-            + ":" +
-
-            String(secs)
-                .padStart(2, "0");
-
-
-        document.getElementById(
-            "liveTimer"
-        ).textContent = time;
-
-    }
-
-
-    setInterval(
-        updateTimer,
-        1000
-    );
-
-
-</script>
-
+    </script>
 
 </body>
-
 </html>

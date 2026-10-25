@@ -1,213 +1,287 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>StreamX — Live</title>
-
+    <title>StreamX - Live & Featured</title>
     <link rel="stylesheet" href="live.css">
 </head>
-
 <body>
 
-<!-- ================= NAVBAR ================= -->
+    <!-- HEADER - SAME AS HOME PAGE -->
+    <header class="navbar">
+        <div class="nav-container">
 
-<header class="navbar">
+            <a href="../member1-home/home.html" class="logo">
+                STREAM<span>X</span>
+            </a>
 
-    <div class="logo">
-        <div class="logo-box">S</div>
-        <span>stream<span class="x">x</span></span>
-    </div>
+            <button
+                class="menu-toggle"
+                id="menuToggle"
+                aria-label="Open menu"
+                aria-expanded="false">
+                ☰
+            </button>
 
-    <nav>
-        <a href="../member1-home/home.html">Home</a>
-        <a href="../member2-content/movies.html">Movies</a>
-        <a href="../member2-content/series.html">Series</a>
-        <a href="live.html" class="active">Live</a>
-    </nav>
+            <nav class="nav-links" id="navLinks">
+                <a href="../member1-home/home.html">Home</a>
+                <a href="../member2-content/movies.html">Movies</a>
+                <a href="../member2-content/series.html">Series</a>
+                <a href="live.html" class="active">LIVE</a>
+            </nav>
 
-    <div class="nav-icons">
-    <button id="searchButton">⌕</button>
-    <a href="../member4-user/profile.html" class="profile">
-        P
-    </a>
-</div>
+            <div class="right-menu">
 
-</header>
+                <button
+                    id="searchButton"
+                    class="search-icon-btn"
+                    aria-label="Open search">
 
-<!-- ================= SEARCH MODAL ================= -->
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <circle cx="10.8" cy="10.8" r="7.2"></circle>
+                        <path d="M16.2 16.2 22 22"></path>
+                    </svg>
 
-<div class="search-overlay" id="searchOverlay">
+                </button>
 
-    <div class="search-modal">
+                <a href="../member4-user/profile.html" class="profile-link">
+                    <span class="user-icon">&#128100;</span>
+                    <span>Profile</span>
+                </a>
 
-        <div class="search-header">
-
-            <div>
-                <p class="search-label">SEARCH STREAMX</p>
-
-                <h2>What are you looking for?</h2>
             </div>
 
-            <button id="closeSearch" class="close-search">
-                ✕
-            </button>
+        </div>
+    </header>
+
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-content">
+            <span class="hero-label">WELCOME TO STREAMX</span>
+            <h1>Watch Your Favourite Streams</h1>
+            <p>
+                Explore sports, gaming, music, news,
+                entertainment and your favourite creators.
+            </p>
+            <a href="#watchLive" class="primary-btn">
+                Explore Streams
+            </a>
+        </div>
+    </section>
+
+
+    <!-- WATCH LIVE -->
+    <section class="section" id="watchLive">
+
+        <div class="section-heading">
+            <h2>🔴 Watch Live & Featured</h2>
+            <p>One featured video from each creator</p>
+        </div>
+
+        <div class="categories">
+            <button class="category active" data-category="all">All</button>
+            <button class="category" data-category="sports">Sports</button>
+            <button class="category" data-category="gaming">Gaming</button>
+            <button class="category" data-category="music">Music</button>
+            <button class="category" data-category="news">News</button>
+            <button class="category" data-category="creators">Creators</button>
+            <button class="category" data-category="entertainment">Entertainment</button>
+        </div>
+
+        <div class="video-grid" id="liveGrid"></div>
+    </section>
+
+
+    <!-- POPULAR CREATORS -->
+    <section class="section" id="popularCreators">
+
+        <div class="section-heading">
+            <h2>Popular Creators</h2>
+            <p>Click on a creator to see all their videos</p>
+        </div>
+
+        <div class="creator-grid" id="creatorGrid"></div>
+
+        <!-- SELECTED CREATOR'S VIDEOS -->
+        <div
+            class="creator-videos-section"
+            id="creatorVideosSection"
+            style="display:none;">
+
+            <div class="selected-creator-header">
+                <div>
+                    <h2 id="selectedCreatorName">Creator Videos</h2>
+                    <p id="selectedCreatorCount"></p>
+                </div>
+
+                <button id="closeCreatorVideos" class="close-btn">
+                    ✕ Close
+                </button>
+            </div>
+
+            <div class="video-grid" id="creatorVideosGrid"></div>
+
+        </div>
+    </section>
+
+
+    <!-- TRENDING -->
+    <section class="section" id="trending">
+
+        <div class="section-heading">
+            <h2>Trending & Featured Videos</h2>
+            <p>Discover highlighted videos</p>
+        </div>
+
+        <div class="video-grid" id="trendingGrid"></div>
+
+    </section>
+
+
+    <!-- UPCOMING EVENTS -->
+    <section class="section" id="upcoming">
+
+        <div class="section-heading">
+            <h2>Upcoming Events</h2>
+            <p>Upcoming stream announcements</p>
+        </div>
+
+        <div class="upcoming-grid">
+
+            <!-- KABADDI -->
+            <div class="event-card">
+                <span class="event-tag">COMING SOON</span>
+                <h3>Kabaddi Special Event</h3>
+                <p>30 October 2026, 7:00 PM IST</p>
+
+                <h3 id="kabaddiCountdown">Loading...</h3>
+
+                <button class="notify-btn">Notify Me</button>
+            </div>
+
+            <!-- GAMING -->
+            <div class="event-card">
+                <span class="event-tag">COMING SOON</span>
+                <h3>Gaming Special Stream</h3>
+                <p>5 November 2026, 6:00 PM IST</p>
+
+                <h3 id="gamingCountdown">Loading...</h3>
+
+                <button class="notify-btn">Notify Me</button>
+            </div>
+
+            <!-- MUSIC -->
+            <div class="event-card">
+                <span class="event-tag">COMING SOON</span>
+                <h3>Music Special Event</h3>
+                <p>10 November 2026, 8:00 PM IST</p>
+
+                <h3 id="musicCountdown">Loading...</h3>
+
+                <button class="notify-btn">Notify Me</button>
+            </div>
 
         </div>
 
+        <p id="reminderMessage"></p>
 
-        <div class="search-input-box">
+    </section>
 
-            <span>⌕</span>
+
+    <!-- SEARCH POPUP -->
+    <div class="search-overlay" id="searchOverlay">
+        <div class="search-box">
+
+            <div class="search-top">
+                <h2>Search StreamX</h2>
+                <button id="closeSearch">✕</button>
+            </div>
 
             <input
                 type="text"
                 id="searchInput"
-                placeholder="Search movies, series, gaming, podcasts..."
+                placeholder="Search videos or creators..."
             >
 
-        </div>
-
-
-        <div id="searchResults" class="search-results">
-
-            <p>Start typing to search.</p>
+            <div id="searchResults"></div>
 
         </div>
-
     </div>
 
-</div>
 
-<!-- ================= HERO ================= -->
+    <!-- FOOTER - SAME AS HOME PAGE -->
+    <footer class="footer">
 
-<section class="hero">
+        <div class="footer-top">
 
-    <div class="hero-content">
+            <a href="../member1-home/home.html" class="logo">
+                STREAM<span>X</span>
+            </a>
 
-        <p class="live-label">
-            <span></span> LIVE NOW
+            <div class="footer-socials">
+
+                <a
+                    href="https://www.instagram.com/"
+                    target="_blank"
+                    rel="noopener noreferrer">
+                    Instagram
+                </a>
+
+                <a
+                    href="https://www.facebook.com/"
+                    target="_blank"
+                    rel="noopener noreferrer">
+                    Facebook
+                </a>
+
+                <a
+                    href="https://www.google.com/"
+                    target="_blank"
+                    rel="noopener noreferrer">
+                    Google
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-columns">
+
+            <div class="footer-column">
+                <a href="../member2-content/movies.html">Movies</a>
+                <a href="../member2-content/series.html">Series</a>
+            </div>
+
+            <div class="footer-column">
+                <a href="live.html">Live Pulse</a>
+                <a href="../member1-home/home.html#podcastsSection">Podcasts</a>
+            </div>
+
+            <div class="footer-column">
+                <a href="../member1-home/home.html#animeSection">Anime</a>
+                <a href="../member1-home/home.html#cartoonsSection">Cartoons</a>
+            </div>
+
+            <div class="footer-column">
+                <a href="../member4-user/profile.html">Profile</a>
+                <a href="../member1-home/home.html#myListSection">My List</a>
+            </div>
+
+        </div>
+
+
+        <p class="footer-copyright">
+            © 2026 StreamX. Your entertainment, your universe.
         </p>
 
-        <h1>
-            Happening<br>
-            <strong>right now.</strong>
-        </h1>
-
-        <p class="hero-text">
-            Watch live events, creators, sports and conversations
-            happening around the world.
-        </p>
-
-    </div>
-
-    <div class="hero-image">
-        <div class="hero-play">▶</div>
-    </div>
-
-</section>
+    </footer>
 
 
-<!-- ================= LIVE SECTION ================= -->
-
-<section class="live-section">
-
-    <div class="section-left">
-
-        <p class="small-title">STREAMX LIVE</p>
-
-        <h2>Watch Live</h2>
-
-        <!-- Categories -->
-
-        <div class="categories">
-
-            <button class="category active" data-category="all">
-                All
-            </button>
-
-            <button class="category" data-category="sports">
-                Sports
-            </button>
-
-            <button class="category" data-category="music">
-                Music
-            </button>
-
-            <button class="category" data-category="gaming">
-                Gaming
-            </button>
-
-            <button class="category" data-category="news">
-                News
-            </button>
-
-            <button class="category" data-category="creators">
-                Creators
-            </button>
-
-        </div>
-
-
-        <!-- Live Cards -->
-
-        <div class="live-grid" id="liveGrid"></div>
-
-    </div>
-</section>
-
-
-<!-- ================= FOOTER ================= -->
-
-<footer class="footer">
-
-    <div class="footer-logo">
-
-        <div class="logo-box">S</div>
-
-        <span>
-            stream<span class="x">x</span>
-        </span>
-
-    </div>
-
-
-    <div class="footer-column">
-
-        <h4>STREAM</h4>
-
-        <a href="../member2-content/movies.html">Movies</a><a href="../member2-content/series.html">Series</a>
-        <a href="live.html">Live</a>
-
-    </div>
-
-
-    <div class="footer-column">
-
-        <h4>ACCOUNT</h4>
-
-        <a href="../member4-user/profile.html">Profile</a>
-        <a href="../member4-user/watchlist.html">Watchlist</a>
-        <a href="../member4-user/history.html">History</a>
-
-    </div>
-
-
-    <div class="footer-column">
-
-        <h4>STREAMX</h4>
-
-        <a href="#">About</a>
-        <a href="#">Contact</a>
-        <a href="#">Help</a>
-
-    </div>
-
-</footer>
-
-
-<script src="live.js"></script>
-
+    <script src="live.js"></script>
 </body>
 </html>

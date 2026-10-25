@@ -1,222 +1,385 @@
+
+
+
+// ==========================================
+// STREAMX - ALL VIDEO DATA
+// ==========================================
+
+// live: true = manually marked active livestream
+// live: false = recorded or featured video
+
 const streams = [
     {
-        title: "Triggered Insaan Gaming Live",
-        creator: "Triggered Insaan",
-        category: "gaming",
-        viewers: "18.5K",
-        image:  "https://i.pinimg.com/originals/c1/f4/6e/c1f46e6df54a5c055e8f2b6f925a8795.jpg",
-        video: "https://youtu.be/lVZFDXoxGDQ"
+        title: "Shahid Kapoor Unfiltered On Life, Marriage, Parenting, Movies, Acting & Failures | FO307 Raj Shamani",
+        creator: "Raj Shamani",
+        category: "creators",
+        image: "https://img.youtube.com/vi/3BgIqFB09Ec/hqdefault.jpg",
+        video: "https://youtu.be/3BgIqFB09Ec",
+        live: false
     },
-
     {
-        title: "Techno Gamerz Live",
+        title: "GTA 6 Races with OG Gang🛑",
+        creator: "Live Insaan",
+        category: "creators",
+        image: "https://img.youtube.com/vi/opz6be3J6a4/hqdefault.jpg",
+        video: "https://youtu.be/opz6be3J6a4",
+        live: false
+    },
+    {
+        title: "Bhoot Catching Experts in Phasmophobia Live🛑",
+        creator: "Live Insaan",
+        category: "creators",
+        image: "https://img.youtube.com/vi/mISrOxJg5Bw/hqdefault.jpg",
+        video: "https://youtu.be/mISrOxJg5Bw",
+        live: false
+    },
+    {
+        title: "First IRL Stream with the Gang🛑 - Chilling QNA Games",
+        creator: "Live Insaan",
+        category: "creators",
+        image: "https://img.youtube.com/vi/PFZy94DxJ_8/hqdefault.jpg",
+        video: "https://youtu.be/PFZy94DxJ_8",
+        live: false
+    },
+    {
+        title: "Aaj Machegi Tabahi Bhookamp Tsunami Bawandar",
+        creator: "Live Insaan",
+        category: "gaming",
+        image: "https://img.youtube.com/vi/lVZFDXoxGDQ/hqdefault.jpg",
+        video: "https://youtu.be/lVZFDXoxGDQ",
+        live: false
+    },
+    {
+        title: "I BUILD A SMALL SHELTER IN THE JUNGLE | GREEN HELL GAMEPLAY #3",
         creator: "Techno Gamerz",
         category: "gaming",
-        viewers: "25.2K",
-        image: "https://img.youtube.com/vi/5hK3v1UGxwQ/maxresdefault.jpg",
-        video: "https://youtu.be/4HAcN9QA9a8"
+        image: "https://img.youtube.com/vi/4HAcN9QA9a8/hqdefault.jpg",
+        video: "https://youtu.be/4HAcN9QA9a8",
+        live: false
     },
-
     {
-    title: "Raj Shamani Live Talk",
-    creator: "Raj Shamani",
-    category: "creators",
-    viewers: "12.8K",
-    image: "https://img.youtube.com/vi/3BgIqFB09Ec/maxresdefault.jpg",
-    video: "https://youtu.be/3BgIqFB09Ec"
-},
-
-    {
-    title: "Bigg Boss 20 Live",
-    creator: "Bigg Boss",
-    category: "entertainment",
-    viewers: "35.8K",
-    image: "https://media.housepulse.in/studio/season-featured/2026/06/1781587980168-bigg_boss_hindi_season_20/master.webp",
-    video: "https://youtu.be/QbuRBmaL6vA"
+        title: "Bigg Boss",
+        creator: "Bigg Boss",
+        category: "entertainment",
+        image: "https://img.youtube.com/vi/QbuRBmaL6vA/hqdefault.jpg",
+        video: "https://youtu.be/QbuRBmaL6vA",
+        live: false
     },
-
     {
-    title: "Khatron Ke Khiladi 15",
-    creator: "Khatron Ke Khiladi",
-    category: "entertainment",
-    viewers: "28.4K",
-    image: "https://image.tmdb.org/t/p/original/mtbgrSF6FfqZrRrzFq3gj5rEEEs.jpg",
-    video: "https://youtu.be/FTipVzDNd-Y"
+        title: "Khatron Ke Khiladi",
+        creator: "Khatron Ke Khiladi",
+        category: "entertainment",
+        image: "https://image.tmdb.org/t/p/original/mtbgrSF6FfqZrRrzFq3gj5rEEEs.jpg",
+        video: "https://youtu.be/FTipVzDNd-Y",
+        live: false
     },
-
     {
-    title: "The Great Indian Kapil Show",
-    creator: "Netflix",
-    category: "entertainment",
-    viewers: "19.7K",
-    image: "https://img.youtube.com/vi/TDiBe4Mu9jg/maxresdefault.jpg",
-    video: "https://youtu.be/TDiBe4Mu9jg"
+        title: "Sonam Bajwa, Gippy Grewal, Kavita Kaushik | The Kapil Sharma Show",
+        creator: "Netflix",
+        category: "entertainment",
+        image: "https://img.youtube.com/vi/LWdxm1Sl5vw/hqdefault.jpg",
+        video: "https://youtu.be/LWdxm1Sl5vw",
+        live: false
     },
-    
     {
-        title: "India Cricket Live",
+        title: "India Cricket",
         creator: "StreamX Sports",
         category: "sports",
-        viewers: "42.6K",
         image: "https://images.unsplash.com/photo-1540747913346-19e32dc3e97e",
-        video: "https://youtu.be/MAm0RLQpYas"
+        video: "https://youtu.be/MAm0RLQpYas",
+        live: false
     },
-
     {
-        title: "Football Live",
+        title: "Football Highlights",
         creator: "StreamX Sports",
         category: "sports",
-        viewers: "31.2K",
         image: "https://images.unsplash.com/photo-1579952363873-27f3bade9f55",
-        video: "https://youtu.be/ArIgp-FEp9s"
+        video: "https://youtu.be/ArIgp-FEp9s",
+        live: false
     },
-
     {
-        title: "Breaking News Live",
+        title: "Badminton Semi-Finals: Lee Chong Wei vs Lin Dan",
+        creator: "Badminton Sports",
+        category: "sports",
+        image: "https://img.youtube.com/vi/Hf-n1yfd8II/hqdefault.jpg",
+        video: "https://youtu.be/Hf-n1yfd8II",
+        live: false
+    },
+    {
+        title: "India vs Uganda - Common Wealth Kabaddi Match",
+        creator: "Kabaddi Sports",
+        category: "sports",
+        image: "https://img.youtube.com/vi/MD1UmOlzS1Y/hqdefault.jpg",
+        video: "https://youtu.be/MD1UmOlzS1Y",
+        live: false
+    },
+    {
+        title: "Australia vs India Basketball Match",
+        creator: "Basketball Sports",
+        category: "sports",
+        image: "https://img.youtube.com/vi/-tkE2lJoR58/hqdefault.jpg",
+        video: "https://youtu.be/-tkE2lJoR58",
+        live: false
+    },
+    {
+        title: "News Coverage",
         creator: "StreamX News",
         category: "news",
-        viewers: "20.7K",
         image: "https://images.unsplash.com/photo-1504711434969-e33886168f5c",
-        video:  "https://youtu.be/07t8sIbDums"
+        video: "https://youtu.be/07t8sIbDums",
+        live: false
     },
-
     {
-        title: "Live Music Session",
+        title: "Music Session",
         creator: "StreamX Music",
         category: "music",
-        viewers: "15.8K",
         image: "https://images.unsplash.com/photo-1506157786151-b8491531f063",
-        video: "https://youtu.be/2a5yvPAjV2A"
+        video: "https://youtu.be/2a5yvPAjV2A",
+        live: false
     },
-
-    
+    {
+        title: "INCOGNITO - FULL STUDIO",
+        creator: "LITTLE BIG BEAT STUDIOS",
+        category: "music",
+        image: "https://img.youtube.com/vi/KOQIQfZhQC8/hqdefault.jpg",
+        video: "https://youtu.be/KOQIQfZhQC8",
+        live: false
+    },
+    {
+        title: "IIFA Awards Show",
+        creator: "IIFA",
+        category: "entertainment",
+        image: "https://img.youtube.com/vi/0VNGgTid2qw/hqdefault.jpg",
+        video: "https://youtu.be/0VNGgTid2qw",
+        live: false
+    },
+    {
+        title: "EASIEST DECISION OF MY LIFE | NO PROMOTIONS",
+        creator: "CarryisLive",
+        category: "creators",
+        image: "https://img.youtube.com/vi/KZJwLnC2LEY/hqdefault.jpg",
+        video: "https://youtu.be/KZJwLnC2LEY",
+        live: false
+    }
 ];
 
 
-/* =====================================================
-   SHOW STREAMS
-===================================================== */
+// ==========================================
+// POPULAR CREATORS DATA
+// ==========================================
 
-const liveGrid = document.getElementById("liveGrid");
+const creators = [
+    "Live Insaan",
+    "Techno Gamerz",
+    "Raj Shamani",
+    "CarryisLive"
+];
 
-function displayStreams(category = "all") {
 
-    liveGrid.innerHTML = "";
+// ==========================================
+// HELPER FUNCTIONS
+// ==========================================
 
-    let filteredStreams;
+function createText(tag, value, className = "") {
 
-    if (category === "all") {
+    const element = document.createElement(tag);
 
-        filteredStreams = streams;
+    element.textContent = value;
 
-    } else {
-
-        filteredStreams = streams.filter(
-            stream => stream.category === category
-        );
-
+    if (className !== "") {
+        element.className = className;
     }
 
+    return element;
+}
 
-    filteredStreams.forEach(stream => {
+function sameCreator(name1, name2) {
 
-        const card = document.createElement("div");
-
-        card.className = "live-card";
-
-
-        card.innerHTML = `
-
-            <div class="thumbnail">
-
-                <img
-                    src="${stream.image}"
-                    alt="${stream.title}"
-                >
-
-                <span class="live-badge">
-                    LIVE
-                </span>
-
-                <span class="viewers">
-                    👁 ${stream.viewers}
-                </span>
-
-            </div>
-
-
-            <div class="card-info">
-
-                <h3>
-                    ${stream.title}
-                </h3>
-
-                <p class="creator">
-                    ${stream.creator}
-                </p>
-
-                <span class="card-category">
-                    ${stream.category.toUpperCase()}
-                </span>
-
-            </div>
-
-        `;
-
-
-        /* CARD CLICK */
-
-        card.addEventListener("click", function () {
-
-            const url =
-                "player.html?title=" +
-                encodeURIComponent(stream.title) +
-
-                "&creator=" +
-                encodeURIComponent(stream.creator) +
-
-                "&video=" +
-                encodeURIComponent(stream.video);
-
-
-            window.location.href = url;
-
-        });
-
-
-        liveGrid.appendChild(card);
-
-    });
-
+    return name1.trim().toLowerCase() ===
+           name2.trim().toLowerCase();
 }
 
 
+// ==========================================
+// OPEN VIDEO IN PLAYER.HTML
+// ==========================================
 
-/* =====================================================
-   CATEGORY BUTTONS
-===================================================== */
+function openStream(stream) {
 
-const categoryButtons =
-    document.querySelectorAll(".category");
+    if (!stream.video) {
+        alert("Video link available nahi hai.");
+        return;
+    }
+
+    const params = new URLSearchParams({
+        title: stream.title,
+        creator: stream.creator,
+        video: stream.video
+    });
+
+    window.location.href = "player.html?" + params.toString();
+}
 
 
-categoryButtons.forEach(button => {
+// ==========================================
+// CREATE VIDEO CARD
+// ==========================================
 
-    button.addEventListener("click", function () {
+function createVideoCard(stream) {
 
-        categoryButtons.forEach(btn => {
+    const card = document.createElement("div");
+    card.className = "live-card";
 
+    const thumbnail = document.createElement("div");
+    thumbnail.className = "thumbnail";
+
+    const image = document.createElement("img");
+
+    image.src = stream.image;
+    image.alt = stream.title;
+    image.loading = "lazy";
+
+    thumbnail.appendChild(image);
+
+    const badge = createText(
+    "span",
+    "🔴 LIVE",
+    "live-badge"
+);
+
+badge.classList.add("is-live");
+
+    if (stream.live) {
+        badge.classList.add("is-live");
+    }
+
+    thumbnail.appendChild(badge);
+
+    const info = document.createElement("div");
+    info.className = "card-info";
+
+    info.appendChild(
+        createText("h3", stream.title)
+    );
+
+    info.appendChild(
+        createText("p", stream.creator)
+    );
+
+    info.appendChild(
+        createText(
+            "span",
+            stream.category.toUpperCase(),
+            "card-category"
+        )
+    );
+
+    card.appendChild(thumbnail);
+    card.appendChild(info);
+
+    card.addEventListener("click", function() {
+        openStream(stream);
+    });
+
+    return card;
+}
+
+
+// ==========================================
+// RENDER VIDEO CARDS
+// ==========================================
+
+function renderVideos(videoList, containerId) {
+
+    const container = document.getElementById(containerId);
+
+    if (!container) {
+        console.error("Container not found:", containerId);
+        return;
+    }
+
+    container.innerHTML = "";
+
+    if (videoList.length === 0) {
+
+        container.appendChild(
+            createText("p", "No videos found.")
+        );
+
+        return;
+    }
+
+    videoList.forEach(function(stream) {
+
+        const card = createVideoCard(stream);
+
+        container.appendChild(card);
+
+    });
+}
+
+
+// ==========================================
+// WATCH LIVE - ONE VIDEO PER CREATOR
+// ==========================================
+
+function displayStreams(category = "all") {
+
+    // Category filter
+    const filtered = streams.filter(function(stream) {
+
+        return category === "all" ||
+               stream.category === category;
+
+    });
+
+    // Unique creator videos
+    const uniqueVideos = [];
+    const creatorNames = [];
+
+    filtered.forEach(function(stream) {
+
+        const creatorName = stream.creator.trim().toLowerCase();
+
+        if (!creatorNames.includes(creatorName)) {
+
+            creatorNames.push(creatorName);
+
+            uniqueVideos.push(stream);
+
+        } else {
+
+            // Prefer an active live stream if one is marked
+            const index = creatorNames.indexOf(creatorName);
+
+            if (stream.live && !uniqueVideos[index].live) {
+                uniqueVideos[index] = stream;
+            }
+        }
+
+    });
+
+    renderVideos(uniqueVideos, "liveGrid");
+}
+
+
+// ==========================================
+// CATEGORY FILTER BUTTONS
+// ==========================================
+
+const categoryButtons = document.querySelectorAll(".category");
+
+categoryButtons.forEach(function(button) {
+
+    button.addEventListener("click", function() {
+
+        categoryButtons.forEach(function(btn) {
             btn.classList.remove("active");
-
         });
 
+        button.classList.add("active");
 
-        this.classList.add("active");
-
-
-        const category =
-            this.getAttribute("data-category");
-
+        const category = button.dataset.category || "all";
 
         displayStreams(category);
 
@@ -225,172 +388,346 @@ categoryButtons.forEach(button => {
 });
 
 
+// ==========================================
+// SHOW ALL VIDEOS OF SELECTED CREATOR
+// ==========================================
 
-/* =====================================================
-   SEARCH POPUP
-===================================================== */
+function showCreatorVideos(creatorName) {
 
-const searchButton =
-    document.getElementById("searchButton");
+    const creatorVideos = streams.filter(function(stream) {
 
-const searchOverlay =
-    document.getElementById("searchOverlay");
+        return sameCreator(stream.creator, creatorName);
 
-const searchInput =
-    document.getElementById("searchInput");
+    });
 
-const closeSearch =
-    document.getElementById("closeSearch");
+    const section = document.getElementById(
+        "creatorVideosSection"
+    );
 
-const searchResults =
-    document.getElementById("searchResults");
+    const nameHeading = document.getElementById(
+        "selectedCreatorName"
+    );
+
+    const countText = document.getElementById(
+        "selectedCreatorCount"
+    );
+
+    if (!section || !nameHeading || !countText) {
+        console.error("Creator section elements missing.");
+        return;
+    }
+
+    nameHeading.textContent = creatorName + " - All Videos";
+
+    countText.textContent =
+        creatorVideos.length + " Videos Available";
+
+    // Show all creator videos
+    renderVideos(creatorVideos, "creatorVideosGrid");
+
+    // Display section
+    section.style.display = "block";
+
+    // Highlight selected creator
+    document.querySelectorAll(".creator-card").forEach(
+        function(card) {
+
+            card.classList.remove("selected");
+
+            if (card.dataset.creator === creatorName) {
+                card.classList.add("selected");
+            }
+
+        }
+    );
+
+    // Scroll to selected creator videos
+    section.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+    });
+}
 
 
+// ==========================================
+// POPULAR CREATORS CARDS
+// ==========================================
 
-/* =====================================================
-   OPEN SEARCH
-===================================================== */
+const creatorGrid = document.getElementById("creatorGrid");
 
-searchButton.addEventListener("click", function () {
+if (creatorGrid) {
 
-    searchOverlay.classList.add("show");
+    creatorGrid.innerHTML = "";
 
-    searchInput.value = "";
+    creators.forEach(function(name) {
 
-    searchResults.innerHTML =
-        "<p>Start typing to search.</p>";
+        const card = document.createElement("div");
+
+        card.className = "creator-card";
+        card.dataset.creator = name;
+
+        const avatar = createText(
+            "div",
+            name.charAt(0).toUpperCase(),
+            "creator-avatar"
+        );
+
+        card.appendChild(avatar);
+
+        card.appendChild(
+            createText("h3", name)
+        );
+
+        const creatorVideos = streams.filter(function(stream) {
+            return sameCreator(stream.creator, name);
+        });
+
+        card.appendChild(
+            createText(
+                "p",
+                creatorVideos.length + " Videos"
+            )
+        );
+
+        card.appendChild(
+            createText("p", "View All Videos →")
+        );
+
+        card.addEventListener("click", function() {
+
+            showCreatorVideos(name);
+
+        });
+
+        creatorGrid.appendChild(card);
+
+    });
+
+}
 
 
-    setTimeout(function () {
+// ==========================================
+// CLOSE CREATOR VIDEOS
+// ==========================================
+
+const closeCreatorVideos = document.getElementById(
+    "closeCreatorVideos"
+);
+
+if (closeCreatorVideos) {
+
+    closeCreatorVideos.addEventListener("click", function() {
+
+        const section = document.getElementById(
+            "creatorVideosSection"
+        );
+
+        section.style.display = "none";
+
+        document.querySelectorAll(".creator-card").forEach(
+            function(card) {
+                card.classList.remove("selected");
+            }
+        );
+
+        document.getElementById("popularCreators").scrollIntoView({
+            behavior: "smooth"
+        });
+
+    });
+
+}
+
+
+// ==========================================
+// TRENDING / FEATURED VIDEOS
+// ==========================================
+
+const trendingGrid = document.getElementById("trendingGrid");
+
+if (trendingGrid) {
+
+    const trendingVideos = [
+        streams[0],
+        streams[4],
+        streams[5]
+    ];
+
+    renderVideos(trendingVideos, "trendingGrid");
+
+}
+
+
+// ==========================================
+// SEARCH POPUP
+// ==========================================
+
+const searchButton = document.getElementById("searchButton");
+
+const searchOverlay = document.getElementById("searchOverlay");
+
+const closeSearchButton = document.getElementById("closeSearch");
+
+const searchInput = document.getElementById("searchInput");
+
+const searchResults = document.getElementById("searchResults");
+
+if (
+    searchButton &&
+    searchOverlay &&
+    closeSearchButton &&
+    searchInput &&
+    searchResults
+) {
+
+    searchButton.addEventListener("click", function() {
+
+        searchOverlay.classList.add("show");
+
+        searchInput.value = "";
+
+        searchResults.innerHTML = "";
+
+        searchResults.appendChild(
+            createText("p", "Start typing to search.")
+        );
 
         searchInput.focus();
 
-    }, 100);
-
-});
+    });
 
 
+    function closeSearchPopup() {
 
-/* =====================================================
-   SEARCH WHILE TYPING
-===================================================== */
-
-searchInput.addEventListener("input", function () {
-
-    const query =
-        searchInput.value
-            .trim()
-            .toLowerCase();
-
-
-    /* EMPTY SEARCH */
-
-    if (query === "") {
-
-        searchResults.innerHTML =
-            "<p>Start typing to search.</p>";
-
-        return;
+        searchOverlay.classList.remove("show");
 
     }
 
 
-    /* FIND RESULTS */
+    closeSearchButton.addEventListener(
+        "click",
+        closeSearchPopup
+    );
 
-    const results =
-        streams.filter(function (stream) {
+
+    searchOverlay.addEventListener("click", function(event) {
+
+        if (event.target === searchOverlay) {
+            closeSearchPopup();
+        }
+
+    });
+
+
+    document.addEventListener("keydown", function(event) {
+
+        if (event.key === "Escape") {
+            closeSearchPopup();
+        }
+
+    });
+
+
+    searchInput.addEventListener("input", function() {
+
+        const query = searchInput.value.trim().toLowerCase();
+
+        searchResults.innerHTML = "";
+
+        if (query === "") {
+
+            searchResults.appendChild(
+                createText("p", "Start typing to search.")
+            );
+
+            return;
+        }
+
+        const results = streams.filter(function(stream) {
 
             return (
-
-                stream.title
-                    .toLowerCase()
-                    .includes(query)
-
-                ||
-
-                stream.creator
-                    .toLowerCase()
-                    .includes(query)
-
-                ||
-
-                stream.category
-                    .toLowerCase()
-                    .includes(query)
-
+                stream.title.toLowerCase().includes(query) ||
+                stream.creator.toLowerCase().includes(query) ||
+                stream.category.toLowerCase().includes(query)
             );
 
         });
 
+        if (results.length === 0) {
 
-    /* NO RESULT */
+            searchResults.appendChild(
+                createText("p", "No results found.")
+            );
 
-    if (results.length === 0) {
+            return;
+        }
 
-        searchResults.innerHTML =
-            "<p>No results found.</p>";
+        results.forEach(function(stream) {
 
-        return;
+            const item = document.createElement("div");
 
-    }
+            item.className = "search-result-item";
 
+            item.appendChild(
+                createText("strong", stream.title)
+            );
 
-    /* SHOW RESULTS */
+            item.appendChild(
+                createText(
+                    "p",
+                    stream.creator + " • " + stream.category
+                )
+            );
 
-    searchResults.innerHTML = "";
+            item.addEventListener("click", function() {
 
+                openStream(stream);
 
-    results.forEach(function (stream) {
+            });
 
-        const result =
-            document.createElement("div");
+            searchResults.appendChild(item);
 
+        });
 
-        result.className =
-            "search-result-item";
+    });
 
-
-        result.innerHTML = `
-
-            <strong>
-                ${stream.title}
-            </strong>
-
-            <br>
-
-            <span>
-                ${stream.creator}
-                •
-                ${stream.category}
-            </span>
-
-        `;
+}
 
 
-        /* RESULT CLICK */
+// ==========================================
+// UPCOMING EVENTS - NOTIFY ME DEMO
+// ==========================================
 
-        result.addEventListener(
-            "click",
-            function () {
+const notifyButtons = document.querySelectorAll(".notify-btn");
 
-                const url =
-                    "player.html?title=" +
-                    encodeURIComponent(stream.title) +
+notifyButtons.forEach(function(button) {
 
-                    "&creator=" +
-                    encodeURIComponent(stream.creator) +
+    button.addEventListener("click", function() {
 
-                    "&video=" +
-                    encodeURIComponent(stream.video);
+        button.classList.toggle("saved");
 
-
-                window.location.href = url;
-
-            }
+        const message = document.getElementById(
+            "reminderMessage"
         );
 
+        if (button.classList.contains("saved")) {
 
-        searchResults.appendChild(result);
+            button.textContent = "✓ Selected";
+
+            if (message) {
+                message.textContent =
+                    "Demo selection only. No notification will be sent.";
+            }
+
+        } else {
+
+            button.textContent = "Notify Me";
+
+            if (message) {
+                message.textContent = "";
+            }
+
+        }
 
     });
 
@@ -398,59 +735,82 @@ searchInput.addEventListener("input", function () {
 
 
 
-/* =====================================================
-   CLOSE SEARCH
-===================================================== */
+// ==========================================
+// COUNTDOWN FOR ALL UPCOMING EVENTS
+// ==========================================
 
-closeSearch.addEventListener("click", function () {
+function startCountdown(elementId, eventDate) {
 
-    searchOverlay.classList.remove("show");
+    const countdown = document.getElementById(elementId);
 
-    searchInput.value = "";
-
-    searchResults.innerHTML =
-        "<p>Start typing to search.</p>";
-
-});
-
-
-
-/* =====================================================
-   CLICK OUTSIDE TO CLOSE
-===================================================== */
-
-searchOverlay.addEventListener("click", function (event) {
-
-    if (event.target === searchOverlay) {
-
-        searchOverlay.classList.remove("show");
-
+    if (!countdown) {
+        return;
     }
 
-});
+    const targetDate = new Date(eventDate);
 
+    function updateCountdown() {
 
+        const now = new Date();
 
-/* =====================================================
-   ESC KEY TO CLOSE
-===================================================== */
+        const difference = targetDate - now;
 
-document.addEventListener("keydown", function (event) {
+        if (difference <= 0) {
+            countdown.textContent = "Event time reached!";
+            return;
+        }
 
-    if (event.key === "Escape") {
+        const days = Math.floor(
+            difference / (1000 * 60 * 60 * 24)
+        );
 
-        searchOverlay.classList.remove("show");
+        const hours = Math.floor(
+            (difference / (1000 * 60 * 60)) % 24
+        );
 
+        const minutes = Math.floor(
+            (difference / (1000 * 60)) % 60
+        );
+
+        const seconds = Math.floor(
+            (difference / 1000) % 60
+        );
+
+        countdown.textContent =
+            days + "d : " +
+            hours + "h : " +
+            minutes + "m : " +
+            seconds + "s";
     }
 
-});
+    updateCountdown();
+
+    setInterval(updateCountdown, 1000);
+}
+
+
+// KABADDI COUNTDOWN
+startCountdown(
+    "kabaddiCountdown",
+    "2026-10-30T19:00:00+05:30"
+);
+
+// GAMING COUNTDOWN
+startCountdown(
+    "gamingCountdown",
+    "2026-11-05T18:00:00+05:30"
+);
+
+// MUSIC COUNTDOWN
+startCountdown(
+    "musicCountdown",
+    "2026-11-10T20:00:00+05:30"
+);
 
 
 
+// ==========================================
+// INITIAL DISPLAY
+// ==========================================
 
-
-/* =====================================================
-   START
-===================================================== */
-
-displayStreams();
+displayStreams("all");
