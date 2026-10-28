@@ -1058,11 +1058,14 @@ function renderSearchResults(query) {
     });
 }
 
+
 /* WATCH ROOM */
+
+let selectedPrivacy = "private";
 
 function makeRoomCode() {
     const chars = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
-    let code = "SX-";
+    let code = "";
 
     for (let i = 0; i < 4; i++) {
         code += chars[Math.floor(Math.random() * chars.length)];
@@ -1074,73 +1077,74 @@ function makeRoomCode() {
 function openRoom(mode) {
     roomMode = mode;
 
-    const input = document.getElementById("roomCodeInput");
-    const confirm = document.getElementById("confirmRoomButton");
-
+    document.getElementById("createRoomForm").hidden = mode !== "create";
     document.getElementById("generatedRoomCode").hidden = true;
-    input.value = "";
+    document.getElementById("joinRoomForm").hidden = mode !== "join";
+    document.getElementById("waitingScreen").hidden = true;
+    document.getElementById("successScreen").hidden = true;
+
+    document.getElementById("roomModalTitle").textContent =
+        mode === "create" ? "Create Watch Party" : "Join Watch Party";
 
     if (mode === "create") {
-        document.getElementById("roomModalTitle").textContent = "Create a Watch Room";
-        document.getElementById("roomModalText").textContent =
-            "Generate a code and share it with your friends.";
-        input.style.display = "none";
-        confirm.textContent = "Generate Code";
+        document.getElementById("roomNameInput").value = "Movie Night";
+        document.getElementById("roomContentInput").value = "";
+        selectedPrivacy = "private";
+
+        document.querySelectorAll(".privacy-option").forEach(button => {
+            button.classList.toggle(
+                "active",
+                button.dataset.privacy === selectedPrivacy
+            );
+        });
     } else {
-        document.getElementById("roomModalTitle").textContent = "Join a Watch Room";
-        document.getElementById("roomModalText").textContent =
-            "Enter the room code shared by your friend.";
-        input.style.display = "block";
-        confirm.textContent = "Join Room";
+        document.getElementById("roomCodeInput").value = "";
     }
 
     openOverlay("roomModal");
 }
 
-function confirmRoom() {
-    const input = document.getElementById("roomCodeInput");
-    const confirm = document.getElementById("confirmRoomButton");
+function createRoom() {
+    const roomName = document.getElementById("roomNameInput").value.trim();
+    const content = document.getElementById("roomContentInput").value;
 
-    if (roomMode === "create") {
-        const code = makeRoomCode();
-
-        try {
-            localStorage.setItem(KEYS.room, code);
-        } catch (error) {
-            // The generated code can still be displayed.
-        }
-
-        document.getElementById("roomModalText").textContent =
-            "Share this code with your friends.";
-        document.getElementById("roomCodeValue").textContent = code;
-        document.getElementById("generatedRoomCode").hidden = false;
-
-        confirm.textContent = "Done";
-        roomMode = "generated";
-        showToast("Room code generated.");
+    if (!roomName) {
+        showToast("Please enter a room name.");
+        document.getElementById("roomNameInput").focus();
         return;
     }
 
-    if (roomMode === "generated") {
-        closeOverlay("roomModal");
+    if (!content) {
+        showToast("Please select a movie or series.");
+        document.getElementById("roomContentInput").focus();
         return;
     }
 
-    const code = input.value.trim().toUpperCase();
+    const code = makeRoomCode();
 
-    if (!code) {
-        showToast("Please enter a room code.");
-        input.focus();
-        return;
+    const roomData = {
+        code: code,
+        name: roomName,
+        content: content,
+        privacy: selectedPrivacy,
+        createdAt: new Date().toISOString()
+    };
+
+    try {
+        localStorage.setItem(KEYS.room, JSON.stringify(roomData));
+    } catch (error) {
+        // The room code can still be shown for this demo.
     }
 
-    if (!/^SX-[A-Z0-9]{4}$/.test(code)) {
-        showToast("Enter a valid code, e.g. SX-AB12.");
-        input.focus();
-        return;
-    }
+    document.getElementById("createRoomForm").hidden = true;
+    document.getElementById("generatedRoomCode").hidden = false;
+    document.getElementById("roomModalTitle").textContent = "Your Watch Party";
 
-    showToast("Code format is valid. Joining needs a backend.");
+    document.getElementById("roomCodeValue").textContent = code;
+    document.getElementById("createdRoomName").textContent = roomName;
+    document.getElementById("createdRoomContent").textContent = content;
+
+    showToast("Room created successfully.");
 }
 
 async function copyRoomCode() {
@@ -1151,12 +1155,12 @@ async function copyRoomCode() {
         await navigator.clipboard.writeText(code);
         showToast("Room code copied.");
     } catch (error) {
-        const input = document.createElement("textarea");
-        input.value = code;
-        input.style.position = "fixed";
-        input.style.opacity = "0";
-        document.body.appendChild(input);
-        input.select();
+        const temporaryInput = document.createElement("textarea");
+        temporaryInput.value = code;
+        temporaryInput.style.position = "fixed";
+        temporaryInput.style.opacity = "0";
+        document.body.appendChild(temporaryInput);
+        temporaryInput.select();
 
         let copied = false;
 
@@ -1166,10 +1170,72 @@ async function copyRoomCode() {
             copied = false;
         }
 
-        input.remove();
+        temporaryInput.remove();
         showToast(copied ? "Room code copied." : `Your code is ${code}`);
     }
 }
+
+function joinRoom() {
+    const input = document.getElementById("roomCodeInput");
+    const code = input.value.trim().toUpperCase();
+
+    if (!/^[A-Z0-9]{4}$/.test(code)) {
+        showToast("Please enter a valid 4-character room code.");
+        input.focus();
+        return;
+    }
+
+    // Frontend demo: no backend room verification yet.
+    document.getElementById("joinRoomForm").hidden = true;
+    document.getElementById("waitingScreen").hidden = false;
+    document.getElementById("roomModalTitle").textContent = "Joining Watch Party";
+
+    setTimeout(function () {
+        document.getElementById("waitingScreen").hidden = true;
+        document.getElementById("successScreen").hidden = false;
+        document.getElementById("roomModalTitle").textContent = "Joined Successfully!";
+
+        setTimeout(function () {
+            closeOverlay("roomModal");
+            window.location.href = "../member1-home/home.html";
+        }, 1500);
+    }, 2000);
+}
+
+/* WATCH ROOM BUTTON EVENTS */
+
+document.querySelectorAll(".privacy-option").forEach(button => {
+    button.addEventListener("click", () => {
+        selectedPrivacy = button.dataset.privacy;
+
+        document.querySelectorAll(".privacy-option").forEach(option => {
+            option.classList.toggle("active", option === button);
+        });
+    });
+});
+
+document.getElementById("createRoomButton")?.addEventListener("click", () => {
+    openRoom("create");
+});
+
+document.getElementById("joinRoomButton")?.addEventListener("click", () => {
+    openRoom("join");
+});
+
+document.getElementById("confirmRoomButton")?.addEventListener("click", createRoom);
+
+document.getElementById("copyRoomCodeButton")?.addEventListener("click", copyRoomCode);
+
+document.getElementById("finishCreateRoomButton")?.addEventListener("click", () => {
+    closeOverlay("roomModal");
+});
+
+document.getElementById("joinRoomSubmitButton")?.addEventListener("click", joinRoom);
+
+document.getElementById("closeRoomModal")?.addEventListener("click", () => {
+    closeOverlay("roomModal");
+});
+
 
 /* EVENT LISTENERS */
 
@@ -1192,16 +1258,16 @@ document.getElementById("closeDetails")?.addEventListener("click", () => {
     closeOverlay("detailsOverlay");
 });
 
-document.getElementById("closeRoomModal")?.addEventListener("click", () => {
-    closeOverlay("roomModal");
-});
+// document.getElementById("closeRoomModal")?.addEventListener("click", () => {
+//     closeOverlay("roomModal");
+// });
 
-document.getElementById("confirmRoomButton")?.addEventListener("click", confirmRoom);
-document.getElementById("copyRoomCodeButton")?.addEventListener("click", copyRoomCode);
+// document.getElementById("confirmRoomButton")?.addEventListener("click", confirmRoom);
+// document.getElementById("copyRoomCodeButton")?.addEventListener("click", copyRoomCode);
 document.getElementById("closeVideoModal")?.addEventListener("click", closeVideo);
 
-document.getElementById("createRoomButton")?.addEventListener("click", () => openRoom("create"));
-document.getElementById("joinRoomButton")?.addEventListener("click", () => openRoom("join"));
+// document.getElementById("createRoomButton")?.addEventListener("click", () => openRoom("create"));
+// document.getElementById("joinRoomButton")?.addEventListener("click", () => openRoom("join"));
 
 document.getElementById("heroWatchButton")?.addEventListener("click", () => {
     openVideo(movies[0].id);

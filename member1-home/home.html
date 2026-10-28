@@ -278,25 +278,119 @@
     </div>
 </div>
 
+
 <!-- ROOM MODAL -->
 <div class="modal" id="roomModal">
     <div class="modal-panel room-panel">
+
         <div class="modal-heading">
-            <h2 id="roomModalTitle">Watch Room</h2>
-            <button class="close-button" id="closeRoomModal">✕</button>
+            <h2 id="roomModalTitle">Create Watch Party</h2>
+            <button class="close-button" id="closeRoomModal" aria-label="Close">✕</button>
         </div>
-        <p id="roomModalText">Create or join a room.</p>
-        <input type="text" id="roomCodeInput" placeholder="Enter room code" maxlength="7">
 
+        <!-- CREATE ROOM FORM -->
+        <div id="createRoomForm">
+            <p class="room-description">
+                Set up your room and invite your friends to watch together.
+            </p>
+
+            <label for="roomNameInput">Room Name</label>
+            <input type="text" id="roomNameInput"
+                   placeholder="Enter room name" maxlength="50"
+                   value="Movie Night">
+
+            <label for="roomContentInput">Choose Content</label>
+            <select id="roomContentInput">
+                <option value="">Select a movie or series</option>
+                <option value="Mr. Sunshine">Mr. Sunshine</option>
+                <option value="Alchemy of Souls">Alchemy of Souls</option>
+                <option value="Aspirants">Aspirants</option>
+                <option value="Panchayat">Panchayat</option>
+                <option value="Kota Factory">Kota Factory</option>
+                <option value="The Great Indian Kapil Show">The Great Indian Kapil Show</option>
+                <option value="Stranger Things">Stranger Things</option>
+            </select>
+
+            <label>Room Privacy</label>
+            <div class="room-privacy-options">
+                <button type="button" class="privacy-option active"
+                        data-privacy="private">Private</button>
+                <button type="button" class="privacy-option"
+                        data-privacy="code">Anyone with code</button>
+            </div>
+
+            <button class="primary-button room-submit"
+                    id="confirmRoomButton">Create Room →</button>
+        </div>
+
+        <!-- GENERATED ROOM CODE -->
         <div class="generated-room-code" id="generatedRoomCode" hidden>
-            <span>Your room code</span>
-            <strong id="roomCodeValue"></strong>
-            <button class="secondary-button" id="copyRoomCodeButton">Copy Code</button>
+            <div class="room-success-icon">✓</div>
+            <h3>Room Created Successfully!</h3>
+            <p>Share this code with your friends to join your watch party.</p>
+
+            <div class="room-code-display">
+                <strong id="roomCodeValue"></strong>
+                <button class="secondary-button" id="copyRoomCodeButton">
+                    Copy Code
+                </button>
+            </div>
+
+            <p class="room-detail">
+                Room: <strong id="createdRoomName"></strong>
+            </p>
+            <p class="room-detail">
+                Content: <strong id="createdRoomContent"></strong>
+            </p>
+
+            <button class="primary-button room-submit"
+                    id="finishCreateRoomButton">Done →</button>
         </div>
 
-        <button class="primary-button" id="confirmRoomButton">Continue</button>
+        <!-- JOIN ROOM FORM -->
+        <div id="joinRoomForm" hidden>
+            <div class="room-users-icon">♧</div>
+            <p class="room-description">
+                Enter the room code shared by your friend to join their watch party.
+            </p>
+
+            <label for="roomCodeInput">Room Code</label>
+            <input type="text" id="roomCodeInput"
+                   placeholder="Enter your code"
+                   maxlength="4" autocomplete="off">
+
+            <button class="primary-button room-submit"
+                    id="joinRoomSubmitButton">Join Room →</button>
+
+            <p class="room-note">Make sure you enter the correct room code.</p>
+        </div>
+
+        <!-- WAITING SCREEN -->
+        <div id="waitingScreen" hidden>
+            <div class="room-users-icon">♧</div>
+            <h3>Joining Watch Party</h3>
+            <p class="room-description">
+                Please wait while we connect you to the room...
+            </p>
+            <div class="room-loading-dots">
+                <span></span><span></span><span></span>
+            </div>
+            <p class="room-note">Connecting to room</p>
+        </div>
+
+        <!-- SUCCESS SCREEN -->
+        <div id="successScreen" hidden>
+            <div class="room-success-icon">✓</div>
+            <h3>Joined Successfully!</h3>
+            <p class="room-description">
+                You have successfully joined the watch party.
+            </p>
+            <p class="room-redirect-text">Redirecting to homepage...</p>
+        </div>
+
     </div>
 </div>
+
 
 <!-- VIDEO MODAL -->
 <div class="home-video-modal" id="videoModal">
